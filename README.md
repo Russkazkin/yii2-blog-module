@@ -13,3 +13,11 @@ Yii2 Blog module
         'auth' => [
             'class' => 'app\modules\blog\Module'
         ],
+* Add this to console.php 'controllerMap' section:
+
+        'migrate-blog' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationNamespaces' => ['app\modules\blog\migrations'],
+            'migrationTable' => 'migration_blog'
+        ], 
+       
