@@ -1,5 +1,7 @@
 <?php
 
+namespace app\modules\blog\migrations;
+
 use yii\db\Migration;
 
 /**
@@ -25,6 +27,15 @@ class m191001_145042_create_article_table extends Migration
             'created_at' => $this->integer(11),
             'updated_at' => $this->integer(11),
         ]);
+
+        $this->addForeignKey(
+            'fk-user_id',
+            'blog_article',
+            'user_id',
+            'auth_user',
+            'id',
+            'NO ACTION'
+        );
     }
 
     /**
@@ -32,6 +43,6 @@ class m191001_145042_create_article_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%article}}');
+        $this->dropTable('blog_article');
     }
 }
