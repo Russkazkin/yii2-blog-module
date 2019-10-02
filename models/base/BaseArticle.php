@@ -3,7 +3,11 @@
 namespace app\modules\blog\models\base;
 
 use app\modules\auth\models\User;
+use app\modules\blog\models\ArticleTag;
+use app\modules\blog\models\Comment;
 use Yii;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "blog_article".
@@ -24,7 +28,7 @@ use Yii;
  * @property ArticleTag[] $blogArticleTags
  * @property Comment[] $blogComments
  */
-class BaseArticle extends \yii\db\ActiveRecord
+class BaseArticle extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -70,7 +74,7 @@ class BaseArticle extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getUser()
     {
@@ -78,11 +82,11 @@ class BaseArticle extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getArticleTags()
     {
-        return $this->hasMany(ArticleTag::className(), ['article_id' => 'id']);
+        return $this->hasMany(ArticleTag::class, ['article_id' => 'id']);
     }
 
     /**
@@ -90,6 +94,6 @@ class BaseArticle extends \yii\db\ActiveRecord
      */
     public function getComments()
     {
-        return $this->hasMany(Comment::className(), ['article_id' => 'id']);
+        return $this->hasMany(Comment::class, ['article_id' => 'id']);
     }
 }

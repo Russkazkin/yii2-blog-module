@@ -2,7 +2,11 @@
 
 namespace app\modules\blog\models\base;
 
+use app\modules\blog\models\Article;
+use app\modules\blog\models\Tag;
 use Yii;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "blog_article_tag".
@@ -14,7 +18,7 @@ use Yii;
  * @property Tag $tag
  * @property Article $article
  */
-class BaseArticleTag extends \yii\db\ActiveRecord
+class BaseArticleTag extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -50,7 +54,7 @@ class BaseArticleTag extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getTag()
     {
@@ -58,10 +62,10 @@ class BaseArticleTag extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getArticle()
     {
-        return $this->hasOne(Article::className(), ['id' => 'article_id']);
+        return $this->hasOne(Article::class, ['id' => 'article_id']);
     }
 }

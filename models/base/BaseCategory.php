@@ -3,6 +3,7 @@
 namespace app\modules\blog\models\base;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "blog_category".
@@ -13,7 +14,7 @@ use Yii;
  * @property int $created_at
  * @property int $updated_at
  */
-class BaseCategory extends \yii\db\ActiveRecord
+class BaseCategory extends ActiveRecord
 {
     /**
      * {@inheritdoc}
