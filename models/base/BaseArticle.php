@@ -5,6 +5,7 @@ namespace app\modules\blog\models\base;
 use app\modules\auth\models\User;
 use app\modules\blog\models\ArticleTag;
 use app\modules\blog\models\Comment;
+use app\modules\blog\Module;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -59,17 +60,17 @@ class BaseArticle extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('blog', 'ID'),
-            'title' => Yii::t('blog', 'Title'),
-            'description' => Yii::t('blog', 'Description'),
-            'content' => Yii::t('blog', 'Content'),
-            'date' => Yii::t('blog', 'Date'),
-            'image' => Yii::t('blog', 'Image'),
-            'viewed' => Yii::t('blog', 'Viewed'),
-            'user_id' => Yii::t('blog', 'User ID'),
-            'status' => Yii::t('blog', 'Status'),
-            'created_at' => Yii::t('blog', 'Created At'),
-            'updated_at' => Yii::t('blog', 'Updated At'),
+            'id' => Module::t('blog', 'ID'),
+            'title' => Module::t('blog', 'Title'),
+            'description' => Module::t('blog', 'Description'),
+            'content' => Module::t('blog', 'Content'),
+            'date' => Module::t('blog', 'Date'),
+            'image' => Module::t('blog', 'Image'),
+            'viewed' => Module::t('blog', 'Viewed'),
+            'user_id' => Module::t('blog', 'User ID'),
+            'status' => Module::t('blog', 'Status'),
+            'created_at' => Module::t('blog', 'Created At'),
+            'updated_at' => Module::t('blog', 'Updated At'),
         ];
     }
 
