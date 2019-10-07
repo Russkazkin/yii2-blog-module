@@ -4,6 +4,7 @@
 namespace app\modules\blog\models;
 
 
+use app\modules\auth\models\User;
 use app\modules\blog\models\base\BaseArticle;
 use yii\behaviors\TimestampBehavior;
 
@@ -21,10 +22,15 @@ class Article extends BaseArticle
 
     public function rules()
     {
-        return array_merge(parent::rules(), [
+        return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-        ]);
+            [['title', 'description', 'content', 'date'], 'required'],
+            [['description', 'content', 'title'], 'string'],
+            [['date'], 'safe'],
+            [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['title', 'image'], 'string', 'max' => 255],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
+        ];
     }
-
 }
