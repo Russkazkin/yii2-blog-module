@@ -23,10 +23,10 @@ FontAwesomeAsset::register($this);
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'date')->widget(DatePicker::class, [
-        'options' => ['placeholder' => date('Y-m-d')],
+        'options' => ['value' => date('')],
         'pluginOptions' => [
             'autoclose'=>true,
-            'format' => 'yyyy-mm-dd'
+            'format' => Yii::$app->formatter->dateFormat,
         ]
     ]); ?>
 
