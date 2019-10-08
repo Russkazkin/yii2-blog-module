@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\blog\controllers\BaseController;
 use kartik\date\DatePicker;
 use kartik\icons\FontAwesomeAsset;
 use yii\helpers\Html;
@@ -10,6 +11,7 @@ FontAwesomeAsset::register($this);
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Article */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $today app\modules\blog\controllers\BaseController */
 ?>
 
 <div class="article-form">
@@ -23,7 +25,7 @@ FontAwesomeAsset::register($this);
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'date')->widget(DatePicker::class, [
-        'options' => ['value' => date('')],
+        'options' => ['value' => $today],
         'pluginOptions' => [
             'autoclose'=>true,
             'format' => Yii::$app->formatter->dateFormat,

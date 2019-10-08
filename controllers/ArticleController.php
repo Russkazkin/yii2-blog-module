@@ -71,6 +71,7 @@ class ArticleController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
+            'today' => $this->getIntlToday(),
         ]);
     }
 
