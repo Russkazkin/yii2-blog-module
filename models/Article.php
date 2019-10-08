@@ -6,6 +6,8 @@ namespace app\modules\blog\models;
 
 use app\modules\auth\models\User;
 use app\modules\blog\models\base\BaseArticle;
+use DateTime;
+use Yii;
 use yii\behaviors\TimestampBehavior;
 
 class Article extends BaseArticle
@@ -32,5 +34,15 @@ class Article extends BaseArticle
             [['title', 'image'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
+    }
+
+    public function beforeValidate()
+    {
+        $format = substr(Yii::$app->formatter->dateFormat, 4, 5);
+        $date = DateTime::createFromFormat($format, $this->date);
+        if($date){
+            $this->date = $date->format('Y-m-d');
+        }
+        return parent::beforeValidate();
     }
 }

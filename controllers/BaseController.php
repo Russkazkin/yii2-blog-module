@@ -15,6 +15,6 @@ class BaseController extends Controller
      */
     protected function getIntlToday()
     {
-        return Yii::$app->formatter->asDate(date('Y-m-d'), 'medium');
+        return Yii::$app->formatter->asDate(date('Y-m-d'));
     }
 }

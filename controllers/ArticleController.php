@@ -60,6 +60,7 @@ class ArticleController extends BaseController
      * Creates a new Article model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
+     * @throws \yii\base\InvalidConfigException
      */
     public function actionCreate()
     {
