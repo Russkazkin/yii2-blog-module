@@ -19,7 +19,7 @@ class m191001_145042_create_article_table extends Migration
             'title' => $this->string()->notNull(),
             'description' => $this->text()->notNull(),
             'content' => $this->text()->notNull(),
-            'date' => $this->date()->notNull(),
+            'date' => $this->integer(11),
             'image' => $this->string()->defaultValue('https://via.placeholder.com/300x200.jpg?text=Yii2+Blog+Module+Placeholder'),
             'viewed' => $this->integer(),
             'user_id' => $this->integer(),

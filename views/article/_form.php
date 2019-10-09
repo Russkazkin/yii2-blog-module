@@ -28,7 +28,7 @@ FontAwesomeAsset::register($this);
         'options' => ['value' => $today],
         'pluginOptions' => [
             'autoclose'=>true,
-            'format' => Yii::$app->formatter->dateFormat,
+            'format' => $model->format,
         ]
     ]); ?>
 
