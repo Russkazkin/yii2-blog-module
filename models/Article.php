@@ -9,6 +9,8 @@ use app\modules\blog\models\base\BaseArticle;
 use DateTime;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\FileHelper;
+use yii\web\UploadedFile;
 
 class Article extends BaseArticle
 {
@@ -17,6 +19,10 @@ class Article extends BaseArticle
     public $format;
     public $phpFormat;
     public $placeHolder;
+    /**
+     * @var UploadedFile
+     */
+    // public $image;
 
 
     public function init()
@@ -62,8 +68,17 @@ class Article extends BaseArticle
         return parent::beforeValidate();
     }
 
-    public function beforeValidateAttribute()
+    public function upload()
     {
-
+        if (true) {
+            FileHelper::createDirectory('uploads/');
+            $this->image->saveAs('uploads/' . $this->image->baseName . '.' . $this->image->extension);
+            return true;
+        } else {
+            return false;
+        }
     }
+
+    public function saveImage($name)
+    {}
 }

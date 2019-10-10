@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 
     <?= $this->render('_form', [
         'model' => $model,
+        'today' => date($model->phpFormat, $model->date),
     ]) ?>
 
 </div>

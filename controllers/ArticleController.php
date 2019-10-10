@@ -7,6 +7,7 @@ use app\modules\blog\models\Article;
 use app\modules\blog\models\search\ArticleSearch;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -20,7 +21,7 @@ class ArticleController extends BaseController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -67,11 +68,19 @@ class ArticleController extends BaseController
         $model = new Article();
 
         if ($model->load(Yii::$app->request->post())){
+            $model->image = UploadedFile::getInstance($model, 'image');
             if(empty($model->image)) {
                 $model->image = 'https://via.placeholder.com/300x200.jpg?text=' . $model->title;
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if($model->upload()){
+                $model->image = $model->image->name;
+
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
         };
 

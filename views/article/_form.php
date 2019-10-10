@@ -2,6 +2,7 @@
 
 use app\modules\blog\controllers\BaseController;
 use kartik\date\DatePicker;
+use kartik\file\FileInput;
 use kartik\icons\FontAwesomeAsset;
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
@@ -16,7 +17,7 @@ FontAwesomeAsset::register($this);
 
 <div class="article-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -32,7 +33,20 @@ FontAwesomeAsset::register($this);
         ]
     ]); ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image')->widget(FileInput::class, [
+            'language' => 'ru',
+            'options' => [
+                'accept' => 'image/*',
+
+            ],
+            'pluginOptions' => [
+                'initialPreview' => [
+                    Html::img("/uploads/" . $model->image)
+                ],
+                'overwriteInitial' => true
+            ]
+
+    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
