@@ -66,9 +66,14 @@ class ArticleController extends BaseController
     {
         $model = new Article();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($model->load(Yii::$app->request->post())){
+            if(empty($model->image)) {
+                $model->image = 'https://via.placeholder.com/300x200.jpg?text=' . $model->title;
+            }
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+        };
 
         return $this->render('create', [
             'model' => $model,

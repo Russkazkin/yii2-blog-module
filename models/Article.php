@@ -16,6 +16,7 @@ class Article extends BaseArticle
     const STATUS_ACTIVE = 10;
     public $format;
     public $phpFormat;
+    public $placeHolder;
 
 
     public function init()
@@ -43,6 +44,7 @@ class Article extends BaseArticle
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'safe'],
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
+            //['image', 'default', 'value' => 'https://via.placeholder.com/300x200.jpg?text=' . $this->placeHolder],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -55,7 +57,13 @@ class Article extends BaseArticle
         if($date) {
             $this->date = $date->getTimestamp();
         }
+        $this->placeHolder = $this->title;
 
         return parent::beforeValidate();
+    }
+
+    public function beforeValidateAttribute()
+    {
+
     }
 }
