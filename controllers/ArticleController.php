@@ -67,15 +67,14 @@ class ArticleController extends BaseController
     {
         $model = new Article();
 
-        if ($model->load(Yii::$app->request->post())){
+        if ($model->load(Yii::$app->request->post())) {
             $model->image = UploadedFile::getInstance($model, 'image');
-            if(empty($model->image)) {
-                $model->image = 'https://via.placeholder.com/300x200.jpg?text=' . $model->title;
-                if ($model->save()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
+
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
             }
-            if($model->upload()){
+
+            if ($model->upload()) {
                 $model->image = $model->image->name;
 
                 if ($model->save()) {
@@ -87,6 +86,7 @@ class ArticleController extends BaseController
         return $this->render('create', [
             'model' => $model,
             'today' => $this->getIntlToday(),
+
         ]);
     }
 

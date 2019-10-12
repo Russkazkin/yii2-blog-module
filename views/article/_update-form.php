@@ -1,17 +1,19 @@
 <?php
 
 use app\modules\blog\controllers\BaseController;
+use app\modules\blog\models\Article;
 use kartik\date\DatePicker;
 use kartik\file\FileInput;
 use kartik\icons\FontAwesomeAsset;
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use yii\web\View;
 
 FontAwesomeAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Article */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form \yii\widgets\ActiveForm */
 /* @var $today app\modules\blog\controllers\BaseController */
 ?>
 
@@ -27,6 +29,10 @@ FontAwesomeAsset::register($this);
 
     <?= $form->field($model, 'date')->widget(DatePicker::class, [
         'options' => ['value' => $today],
+        'pluginOptions' => [
+            'autoclose' => true,
+            'format' => $model->format,
+        ]
     ]); ?>
 
     <?= $form->field($model, 'image')->widget(FileInput::class, [
@@ -52,3 +58,4 @@ FontAwesomeAsset::register($this);
     <?php ActiveForm::end(); ?>
 
 </div>
+
