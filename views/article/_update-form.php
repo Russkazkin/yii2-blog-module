@@ -15,6 +15,7 @@ FontAwesomeAsset::register($this);
 /* @var $model app\modules\blog\models\Article */
 /* @var $form \yii\widgets\ActiveForm */
 /* @var $today app\modules\blog\controllers\BaseController */
+/* @var $imagePreview*/
 ?>
 
 <div class="article-form">
@@ -44,7 +45,7 @@ FontAwesomeAsset::register($this);
         'pluginOptions' => [
             'initialPreviewAsData' => true,
             'initialPreview' => [
-                $model->image,
+                $imagePreview,
             ],
             'overwriteInitial' => true
         ]

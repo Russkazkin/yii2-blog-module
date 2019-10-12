@@ -4,6 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Article */
+/* @var $imagePreview*/
 
 $this->title = Yii::t('app', 'Update Article: {name}', [
     'name' => $model->title,
@@ -19,6 +20,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
     <?= $this->render('_update-form', [
         'model' => $model,
         'today' => date($model->phpFormat, $model->date),
+        'imagePreview' => $imagePreview,
     ]) ?>
 
 </div>

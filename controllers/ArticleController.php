@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers;
 use Yii;
 use app\modules\blog\models\Article;
 use app\modules\blog\models\search\ArticleSearch;
+use yii\bootstrap4\Html;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -100,6 +101,7 @@ class ArticleController extends BaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $imagePreview = $model->image ? '/uploads/' . $model->image : null;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -107,6 +109,7 @@ class ArticleController extends BaseController
 
         return $this->render('update', [
             'model' => $model,
+            'imagePreview' => $imagePreview,
         ]);
     }
 
