@@ -85,7 +85,7 @@ class Article extends BaseArticle
     {
         if (true) { //TODO: add image validation!
             FileHelper::createDirectory('uploads/');
-            $this->file->saveAs('uploads/' . $this->file->baseName . '.' . $this->file->extension);
+            $this->file->saveAs('@uploads' . $this->file->baseName . '.' . $this->file->extension);
             return true;
         } else {
             return false;
