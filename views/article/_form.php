@@ -27,10 +27,6 @@ FontAwesomeAsset::register($this);
 
     <?= $form->field($model, 'date')->widget(DatePicker::class, [
         'options' => ['value' => $today],
-        'pluginOptions' => [
-            'autoclose'=>true,
-            'format' => $model->format,
-        ]
     ]); ?>
 
     <?= $form->field($model, 'file')->widget(FileInput::class, [
