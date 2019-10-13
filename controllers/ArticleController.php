@@ -69,14 +69,10 @@ class ArticleController extends BaseController
         $model = new Article();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->image = UploadedFile::getInstance($model, 'image');
-
-            if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+            $model->file = UploadedFile::getInstance($model, 'file');
 
             if ($model->upload()) {
-                $model->image = $model->image->name;
+                $model->image = $model->file->name;
 
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);

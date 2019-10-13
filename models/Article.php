@@ -12,17 +12,29 @@ use yii\behaviors\TimestampBehavior;
 use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
+/* @property UploadedFile $file */
 class Article extends BaseArticle
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+    const SCENARIO_UPLOAD = 'upload';
+    const SCENARIO_SAVE = 'save';
+
     public $format;
     public $phpFormat;
-    /**
-     * @var UploadedFile
-     */
-    // public $image;
+    public $file;
 
+    public function scenarioUpload(): self
+    {
+        $this->setScenario(self::SCENARIO_UPLOAD);
+        return $this;
+    }
+
+    public function scenarioSave(): self
+    {
+        $this->setScenario(self::SCENARIO_SAVE);
+        return $this;
+    }
 
     public function init()
     {
@@ -58,18 +70,22 @@ class Article extends BaseArticle
 
         $date = DateTime::createFromFormat($this->phpFormat, $this->date);
 
-        if($date) {
+        if ($date) {
             $this->date = $date->getTimestamp();
         }
 
         return parent::beforeValidate();
     }
 
+    /**
+     * @return bool
+     * @throws \yii\base\Exception
+     */
     public function upload()
     {
         if (true) { //TODO: add image validation!
             FileHelper::createDirectory('uploads/');
-            $this->image->saveAs('uploads/' . $this->image->baseName . '.' . $this->image->extension);
+            $this->file->saveAs('uploads/' . $this->file->baseName . '.' . $this->file->extension);
             return true;
         } else {
             return false;
@@ -77,5 +93,6 @@ class Article extends BaseArticle
     }
 
     public function saveImage($name)
-    {}
+    {
+    }
 }

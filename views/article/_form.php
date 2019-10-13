@@ -29,20 +29,12 @@ FontAwesomeAsset::register($this);
         'options' => ['value' => $today],
     ]); ?>
 
-    <?= $form->field($model, 'image')->widget(FileInput::class, [
+    <?= $form->field($model, 'file')->widget(FileInput::class, [
         'language' => 'ru',
         'options' => [
             'accept' => 'image/*',
 
         ],
-        'pluginOptions' => [
-            'initialPreviewAsData' => true,
-            'initialPreview' => [
-                $model->image,
-            ],
-            'overwriteInitial' => true
-        ]
-
     ]); ?>
 
     <div class="form-group">
