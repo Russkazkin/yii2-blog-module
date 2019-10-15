@@ -63,6 +63,7 @@ class ArticleController extends BaseController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      * @throws \yii\base\InvalidConfigException
+     * @throws \yii\base\Exception
      */
     public function actionCreate()
     {

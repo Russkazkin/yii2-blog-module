@@ -13,6 +13,7 @@ use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
 /* @property UploadedFile $file */
+/* @var User $user */
 class Article extends BaseArticle
 {
     const STATUS_DELETED = 0;
@@ -42,6 +43,8 @@ class Article extends BaseArticle
 
         $this->format = Yii::$app->language == 'en-US' ? 'mm-dd-yyyy' : 'dd-mm-yyyy';
         $this->phpFormat = substr(Yii::$app->formatter->dateFormat, 4, 5);
+
+        //$this->user_id ?: $this->user_id = Yii::$app->user->id;
     }
 
     public function behaviors()
@@ -62,6 +65,8 @@ class Article extends BaseArticle
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
+            [['file'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'checkExtensionByMimeType'=>false],
+            [['user_id'], 'default', 'value' => Yii::$app->user->id],
         ];
     }
 
