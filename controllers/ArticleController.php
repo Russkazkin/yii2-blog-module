@@ -70,14 +70,14 @@ class ArticleController extends BaseController
         $model = new Article();
 
         if ($model->load(Yii::$app->request->post())) {
+
             $model->file = UploadedFile::getInstance($model, 'file');
 
-            if ($model->upload()) {
+            if ($model->file && $model->upload()) {
                 $model->image = $model->file->name;
-
-                if ($model->save()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
+            }
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         };
 
@@ -100,9 +100,17 @@ class ArticleController extends BaseController
         $model = $this->findModel($id);
         $imagePreview = $model->image ? '/uploads/' . $model->image : null;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($model->load(Yii::$app->request->post())) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+            //var_dump($model->file); die;
+            if ($model->upload()) {
+                $model->image = $model->file->name;
+
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
+        };
 
         return $this->render('update', [
             'model' => $model,

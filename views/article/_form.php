@@ -37,7 +37,6 @@ FontAwesomeAsset::register($this);
         'language' => 'ru',
         'options' => [
             'accept' => 'image/*',
-
         ],
     ]); ?>
 

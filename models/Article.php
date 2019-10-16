@@ -65,7 +65,7 @@ class Article extends BaseArticle
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
-            [['file'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'checkExtensionByMimeType'=>false],
+            [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'checkExtensionByMimeType'=>false],
             [['user_id'], 'default', 'value' => Yii::$app->user->id],
         ];
     }
