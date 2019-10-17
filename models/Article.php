@@ -88,16 +88,13 @@ class Article extends BaseArticle
      */
     public function upload()
     {
-        if ($this->validate()) { //TODO: add image validation!
+        if ($this->validate()) {
             FileHelper::createDirectory('uploads/');
-            $this->file->saveAs(Yii::getAlias('@uploads') . $this->file->baseName . '.' . $this->file->extension);
-            return true;
+            $filename = strtolower(md5(uniqid($this->file->baseName))) . '.' . $this->file->extension;
+            $this->file->saveAs(Yii::getAlias('@uploads') . $filename);
+            return $filename;
         } else {
-            return false;
+            return null;
         }
-    }
-
-    public function saveImage($name)
-    {
     }
 }
