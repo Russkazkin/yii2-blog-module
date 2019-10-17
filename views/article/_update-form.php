@@ -36,7 +36,7 @@ FontAwesomeAsset::register($this);
         ]
     ]); ?>
 
-    <?= $form->field($model, 'image')->widget(FileInput::class, [
+    <?= $form->field($model, 'file')->widget(FileInput::class, [
         'language' => 'ru',
         'options' => [
             'accept' => 'image/*',
