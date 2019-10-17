@@ -107,7 +107,6 @@ class ArticleController extends BaseController
             if ($model->file && $model->upload()) {
                 $model->image = $model->file->name;
             } else {
-               // var_dump($model);die();
                 $model->image = $model->getOldAttribute('image');
             }
             if ($model->save()) {
