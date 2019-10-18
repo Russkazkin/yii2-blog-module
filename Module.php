@@ -21,6 +21,7 @@ class Module extends \yii\base\Module
     {
         parent::init();
         $this->registerTranslations();
+        Yii::setAlias('@blog_uploads', '@webroot/blog_uploads/');
 
         // custom initialization code goes here
     }

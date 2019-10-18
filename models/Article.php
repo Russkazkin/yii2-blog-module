@@ -77,11 +77,11 @@ class Article extends BaseArticle
     {
 
         if ($this->validate()) {
-            FileHelper::createDirectory(Yii::getAlias('@uploads'));
+            FileHelper::createDirectory(Yii::getAlias('@blog_uploads'));
             $filename = strtolower(md5(uniqid($this->file->baseName))) . '.' . $this->file->extension;
-            $this->file->saveAs(Yii::getAlias('@uploads') . $filename);
-            if (!empty($currentImage) && file_exists(Yii::getAlias('@uploads') . $currentImage)) {
-                unlink(Yii::getAlias('@uploads') . $currentImage);
+            $this->file->saveAs(Yii::getAlias('@blog_uploads') . $filename);
+            if (!empty($currentImage) && file_exists(Yii::getAlias('@blog_uploads') . $currentImage)) {
+                unlink(Yii::getAlias('@blog_uploads') . $currentImage);
             }
             return $filename;
         } else {

@@ -98,7 +98,7 @@ class ArticleController extends BaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $imagePreview = $model->image ? '/uploads/' . $model->image : null;
+        $imagePreview = $model->image ? '/blog_uploads/' . $model->image : null;
 
         if ($model->load(Yii::$app->request->post())) {
 
