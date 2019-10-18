@@ -83,15 +83,19 @@ class Article extends BaseArticle
     }
 
     /**
+     * @param null $currntImage
      * @return bool
      * @throws \yii\base\Exception
      */
-    public function upload()
+    public function upload($currentImage = null)
     {
+
         if ($this->validate()) {
-            FileHelper::createDirectory('uploads/');
+            FileHelper::createDirectory(Yii::getAlias('@uploads'));
             $filename = strtolower(md5(uniqid($this->file->baseName))) . '.' . $this->file->extension;
             $this->file->saveAs(Yii::getAlias('@uploads') . $filename);
+            if (!empty($currentImage))
+            unlink(Yii::getAlias('@uploads') . $currentImage);
             return $filename;
         } else {
             return null;

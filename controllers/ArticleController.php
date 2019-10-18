@@ -104,7 +104,7 @@ class ArticleController extends BaseController
 
             $model->file = UploadedFile::getInstance($model, 'file');
 
-            $model->image = $model->file ? $model->upload() : $model->getOldAttribute('image');
+            $model->image = $model->file ? $model->upload($model->image) : $model->getOldAttribute('image');
 
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
