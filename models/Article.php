@@ -18,24 +18,10 @@ class Article extends BaseArticle
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-    const SCENARIO_UPLOAD = 'upload';
-    const SCENARIO_SAVE = 'save';
 
     public $format;
     public $phpFormat;
     public $file;
-
-    public function scenarioUpload(): self
-    {
-        $this->setScenario(self::SCENARIO_UPLOAD);
-        return $this;
-    }
-
-    public function scenarioSave(): self
-    {
-        $this->setScenario(self::SCENARIO_SAVE);
-        return $this;
-    }
 
     public function init()
     {
@@ -83,7 +69,7 @@ class Article extends BaseArticle
     }
 
     /**
-     * @param null $currntImage
+     * @param null $currentImage
      * @return bool
      * @throws \yii\base\Exception
      */
@@ -94,8 +80,9 @@ class Article extends BaseArticle
             FileHelper::createDirectory(Yii::getAlias('@uploads'));
             $filename = strtolower(md5(uniqid($this->file->baseName))) . '.' . $this->file->extension;
             $this->file->saveAs(Yii::getAlias('@uploads') . $filename);
-            if (!empty($currentImage))
-            unlink(Yii::getAlias('@uploads') . $currentImage);
+            if (!empty($currentImage) && file_exists(Yii::getAlias('@uploads') . $currentImage)) {
+                unlink(Yii::getAlias('@uploads') . $currentImage);
+            }
             return $filename;
         } else {
             return null;
