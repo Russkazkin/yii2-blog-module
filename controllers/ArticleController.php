@@ -131,6 +131,29 @@ class ArticleController extends BaseController
         return $this->redirect(['index']);
     }
 
+    public function actionRemoveImg()
+    {
+        $id = Yii::$app->request->post()['key'];
+        $model = $this->findModel($id);
+
+        if(!empty($model->image)) {
+            unlink(Yii::getAlias('@blog_uploads') . $model->image);
+            $model->image = null;
+            if ($model->save()) {
+                return json_encode(
+                    [
+                        'success' => true,
+                    ]
+                );
+            }
+        }
+        return json_encode(
+            [
+                'error' => false,
+            ]
+        );
+    }
+
     /**
      * Finds the Article model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

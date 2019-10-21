@@ -47,8 +47,12 @@ FontAwesomeAsset::register($this);
             'initialPreview' => [
                 $imagePreview,
             ],
-            'overwriteInitial' => true
-        ]
+            'overwriteInitial' => true,
+            'deleteUrl' => '/blog/article/remove-img',
+            'initialPreviewConfig' => [
+                    ['key' => $model->id],
+            ],
+        ],
 
     ]); ?>
 
