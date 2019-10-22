@@ -126,6 +126,7 @@ class ArticleController extends BaseController
      */
     public function actionDelete($id)
     {
+        //TODO: Add image removal before article delete
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -137,8 +138,9 @@ class ArticleController extends BaseController
         $model = $this->findModel($id);
 
         if(!empty($model->image)) {
-            if(file_exists(Yii::getAlias(Yii::getAlias('@blog_uploads') . $model->image)))
-            unlink(Yii::getAlias('@blog_uploads') . $model->image);
+            if($model->fileExists($model->image)) {
+                unlink(Yii::getAlias('@blog_uploads') . $model->image);
+            }
             $model->image = null;
             if ($model->save()) {
                 return json_encode(

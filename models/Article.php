@@ -13,6 +13,7 @@ use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
 /* @property UploadedFile $file */
+
 /* @var User $user */
 class Article extends BaseArticle
 {
@@ -51,7 +52,7 @@ class Article extends BaseArticle
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
-            [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'checkExtensionByMimeType'=>false],
+            [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'checkExtensionByMimeType' => false],
             [['user_id'], 'default', 'value' => Yii::$app->user->id],
         ];
     }
@@ -75,17 +76,41 @@ class Article extends BaseArticle
      */
     public function upload($currentImage = null)
     {
-
         if ($this->validate()) {
-            FileHelper::createDirectory(Yii::getAlias('@blog_uploads'));
-            $filename = strtolower(md5(uniqid($this->file->baseName))) . '.' . $this->file->extension;
-            $this->file->saveAs(Yii::getAlias('@blog_uploads') . $filename);
-            if (!empty($currentImage) && file_exists(Yii::getAlias('@blog_uploads') . $currentImage)) {
-                unlink(Yii::getAlias('@blog_uploads') . $currentImage);
-            }
-            return $filename;
-        } else {
-            return null;
+            $this->deleteCurrentImage($currentImage);
+            return $this->saveImage();
         }
+        return null;
+    }
+
+    private function generateFilename()
+    {
+        return strtolower(md5(uniqid($this->file->baseName))) . '.' . $this->file->extension;
+    }
+
+    private function deleteCurrentImage($currentImage)
+    {
+        if (!empty($currentImage) && $this->fileExists($currentImage)) {
+            unlink(Yii::getAlias('@blog_uploads') . $currentImage);
+        }
+    }
+
+    public function fileExists($file)
+    {
+        return file_exists(Yii::getAlias('@blog_uploads') . $file);
+    }
+
+    private function saveImage()
+    {
+        FileHelper::createDirectory(Yii::getAlias('@blog_uploads'));
+        $filename = $this->generateFilename();
+        $this->file->saveAs(Yii::getAlias('@blog_uploads') . $filename);
+        return $filename;
+    }
+
+    public function getImage()
+    {
+        return $this->image ? '/blog_uploads/' . $this->image : 'https://via.placeholder.com/300x200.png?text=' .
+            $this->title;
     }
 }
