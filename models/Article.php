@@ -51,6 +51,7 @@ class Article extends BaseArticle
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
             [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'checkExtensionByMimeType' => false],
             [['user_id'], 'default', 'value' => Yii::$app->user->id],
         ];
@@ -70,6 +71,7 @@ class Article extends BaseArticle
             'image' => Module::t('blog', 'Image'),
             'viewed' => Module::t('blog', 'Viewed'),
             'user_id' => Module::t('blog', 'User ID'),
+            'category_id' => Module::t('blog', 'Category ID'),
             'status' => Module::t('blog', 'Status'),
             'created_at' => Module::t('blog', 'Created At'),
             'updated_at' => Module::t('blog', 'Updated At'),
@@ -131,5 +133,13 @@ class Article extends BaseArticle
     {
         return $this->image ? '/blog_uploads/' . $this->image : 'https://via.placeholder.com/300x200.png?text=' .
             $this->title;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 }
