@@ -50,8 +50,10 @@ FontAwesomeAsset::register($this);
             'overwriteInitial' => true,
             'deleteUrl' => '/blog/article/remove-img',
             'initialPreviewConfig' => [
-                    ['key' => $model->id],
+                    ['caption' => $model->image, 'key' => $model->id],
             ],
+            'showUpload' => false,
+            'showClose' => false,
         ],
 
     ]); ?>

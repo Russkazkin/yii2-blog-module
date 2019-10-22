@@ -38,6 +38,10 @@ FontAwesomeAsset::register($this);
         'options' => [
             'accept' => 'image/*',
         ],
+        'pluginOptions' => [
+            'showUpload' => false,
+            'showClose' => false,
+        ],
     ]); ?>
 
     <div class="form-group">

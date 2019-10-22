@@ -6,6 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\blog\models\search\ArticleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $data \app\modules\blog\models\Article */
 
 $this->title = Yii::t('app', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
@@ -32,9 +33,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'content:ntext',
             'date:date',
             [
-
+                'format' => 'html',
+                'label' => Yii::t('app', 'Image'),
+                'value' => function($data){
+                    return Html::img($data->getImage(), ['height' => '50']);
+                },
             ],
-            //'image',
             //'viewed',
             //'user_id',
             //'status',
