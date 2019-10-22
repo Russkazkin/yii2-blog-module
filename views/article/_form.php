@@ -46,6 +46,4 @@ FontAwesomeAsset::register($this);
 
     <?php ActiveForm::end(); ?>
 
-    <?php echo Yii::getAlias('@webroot'); ?>
-
 </div>

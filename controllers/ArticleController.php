@@ -137,6 +137,7 @@ class ArticleController extends BaseController
         $model = $this->findModel($id);
 
         if(!empty($model->image)) {
+            if(file_exists(Yii::getAlias(Yii::getAlias('@blog_uploads') . $model->image)))
             unlink(Yii::getAlias('@blog_uploads') . $model->image);
             $model->image = null;
             if ($model->save()) {
