@@ -14,6 +14,10 @@ class m191001_145042_create_article_table extends Migration
      */
     public function safeUp()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
         $this->createTable('blog_article', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
@@ -23,10 +27,11 @@ class m191001_145042_create_article_table extends Migration
             'image' => $this->string(),
             'viewed' => $this->integer(),
             'user_id' => $this->integer(),
+            'category_id'=>$this->integer(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer(11),
             'updated_at' => $this->integer(11),
-        ]);
+        ], $tableOptions);
 
         $this->addForeignKey(
             'fk-user_id',

@@ -14,11 +14,15 @@ class m191001_145412_create_article_tag_table extends Migration
      */
     public function safeUp()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
         $this->createTable('blog_article_tag', [
             'id' => $this->primaryKey(),
             'article_id' => $this->integer()->notNull(),
             'tag_id'  => $this->integer()->notNull(),
-        ]);
+        ], $tableOptions);
 
         $this->createIndex(
             'tag_article_article_id',

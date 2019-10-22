@@ -6,6 +6,7 @@ namespace app\modules\blog\models;
 
 use app\modules\auth\models\User;
 use app\modules\blog\models\base\BaseArticle;
+use app\modules\blog\Module;
 use DateTime;
 use Yii;
 use yii\behaviors\TimestampBehavior;
@@ -30,8 +31,6 @@ class Article extends BaseArticle
 
         $this->format = Yii::$app->language == 'en-US' ? 'mm-dd-yyyy' : 'dd-mm-yyyy';
         $this->phpFormat = substr(Yii::$app->formatter->dateFormat, 4, 5);
-
-        //$this->user_id ?: $this->user_id = Yii::$app->user->id;
     }
 
     public function behaviors()
@@ -54,6 +53,26 @@ class Article extends BaseArticle
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
             [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'checkExtensionByMimeType' => false],
             [['user_id'], 'default', 'value' => Yii::$app->user->id],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Module::t('blog', 'ID'),
+            'title' => Module::t('blog', 'Title'),
+            'description' => Module::t('blog', 'Description'),
+            'content' => Module::t('blog', 'Content'),
+            'date' => Module::t('blog', 'Date'),
+            'image' => Module::t('blog', 'Image'),
+            'viewed' => Module::t('blog', 'Viewed'),
+            'user_id' => Module::t('blog', 'User ID'),
+            'status' => Module::t('blog', 'Status'),
+            'created_at' => Module::t('blog', 'Created At'),
+            'updated_at' => Module::t('blog', 'Updated At'),
         ];
     }
 
