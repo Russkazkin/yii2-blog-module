@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             [
                 'label' => Yii::t('app', 'Category'),
+                'attribute' => 'category_id',
                 'value' => function($data) {
                     return $data->category->title;
                 }
@@ -39,6 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'content:ntext',
             'date:date',
             [
+                'attribute' => 'image',
                 'format' => 'html',
                 'label' => Yii::t('app', 'Image'),
                 'value' => function($data){

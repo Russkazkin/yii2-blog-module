@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
         'model' => $model,
         'today' => date($model->phpFormat, $model->date),
         'imagePreview' => $imagePreview,
+        'categories' => $model->categoriesList,
     ]) ?>
 
 </div>
