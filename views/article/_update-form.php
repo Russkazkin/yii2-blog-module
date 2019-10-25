@@ -15,7 +15,7 @@ FontAwesomeAsset::register($this);
 /* @var $model app\modules\blog\models\Article */
 /* @var $form \yii\widgets\ActiveForm */
 /* @var $today app\modules\blog\controllers\BaseController */
-/* @var $imagePreview*/
+/* @var $imagePreview */
 /* @var $categories Article[] */
 ?>
 
@@ -25,7 +25,8 @@ FontAwesomeAsset::register($this);
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList($categories); ?>
+    <?= $form->field($model, 'category_id')->dropDownList($categories,
+        ['prompt' => Yii::t('app', 'Choose category...')]); ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
@@ -53,7 +54,7 @@ FontAwesomeAsset::register($this);
             'overwriteInitial' => true,
             'deleteUrl' => '/blog/article/remove-img',
             'initialPreviewConfig' => [
-                    ['caption' => $model->image, 'key' => $model->id],
+                ['caption' => $model->image, 'key' => $model->id],
             ],
             'showUpload' => false,
             'showClose' => false,

@@ -23,7 +23,8 @@ FontAwesomeAsset::register($this);
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList($categories); ?>
+    <?= $form->field($model, 'category_id')->dropDownList($categories,
+        ['prompt' => Yii::t('app', 'Choose category...')]); ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
