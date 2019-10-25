@@ -10,12 +10,20 @@ use app\modules\blog\Module;
 use DateTime;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
 use yii\web\UploadedFile;
 
-/* @property UploadedFile $file */
+/**
+ * @property UploadedFile $file
+ * @property Category $category
+ * @property User $user
+ * @property ArticleTag[] $articleTags
+ * @property Comment[] $comments
+ * @property Category[] $categoriesList
+ */
 
-/* @var User $user */
+
 class Article extends BaseArticle
 {
     const STATUS_DELETED = 0;
@@ -141,5 +149,10 @@ class Article extends BaseArticle
     public function getCategory()
     {
         return $this->hasOne(Category::class, ['id' => 'category_id']);
+    }
+
+    public function getCategoriesList()
+    {
+        return ArrayHelper::map(Category::find()->all(), 'id', 'title');
     }
 }

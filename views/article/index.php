@@ -29,6 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
+            [
+                'label' => Yii::t('app', 'Category'),
+                'value' => function($data) {
+                    return $data->category->title;
+                }
+            ],
             'description:ntext',
             'content:ntext',
             'date:date',

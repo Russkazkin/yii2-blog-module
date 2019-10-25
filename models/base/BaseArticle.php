@@ -20,10 +20,10 @@ use Yii;
  * @property int $created_at
  * @property int $updated_at
  *
- * @property BlogCategory $category
- * @property AuthUser $user
- * @property BlogArticleTag[] $blogArticleTags
- * @property BlogComment[] $blogComments
+ * @property Category $category
+ * @property User $user
+ * @property ArticleTag[] $articleTags
+ * @property Comment[] $comments
  */
 class BaseArticle extends \yii\db\ActiveRecord
 {

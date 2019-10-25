@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\blog\controllers\BaseController;
+use app\modules\blog\models\Article;
 use kartik\date\DatePicker;
 use kartik\file\FileInput;
 use kartik\icons\FontAwesomeAsset;
@@ -10,9 +11,10 @@ use yii\bootstrap4\ActiveForm;
 FontAwesomeAsset::register($this);
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\blog\models\Article */
+/* @var $model Article */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $today app\modules\blog\controllers\BaseController */
+/* @var $categories Article[] */
 ?>
 
 <div class="article-form">
@@ -20,6 +22,8 @@ FontAwesomeAsset::register($this);
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList($categories); ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

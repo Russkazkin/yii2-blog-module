@@ -5,7 +5,6 @@ namespace app\modules\blog\controllers;
 use Yii;
 use app\modules\blog\models\Article;
 use app\modules\blog\models\search\ArticleSearch;
-use yii\bootstrap4\Html;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -84,6 +83,7 @@ class ArticleController extends BaseController
         return $this->render('create', [
             'model' => $model,
             'today' => $this->getIntlToday(),
+            'categories' => $model->categoriesList,
 
         ]);
     }
