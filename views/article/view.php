@@ -34,7 +34,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'content:ntext',
             'date:date',
-            'image',
+            [
+                'label' => Yii::t('app', 'Category'),
+                'attribute' => 'category_id',
+                'value' => function($data) {
+                    return $data->category->title;
+                }
+            ],
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'label' => Yii::t('app', 'Image'),
+                'value' => function($data){
+                    return Html::img($data->getImage(), ['height' => '50']);
+                },
+            ],
             'viewed',
             'user_id',
             'status',
