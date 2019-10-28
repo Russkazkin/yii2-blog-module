@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\models\base;
 
+use app\modules\blog\models\Article;
 use Yii;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "blog_category".
@@ -13,8 +13,10 @@ use yii\db\ActiveRecord;
  * @property int $status
  * @property int $created_at
  * @property int $updated_at
+ *
+ * @property Article[] $articles
  */
-class BaseCategory extends ActiveRecord
+class BaseCategory extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -48,5 +50,13 @@ class BaseCategory extends ActiveRecord
             'created_at' => Yii::t('blog', 'Created At'),
             'updated_at' => Yii::t('blog', 'Updated At'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticles()
+    {
+        return $this->hasMany(Article::class, ['category_id' => 'id']);
     }
 }
