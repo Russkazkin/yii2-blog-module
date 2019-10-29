@@ -41,4 +41,10 @@ class Tag extends BaseTag
             'updated_at' => Module::t('blog', 'Updated At'),
         ];
     }
+
+    public function getArticles()
+    {
+        return $this->hasMany(Article::class, ['id' => 'article_id'])
+            ->viaTable('blog_article_tag', ['tag_id' => 'id']);
+    }
 }

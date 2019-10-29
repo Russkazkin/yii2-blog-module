@@ -15,6 +15,8 @@ FontAwesomeAsset::register($this);
 /* @var $form yii\widgets\ActiveForm */
 /* @var $today app\modules\blog\controllers\BaseController */
 /* @var $categories Article[] */
+/* @var $selectedTags Article[] */
+/* @var $tags Article[] */
 ?>
 
 <div class="article-form">
@@ -25,6 +27,10 @@ FontAwesomeAsset::register($this);
 
     <?= $form->field($model, 'category_id')->dropDownList($categories,
         ['prompt' => Yii::t('app', 'Choose category...')]); ?>
+
+    <?= $form->field($model, 'tags')->dropDownList($tags, ['multiple' => true]); ?>
+
+<!--    --><?//= Html::dropDownList('tags', $selectedTags, $tags, ['class' => 'form-control', 'multiple' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

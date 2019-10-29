@@ -8,6 +8,7 @@ use app\modules\auth\models\User;
 use app\modules\blog\models\base\BaseArticle;
 use app\modules\blog\Module;
 use DateTime;
+use phpDocumentor\Reflection\Types\This;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
@@ -21,6 +22,9 @@ use yii\web\UploadedFile;
  * @property ArticleTag[] $articleTags
  * @property Comment[] $comments
  * @property Category[] $categoriesList
+ * @property ArticleTag[] $tags
+ * @property ArticleTag[] $selectedTags
+ * @property ArticleTag[] $tagsList
  */
 
 
@@ -32,6 +36,7 @@ class Article extends BaseArticle
     public $format;
     public $phpFormat;
     public $file;
+    public $tags;
 
     public function init()
     {
@@ -154,5 +159,20 @@ class Article extends BaseArticle
     public function getCategoriesList()
     {
         return ArrayHelper::map(Category::find()->all(), 'id', 'title');
+    }
+
+    public function getTags()
+    {
+        return $this->hasMany(Tag::class, ['id' => 'tag_id'])
+            ->viaTable('blog_article_tag', ['article_id' => 'id']);
+    }
+
+    public function getTagsList() {
+        return ArrayHelper::map(Tag::find()->all(), 'id', 'title');
+    }
+
+    public function getSelectedTags()
+    {
+        $this->getTags()->select('id')->asArray()->all();
     }
 }
