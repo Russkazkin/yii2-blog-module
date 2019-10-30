@@ -175,4 +175,15 @@ class Article extends BaseArticle
     {
         $this->getTags()->select('id')->asArray()->all();
     }
+
+    public function saveTags()
+    {
+        $tags = Yii::$app->request->post('tags');
+        if(is_array($tags)){
+            foreach ($tags as $tag_id){
+                $tag = Tag::findOne($tag_id);
+                $this->link('tags', $tag);
+            }
+        }
+    }
 }

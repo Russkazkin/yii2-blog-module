@@ -5,7 +5,7 @@ use app\modules\blog\models\Article;
 use kartik\date\DatePicker;
 use kartik\file\FileInput;
 use kartik\icons\FontAwesomeAsset;
-use yii\helpers\Html;
+use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
 
 FontAwesomeAsset::register($this);
@@ -28,9 +28,9 @@ FontAwesomeAsset::register($this);
     <?= $form->field($model, 'category_id')->dropDownList($categories,
         ['prompt' => Yii::t('app', 'Choose category...')]); ?>
 
-    <?= $form->field($model, 'tags')->dropDownList($tags, ['multiple' => true]); ?>
+    <?= Html::label('Tags', 'tags', ['class' => 'label tags']) ?>
 
-<!--    --><?//= Html::dropDownList('tags', $selectedTags, $tags, ['class' => 'form-control', 'multiple' => true]) ?>
+    <?= Html::dropDownList('tags', [], $tags, ['class' => 'form-control', 'multiple' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
