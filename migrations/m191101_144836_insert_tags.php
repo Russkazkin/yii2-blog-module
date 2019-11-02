@@ -15,25 +15,25 @@ class m191101_144836_insert_tags extends Migration
     public function safeUp()
     {
         $this->insert('blog_tag', [
-            'title' => 'News',
+            'title' => 'Popular',
             'created_at' => strtotime('now'),
             'updated_at' => strtotime('now'),
         ]);
 
         $this->insert('blog_tag', [
-            'title' => 'Linux',
+            'title' => 'Memo',
             'created_at' => strtotime('now'),
             'updated_at' => strtotime('now'),
         ]);
 
         $this->insert('blog_tag', [
-            'title' => 'PHP',
+            'title' => 'Issue',
             'created_at' => strtotime('now'),
             'updated_at' => strtotime('now'),
         ]);
 
         $this->insert('blog_tag', [
-            'title' => 'Docker',
+            'title' => 'Question',
             'created_at' => strtotime('now'),
             'updated_at' => strtotime('now'),
         ]);

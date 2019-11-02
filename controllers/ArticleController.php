@@ -108,6 +108,7 @@ class ArticleController extends BaseController
             $model->image = $model->file ? $model->upload($model->image) : $model->getOldAttribute('image');
 
             if ($model->save()) {
+                $model->saveTags();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         };

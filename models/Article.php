@@ -173,11 +173,14 @@ class Article extends BaseArticle
 
     public function getSelectedTags()
     {
-        $this->getTags()->select('id')->asArray()->all();
+        $selectedTags = $this->getTags()->select('id')->asArray()->all();
+        return ArrayHelper::getColumn($selectedTags, 'id');
     }
 
     public function saveTags()
     {
+        ArticleTag::deleteAll(['article_id' => $this->id]);
+
         $tags = Yii::$app->request->post('tags');
         if(is_array($tags)){
             foreach ($tags as $tag_id){
