@@ -177,6 +177,16 @@ class Article extends BaseArticle
         return ArrayHelper::getColumn($selectedTags, 'id');
     }
 
+    /**
+     * Tags for Article index and view
+     * @return string
+     */
+    public function getSelectedTagsTitle()
+    {
+        $selectedTags = $this->getTags()->select('title')->asArray()->all();
+        return implode(', ', ArrayHelper::getColumn($selectedTags, 'title'));
+    }
+
     public function saveTags()
     {
         ArticleTag::deleteAll(['article_id' => $this->id]);
@@ -184,7 +194,7 @@ class Article extends BaseArticle
         $tags = Yii::$app->request->post('tags');
         if(is_array($tags)){
             foreach ($tags as $tag_id){
-                $tag = Tag::findOne($tag_id);
+                $tag = Tag::findOne((int)$tag_id);
                 $this->link('tags', $tag);
             }
         }

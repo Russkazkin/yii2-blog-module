@@ -36,8 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->category->title;
                 }
             ],
+            [
+                'label' => Yii::t('app', 'Tags'),
+                'value' => function($data) {
+                    return $data->selectedTagsTitle;
+                }
+            ],
             'description:ntext',
-            'content:ntext',
+            //'content:ntext',
             'date:date',
             [
                 'attribute' => 'image',
