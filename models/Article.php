@@ -197,7 +197,7 @@ class Article extends BaseArticle
         if(is_array($tags)){
             foreach ($tags as $tag_id){
                 if($validator->validate($tag_id, $error)) {
-                    $tag = Tag::findOne((int)$tag_id);
+                    $tag = Tag::findOne($tag_id);
                     $this->link('tags', $tag);
                 }else{
                     die($error); //TODO Add user friendly error
