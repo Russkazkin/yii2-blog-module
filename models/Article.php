@@ -13,6 +13,7 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
+use yii\validators\NumberValidator;
 use yii\web\UploadedFile;
 
 /**
@@ -189,13 +190,18 @@ class Article extends BaseArticle
 
     public function saveTags()
     {
+        $validator = new NumberValidator();
         ArticleTag::deleteAll(['article_id' => $this->id]);
 
         $tags = Yii::$app->request->post('tags');
         if(is_array($tags)){
             foreach ($tags as $tag_id){
-                $tag = Tag::findOne((int)$tag_id);
-                $this->link('tags', $tag);
+                if($validator->validate($tag_id, $error)) {
+                    $tag = Tag::findOne((int)$tag_id);
+                    $this->link('tags', $tag);
+                }else{
+                    die($error); //TODO Add user friendly error
+                }
             }
         }
     }
