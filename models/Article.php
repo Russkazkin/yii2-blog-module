@@ -10,6 +10,8 @@ use app\modules\blog\Module;
 use DateTime;
 use phpDocumentor\Reflection\Types\This;
 use Yii;
+use yii\base\Exception;
+use yii\base\InvalidConfigException;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
 use yii\helpers\FileHelper;
@@ -137,10 +139,14 @@ class Article extends BaseArticle
 
     private function saveImage()
     {
-        FileHelper::createDirectory(Yii::getAlias('@blog_uploads'));
-        $filename = $this->generateFilename();
-        $this->file->saveAs(Yii::getAlias('@blog_uploads') . $filename);
-        return $filename;
+        try {
+            FileHelper::createDirectory(Yii::getAlias('@blog_uploads'));
+            $filename = $this->generateFilename();
+            $this->file->saveAs(Yii::getAlias('@blog_uploads') . $filename);
+            return $filename;
+        } catch (Exception $e) {
+            die($e->getMessage()); //TODO Add user friendly error
+        }
     }
 
     public function getImage()
@@ -164,8 +170,12 @@ class Article extends BaseArticle
 
     public function getTags()
     {
-        return $this->hasMany(Tag::class, ['id' => 'tag_id'])
-            ->viaTable('blog_article_tag', ['article_id' => 'id']);
+        try {
+            return $this->hasMany(Tag::class, ['id' => 'tag_id'])
+                ->viaTable('blog_article_tag', ['article_id' => 'id']);
+        } catch (InvalidConfigException $e) {
+            die($e->getMessage()); //TODO Add user friendly error
+        }
     }
 
     public function getTagsList() {
