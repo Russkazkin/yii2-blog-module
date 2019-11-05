@@ -1,12 +1,29 @@
+<?php
+
+/* @var $this \yii\web\View */
+
+use app\assets\AppAsset;
+use xtetis\bootstrap4glyphicons\assets\GlyphiconAsset;
+use yii\helpers\Html;
+
+/* @var $content string */
+
+AppAsset::register($this);
+GlyphiconAsset::register($this);
+?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="en">
 
 
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php $this->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
 
     <!-- favicon icon -->
     <link rel="shortcut icon" href="assets/images/index.html">
@@ -14,26 +31,26 @@
     <title>Treasure</title>
 
     <!-- common css -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/css/owl.theme.css">
     <link rel="stylesheet" href="assets/css/owl.transitions.css">
     <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">-->
 
     <!-- HTML5 shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.js"></script>
+    <!--<script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.js"></script>-->
     <![endif]-->
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
 </head>
-
+<?php $this->beginBody() ?>
 <body>
 
 <nav class="navbar main-menu navbar-default">
@@ -543,12 +560,14 @@
     </div>
 </footer>
 <!-- js files -->
-<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+<!--<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="assets/js/jquery.stickit.min.js"></script>
 <script type="text/javascript" src="assets/js/menu.js"></script>
-<script type="text/javascript" src="assets/js/scripts.js"></script>
+<script type="text/javascript" src="assets/js/scripts.js"></script>-->
+<?php $this->endBody() ?>
 </body>
 
 </html>
+<?php $this->endPage() ?>
