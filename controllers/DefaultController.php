@@ -9,6 +9,9 @@ use yii\web\Controller;
  */
 class DefaultController extends Controller
 {
+
+    public $layout = '@app/modules/blog/views/layout/blog';
+
     /**
      * Renders the index view for the module
      * @return string
