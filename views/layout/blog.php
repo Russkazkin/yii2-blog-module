@@ -1,15 +1,15 @@
 <?php
-
-/* @var $this \yii\web\View */
-
 use app\assets\AppAsset;
+use app\modules\blog\assets\BlogAsset;
 use xtetis\bootstrap4glyphicons\assets\GlyphiconAsset;
 use yii\helpers\Html;
 
+/* @var $this \yii\web\View */
 /* @var $content string */
 
 AppAsset::register($this);
 GlyphiconAsset::register($this);
+BlogAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
