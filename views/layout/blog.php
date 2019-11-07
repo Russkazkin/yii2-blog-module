@@ -69,7 +69,7 @@ BlogAsset::register($this);
             </div>
 
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse show" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav text-uppercase">
                     <li><a data-toggle="dropdown" class="dropdown-toggle" href="index.html">Home</a>

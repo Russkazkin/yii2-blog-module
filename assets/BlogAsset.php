@@ -20,6 +20,12 @@ class BlogAsset extends AssetBundle
         'css/responsive.css.css',
     ];
     public $js = [
-        'js/lang.js',
+        'js/owl.carousel.min.js',
+        'js/jquery.stickit.min.js',
+        'js/menu.js',
+        'js/scripts.js',
     ];
+    public $depends = [
+            Bootstrap4Asset::class,
+        ];
 }
