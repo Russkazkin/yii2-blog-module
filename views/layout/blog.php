@@ -30,46 +30,23 @@ BlogAsset::register($this);
 
     <title>Treasure</title>
 
-    <!-- common css -->
-    <!--<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.css">
-    <link rel="stylesheet" href="assets/css/owl.transitions.css">
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">-->
-
-    <!-- HTML5 shim and Respond.js IE9 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <!--<script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.js"></script>-->
-    <![endif]-->
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-
 </head>
 <?php $this->beginBody() ?>
 <body>
 
-<nav class="navbar main-menu navbar-default">
+<nav class="navbar navbar-expand-md main-menu navbar-light">
     <div class="container">
         <div class="menu-content">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"><img src="assets/images/logo.jpg" alt=""></a>
             </div>
 
 
-            <div class="collapse navbar-collapse show" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav text-uppercase">
                     <li><a data-toggle="dropdown" class="dropdown-toggle" href="index.html">Home</a>
