@@ -91,9 +91,10 @@ BlogAsset::register($this);
                             </div>
                         </div>
                         <div class="social-share">
-                            <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                            <ul class="text-center pull-right">
-                                <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>
+                            <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On
+                                February 12, 2016</span>
+                            <ul class="text-center float-right">
+                                <li><a class="s-facebook" href="#"><i class="fas fa-eye"></i></a></li>
                                 325
                             </ul>
                         </div>
@@ -130,8 +131,8 @@ BlogAsset::register($this);
                             </div>
                         </div>
                         <div class="social-share">
-                            <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                            <ul class="text-center pull-right">
+                            <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                            <ul class="text-center float-right">
                                 <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>
                                 325
                             </ul>
@@ -169,8 +170,8 @@ BlogAsset::register($this);
                             </div>
                         </div>
                         <div class="social-share">
-                            <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                            <ul class="text-center pull-right">
+                            <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                            <ul class="text-center float-right">
                                 <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>
                                 325
                             </ul>
@@ -208,8 +209,8 @@ BlogAsset::register($this);
                             </div>
                         </div>
                         <div class="social-share">
-                            <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                            <ul class="text-center pull-right">
+                            <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                            <ul class="text-center float-right">
                                 <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>
                                 325
                             </ul>
@@ -248,8 +249,8 @@ BlogAsset::register($this);
                             </div>
                         </div>
                         <div class="social-share">
-                            <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                            <ul class="text-center pull-right">
+                            <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                            <ul class="text-center float-right">
                                 <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>
                                 325
                             </ul>
@@ -381,27 +382,27 @@ BlogAsset::register($this);
                         <ul>
                             <li>
                                 <a href="#">Food & Drinks</a>
-                                <span class="post-count pull-right"> (2)</span>
+                                <span class="post-count float-right"> (2)</span>
                             </li>
                             <li>
                                 <a href="#">Travel</a>
-                                <span class="post-count pull-right"> (2)</span>
+                                <span class="post-count float-right"> (2)</span>
                             </li>
                             <li>
                                 <a href="#">Business</a>
-                                <span class="post-count pull-right"> (2)</span>
+                                <span class="post-count float-right"> (2)</span>
                             </li>
                             <li>
                                 <a href="#">Story</a>
-                                <span class="post-count pull-right"> (2)</span>
+                                <span class="post-count float-right"> (2)</span>
                             </li>
                             <li>
                                 <a href="#">DIY & Tips</a>
-                                <span class="post-count pull-right"> (2)</span>
+                                <span class="post-count float-right"> (2)</span>
                             </li>
                             <li>
                                 <a href="#">Lifestyle</a>
-                                <span class="post-count pull-right"> (2)</span>
+                                <span class="post-count float-right"> (2)</span>
                             </li>
                         </ul>
                     </aside>
