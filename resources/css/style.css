@@ -77,13 +77,13 @@ ul {
 /*-------------------
 header
 ---------------------*/
-.main-menu.navbar-default {
+.main-menu.navbar-light {
     background-color: #fff;
     border-color: #e5e5e5;
     border-radius: 0;
 }
 
-.navbar-default .navbar-nav > li > a {
+.navbar-light .navbar-nav > li > a {
     color: #777;
     line-height: 36px;
 }
@@ -106,7 +106,7 @@ header
     padding-left: 0;
 }
 
-.main-menu.navbar-default .navbar-collapse, .navbar-default {
+.main-menu.navbar-light .navbar-collapse, .navbar-light {
     border-color: #e7e7e7;
 
 }
@@ -145,7 +145,7 @@ header
 .main-menu .navbar-nav > li a:focus {
     color: #00BFF3;
 }
-.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+.navbar-light .navbar-nav>.open>a, .navbar-light .navbar-nav>.open>a:focus, .navbar-light .navbar-nav>.open>a:hover {
     color: #00BFF3;
     background-color: transparent;
 }
