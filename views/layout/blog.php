@@ -62,7 +62,7 @@ BlogAsset::register($this);
             <div class="col-md-8">
                 <article class="post">
                     <div class="post-thumb">
-                        <a href="blog.html"><img src="assets/images/blog-1.jpg" alt=""></a>
+                        <a href="blog.html"><img src="/temp/blog-1.jpg" alt=""></a>
 
                         <a href="blog.html" class="post-thumb-overlay text-center">
                             <div class="text-uppercase text-center">View Post</div>
@@ -101,7 +101,7 @@ BlogAsset::register($this);
                 </article>
                 <article class="post">
                     <div class="post-thumb">
-                        <a href="blog.html"><img src="assets/images/abc.jpg" alt=""></a>
+                        <a href="blog.html"><img src="/temp/abc.jpg" alt=""></a>
 
                         <a href="blog.html" class="post-thumb-overlay text-center">
                             <div class="text-uppercase text-center">View Post</div>
@@ -140,7 +140,7 @@ BlogAsset::register($this);
                 </article>
                 <article class="post">
                     <div class="post-thumb">
-                        <a href="blog.html"><img src="assets/images/blog-2.jpg" alt=""></a>
+                        <a href="blog.html"><img src="/temp/blog-2.jpg" alt=""></a>
 
                         <a href="blog.html" class="post-thumb-overlay text-center">
                             <div class="text-uppercase text-center">View Post</div>
@@ -179,7 +179,7 @@ BlogAsset::register($this);
                 </article>
                 <article class="post">
                     <div class="post-thumb">
-                        <a href="blog.html"><img src="assets/images/blog-3.jpg" alt=""></a>
+                        <a href="blog.html"><img src="/temp/blog-3.jpg" alt=""></a>
 
                         <a href="blog.html" class="post-thumb-overlay text-center">
                             <div class="text-uppercase text-center">View Post</div>
@@ -219,7 +219,7 @@ BlogAsset::register($this);
 
                 <article class="post">
                     <div class="post-thumb">
-                        <a href="blog.html"><img src="assets/images/blog-4.jpg" alt=""></a>
+                        <a href="blog.html"><img src="/temp/blog-4.jpg" alt=""></a>
 
                         <a href="blog.html" class="post-thumb-overlay text-center">
                             <div class="text-uppercase text-center">View Post</div>
@@ -273,7 +273,7 @@ BlogAsset::register($this);
                         <div class="popular-post">
 
 
-                            <a href="#" class="popular-img"><img src="assets/images/p1.jpg" alt="">
+                            <a href="#" class="popular-img"><img src="/temp/p1.jpg" alt="">
 
                                 <div class="p-overlay"></div>
                             </a>
@@ -286,7 +286,7 @@ BlogAsset::register($this);
                         </div>
                         <div class="popular-post">
 
-                            <a href="#" class="popular-img"><img src="assets/images/p1.jpg" alt="">
+                            <a href="#" class="popular-img"><img src="/temp/p1.jpg" alt="">
 
                                 <div class="p-overlay"></div>
                             </a>
@@ -299,7 +299,7 @@ BlogAsset::register($this);
                         <div class="popular-post">
 
 
-                            <a href="#" class="popular-img"><img src="assets/images/p1.jpg" alt="">
+                            <a href="#" class="popular-img"><img src="/temp/p1.jpg" alt="">
 
                                 <div class="p-overlay"></div>
                             </a>
@@ -318,7 +318,7 @@ BlogAsset::register($this);
 
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
+                                    <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
                                         <div class="p-overlay"></div>
                                     </a>
                                 </div>
@@ -333,7 +333,7 @@ BlogAsset::register($this);
 
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
+                                    <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
                                         <div class="p-overlay"></div>
                                     </a>
                                 </div>
@@ -348,7 +348,7 @@ BlogAsset::register($this);
 
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
+                                    <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
                                         <div class="p-overlay"></div>
                                     </a>
                                 </div>
@@ -363,7 +363,7 @@ BlogAsset::register($this);
 
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#" class="popular-img"><img src="assets/images/r-p.jpg" alt="">
+                                    <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
                                         <div class="p-overlay"></div>
                                     </a>
                                 </div>
@@ -417,7 +417,7 @@ BlogAsset::register($this);
         <div class="row">
             <div class="col-md-4">
                 <aside class="footer-widget">
-                    <div class="about-img"><img src="assets/images/logo2.png" alt=""></div>
+                    <div class="about-img"><img src="/temp/logo2.png" alt=""></div>
                     <div class="about-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
                         nonumy
                         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed voluptua. At vero eos et
@@ -457,7 +457,7 @@ BlogAsset::register($this);
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="assets/images/author.png" alt="">
+                                        <img src="/temp/author.png" alt="">
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -477,7 +477,7 @@ BlogAsset::register($this);
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="assets/images/author.png" alt="">
+                                        <img src="/temp/author.png" alt="">
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -497,7 +497,7 @@ BlogAsset::register($this);
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="assets/images/author.png" alt="">
+                                        <img src="/temp/author.png" alt="">
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -509,7 +509,6 @@ BlogAsset::register($this);
                             </div>
                         </div>
                     </div>
-
                 </aside>
             </div>
             <div class="col-md-4">
@@ -519,7 +518,7 @@ BlogAsset::register($this);
 
                     <div class="custom-post">
                         <div>
-                            <a href="#"><img src="assets/images/footer-img.png" alt=""></a>
+                            <a href="#"><img src="/temp/footer-img.png" alt=""></a>
                         </div>
                         <div>
                             <a href="#" class="text-uppercase">Home is peaceful Place</a>
