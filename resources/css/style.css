@@ -144,6 +144,10 @@ header
 .main-menu .navbar-nav li a:active,
 .main-menu .navbar-nav > li a:focus {
     color: #00BFF3;
+    text-decoration: none;
+}
+.main-menu .navbar-brand {
+    margin-right: 3rem;
 }
 .navbar-light .navbar-nav>.open>a, .navbar-light .navbar-nav>.open>a:focus, .navbar-light .navbar-nav>.open>a:hover {
     color: #00BFF3;
@@ -165,7 +169,9 @@ header
     box-shadow: 0 5px 4px -4px rgba(190, 190, 190, .1);
     border: 1px solid #e2e2e2;
 }
-
+.main-menu.navbar {
+    padding: 0 1rem;
+}
 .main-menu ul .sub-menu ul, .main-menu ul .children ul {
     left: 100%;
     top: 0;
