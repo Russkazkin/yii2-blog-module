@@ -256,13 +256,15 @@ BlogAsset::register($this);
                         </div>
                     </div>
                 </article>
+                <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                    <li class="page-item active"><a href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a></li>
                 </ul>
+                </nav>
             </div>
             <div class="col-md-4" data-sticky_column>
                 <div class="primary-sidebar">
@@ -439,15 +441,15 @@ BlogAsset::register($this);
                 <aside class="footer-widget">
                     <h3 class="widget-title text-uppercase">Testimonials</h3>
 
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
                         <!--Indicator-->
                         <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#testimonialCarousel" data-slide-to="1"></li>
+                            <li data-target="#testimonialCarousel" data-slide-to="2"></li>
                         </ol>
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
                                 <div class="single-review">
                                     <div class="review-text">
                                         <p>Lorem ipsum dolor sit amet, conssadipscing elitr, sed diam nonumy eirmod
@@ -467,7 +469,7 @@ BlogAsset::register($this);
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="carousel-item">
                                 <div class="single-review">
                                     <div class="review-text">
                                         <p>Lorem ipsum dolor sit amet, conssadipscing elitr, sed diam nonumy eirmod
@@ -487,7 +489,7 @@ BlogAsset::register($this);
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
+                            <div class="carousel-item">
                                 <div class="single-review">
                                     <div class="review-text">
                                         <p>Lorem ipsum dolor sit amet, conssadipscing elitr, sed diam nonumy eirmod
