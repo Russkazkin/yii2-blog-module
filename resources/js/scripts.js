@@ -7,7 +7,7 @@
     /* === Stickit === */
 
     (function () {
-        $("[data-sticky_column]").stickit({
+        $('.sticky_column').stickit({
             scope: StickScope.Parent,
             top: 0
         });

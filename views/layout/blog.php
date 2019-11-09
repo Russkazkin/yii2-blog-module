@@ -267,7 +267,7 @@ BlogAsset::register($this);
                 </ul>
                 </nav>
             </div>
-            <div class="col-md-4" data-sticky_column>
+            <div class="col-md-4 sticky_column">
                 <div class="primary-sidebar">
 
                     <aside class="widget">

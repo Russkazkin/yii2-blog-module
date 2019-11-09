@@ -235,11 +235,11 @@ header
     display: none;
 }
 
-.social-share ul li a i {
+.social-share ul li a {
     height: 30px;
     width: 30px;
     line-height: 30px;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 50%;
     margin: 3px;
     border: 1px solid #e5e5e5;
@@ -263,7 +263,7 @@ header
 
 }
 
-.social-share ul li a i:hover {
+.social-share ul li a:hover {
     background: #00BFF3;
     color: #FFF;
     border-color: #00BFF3;
