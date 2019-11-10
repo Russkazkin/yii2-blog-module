@@ -10,6 +10,6 @@ class IndexAction extends BaseAction
 {
     public function run()
     {
-        echo 'it works!';
+        return $this->controller->render('index');
     }
 }
