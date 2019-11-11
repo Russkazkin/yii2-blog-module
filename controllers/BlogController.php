@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers;
 
 
 use app\modules\blog\controllers\actions\blog\IndexAction;
+use app\modules\blog\controllers\actions\blog\SingleAction;
 
 class BlogController extends BaseController
 {
@@ -14,6 +15,7 @@ class BlogController extends BaseController
     {
         return [
             'index' => ['class' => IndexAction::class],
+            'single' => ['class' => SingleAction::class],
         ];
     }
 }
