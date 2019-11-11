@@ -1166,10 +1166,13 @@ blog css
     color: #212121;
     font-weight: 700;
 }
-
+.related-heading h4 {
+    font-size: 1.125rem;
+}
 .single-item p {
     text-align: center;
     padding-bottom: 0;
+    font-size: .875rem;
 }
 
 .related-post-carousel .owl-buttons {
