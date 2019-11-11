@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 
+$this->title = Yii::t('blog', 'Blog');
+
 ?>
 <div class="col-md-8">
     <article class="post">
