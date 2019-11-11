@@ -200,11 +200,11 @@ $this->title = Yii::t('blog', 'Single');
             <h4>3 comments</h4>
 
             <div class="comment-img">
-                <img class="img-circle" src="/temp/comment-img.jpg" alt="">
+                <img class="rounded-circle" src="/temp/comment-img.jpg" alt="">
             </div>
 
             <div class="comment-text">
-                <a href="#" class="replay btn pull-right"> Replay</a>
+                <a href="#" class="replay btn float-right"> Replay</a>
                 <h5>Rubel Miah</h5>
 
                 <p class="comment-date">
