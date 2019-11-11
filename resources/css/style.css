@@ -1119,10 +1119,6 @@ blog css
     flex-direction: column;
 }
 
-.single-blog-box .promo-text p {
-    color: #fff;
-}
-
 .single-blog-box .promo-text i {
     padding: 0 5px;
     font-size: 30px;
@@ -1131,7 +1127,21 @@ blog css
 
 .single-blog-box .promo-text h5 {
     color: #fff;
-    margin-top: 0;
+    margin: 0;
+    font-size: .875rem;
+    position: relative;
+}
+.single-blog-box .promo-text svg {
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+.single-blog-box .promo-text svg.fa-angle-left {
+    left: 10px;
+}
+.single-blog-box .promo-text svg.fa-angle-right {
+    right: 10px;
 }
 
 .single-blog-box:hover .promo-text {

@@ -116,8 +116,7 @@ $this->title = Yii::t('blog', 'Single');
                         <div class="overlay">
 
                             <div class="promo-text">
-                                <p><i class=" pull-left fa fa-angle-left"></i></p>
-                                <h5>Rubel is doing Cherry theme</h5>
+                                <h5><i class="fa fa-2x fa-angle-left"></i>Rubel is doing Cherry theme</h5>
                             </div>
                         </div>
 
@@ -132,9 +131,7 @@ $this->title = Yii::t('blog', 'Single');
 
                         <div class="overlay">
                             <div class="promo-text">
-                                <p><i class=" pull-right fa fa-angle-right"></i></p>
-                                <h5>Rubel is doing Cherry theme</h5>
-
+                                <h5>Rubel is doing Cherry theme<i class="fa fa-2x fa-angle-right"></i></h5>
                             </div>
                         </div>
                     </a>
