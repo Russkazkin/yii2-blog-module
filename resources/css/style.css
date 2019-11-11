@@ -287,7 +287,9 @@ post css
 article {
     border: 1px solid #eee;
 }
-
+.entry-content, .top-comment {
+    font-size: .875rem;
+}
 .entry-header {
     margin: 40px 0 23px;
 }
