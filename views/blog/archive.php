@@ -38,8 +38,8 @@ $this->title = Yii::t('blog', 'Category');
                 </div>
             </div>
             <div class="social-share">
-                <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                <ul class="text-center pull-right">
+                <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                <ul class="text-center float-right">
                     <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>325
                 </ul>
             </div>
@@ -74,8 +74,8 @@ $this->title = Yii::t('blog', 'Category');
                 </div>
             </div>
             <div class="social-share">
-                <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                <ul class="text-center pull-right">
+                <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                <ul class="text-center float-right">
                     <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>325
                 </ul>
             </div>
@@ -110,8 +110,8 @@ $this->title = Yii::t('blog', 'Category');
                 </div>
             </div>
             <div class="social-share">
-                <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                <ul class="text-center pull-right">
+                <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                <ul class="text-center float-right">
                     <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>325
                 </ul>
             </div>
@@ -146,8 +146,8 @@ $this->title = Yii::t('blog', 'Category');
                 </div>
             </div>
             <div class="social-share">
-                <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                <ul class="text-center pull-right">
+                <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                <ul class="text-center float-right">
                     <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>325
                 </ul>
             </div>
@@ -183,8 +183,8 @@ $this->title = Yii::t('blog', 'Category');
                 </div>
             </div>
             <div class="social-share">
-                <span class="social-share-title pull-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
-                <ul class="text-center pull-right">
+                <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On February 12, 2016</span>
+                <ul class="text-center float-right">
                     <li><a class="s-facebook" href="#"><i class="fa fa-eye"></i></a></li>325
                 </ul>
             </div>
