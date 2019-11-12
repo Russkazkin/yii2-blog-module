@@ -4,6 +4,7 @@
 namespace app\modules\blog\controllers;
 
 
+use app\modules\blog\controllers\actions\blog\ArchiveAction;
 use app\modules\blog\controllers\actions\blog\IndexAction;
 use app\modules\blog\controllers\actions\blog\SingleAction;
 
@@ -16,6 +17,7 @@ class BlogController extends BaseController
         return [
             'index' => ['class' => IndexAction::class],
             'single' => ['class' => SingleAction::class],
+            'archive' => ['class' => ArchiveAction::class],
         ];
     }
 }
