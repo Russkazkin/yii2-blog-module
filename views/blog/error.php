@@ -10,20 +10,27 @@ use yii\web\View;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<div class="col-sm-12 st-content">
+    <div id="primary" class="content-area padding-content white-color">
+        <main id="main" class="site-main" role="main">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            <section class="error-404 not-found text-center">
+                <h1 class="404"><?= Html::encode($this->title) ?></h1>
 
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
-    </div>
+                <p class="error-message"><?= nl2br(Html::encode($message)) ?></p>
 
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
+                <div class="row">
+                    <div class="col-sm-4 offset-sm-4">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <div>
+                                <input type="text" placeholder="Search and hit enter..." name="s" id="s"/>
+                            </div>
+                        </form>
+                        <p class="go-back-home"><a href="/">Back to Home Page</a></p>
+                    </div>
+                </div>
+            </section><!-- .error-404 -->
+        </main><!-- #main -->
+    </div><!-- #primary -->
 </div>
 

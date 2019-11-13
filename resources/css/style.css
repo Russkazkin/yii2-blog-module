@@ -1622,8 +1622,13 @@ header two
 }
 
 .error-404 h1 {
-    font-size: 150px;
+    font-size: 100px;
     margin-bottom: 30px;
+}
+
+.error-message {
+    font-size: 3rem;
+    margin: 5rem 0;
 }
 
 .st-content #searchform input#s {
