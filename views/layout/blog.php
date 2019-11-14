@@ -37,14 +37,14 @@ BlogAsset::register($this);
             <div class="collapse navbar-collapse justify-content-between" id="navbar-main">
 
                 <ul class="nav navbar-nav text-uppercase">
-                    <li><a data-toggle="dropdown" class="dropdown-toggle" href="index.html">Home</a>
-
-                    </li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blog/single">Single</a></li>
+                    <li><a href="/blog/archive">Category</a></li>
                 </ul>
                 <div class="auth">
                     <ul class="nav navbar-nav text-uppercase ">
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Register</a></li>
+                        <li><a href="/auth/sign-in">Login</a></li>
+                        <li><a href="/auth/sign-up">Register</a></li>
                     </ul>
                 </div>
 
