@@ -50,7 +50,7 @@ if (Yii::$app->user->isGuest) {
     $menuItems[] = '<li class="nav-item">'
         . Html::beginForm(['/auth/logout'], 'post')
         . Html::submitButton(
-            Yii::t('app', 'Logout (') . Yii::$app->user->identity->username . ')',
+            Yii::$app->user->identity->username . ' <i class="fas fa-sign-out-alt"></i>',
             ['class' => 'btn btn-link logout']
         )
         . Html::endForm()

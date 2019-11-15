@@ -227,7 +227,15 @@ header
 .main-menu .nav li > form > button.logout {
     color: #777;
     line-height: 36px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
+    font-size: 12px;
+    padding: 15px 8px;
+}
+.main-menu .nav li > form > button.logout:hover,
+.main-menu .nav li > form > button.logout:active,
+.main-menu .nav li > form > button.logout:focus {
+    color: #00BFF3;
+    text-decoration: none;
 }
 .social-share ul li {
     list-style: none;
