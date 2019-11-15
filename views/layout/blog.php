@@ -2,7 +2,10 @@
 
 use app\assets\AppAsset;
 use app\modules\blog\assets\BlogAsset;
+use app\modules\lang\widgets\selector\LanguageSelectorWidget;
 use xtetis\bootstrap4glyphicons\assets\GlyphiconAsset;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
@@ -25,6 +28,45 @@ BlogAsset::register($this);
 </head>
 <?php $this->beginBody() ?>
 <body>
+<?php
+NavBar::begin([
+    'brandLabel' => 'Blog',
+    'brandUrl' => Yii::$app->homeUrl,
+    'options' => [
+        'class' => ['navbar', 'navbar-expand-md', 'main-menu navbar-light', 'text-uppercase'],
+    ],
+]);
+$menuItems = [
+    ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
+    ['label' => Yii::t('app', 'About'), 'url' => ['/site/about']],
+    ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']],
+];
+if (Yii::$app->user->isGuest) {
+    $menuItems[] = ['label' => Yii::t('app', 'Sign In'), 'url' => ['/auth/sign-in']];
+    $menuItems[] = ['label' => Yii::t('app', 'Sign Up'), 'url' => ['/auth/sign-up']];
+} else {
+    $menuItems[] = ['label' => Yii::t('app', 'Admin'), 'url' => ['/admin']];
+    $menuItems[] = '<li>'
+        . Html::beginForm(['/auth/logout'], 'post')
+        . Html::submitButton(
+            Yii::t('app', 'Logout (') . Yii::$app->user->identity->username . ')',
+            ['class' => 'btn btn-link logout']
+        )
+        . Html::endForm()
+        . '</li>';
+}
+
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav mr-auto'],
+    'items' => $menuItems
+]);
+try {
+    echo LanguageSelectorWidget::widget();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+NavBar::end();
+?>
 <nav class="navbar navbar-expand-md main-menu navbar-light">
     <div class="container">
             <a class="navbar-brand" href="/">BLOG</a>
