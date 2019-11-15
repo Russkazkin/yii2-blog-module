@@ -46,7 +46,7 @@ if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => Module::t('blog', 'Login'), 'url' => ['/auth/sign-in']];
     $menuItems[] = ['label' => Module::t('blog', 'Register'), 'url' => ['/auth/sign-up']];
 } else {
-    $menuItems[] = ['label' => Module::t('blog', 'Admin'), 'url' => ['/admin']];
+    $menuItems[] = ['label' => Module::t('blog', 'Console'), 'url' => ['/admin']];
     $menuItems[] = '<li class="nav-item">'
         . Html::beginForm(['/auth/logout'], 'post')
         . Html::submitButton(
@@ -68,34 +68,6 @@ try {
 }
 NavBar::end();
 ?>
-<nav class="navbar navbar-expand-md main-menu navbar-light">
-    <div class="container">
-            <a class="navbar-brand" href="/">BLOG</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbar-main">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-            <div class="collapse navbar-collapse justify-content-between" id="navbar-main">
-
-                <ul class="nav navbar-nav text-uppercase">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/blog/single">Single</a></li>
-                    <li><a href="/blog/archive">Category</a></li>
-                </ul>
-                <div class="auth">
-                    <ul class="nav navbar-nav text-uppercase ">
-                        <li><a href="/auth/sign-in">Login</a></li>
-                        <li><a href="/auth/sign-up">Register</a></li>
-                    </ul>
-                </div>
-
-            </div>
-    </div>
-</nav>
-
-
 <!--main content start-->
 <div class="main-content">
     <div class="container">
