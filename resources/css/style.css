@@ -224,7 +224,11 @@ header
     box-shadow: 0 5px 4px -4px rgba(190, 190, 190, .1);
     border: 1px solid #eee;
 }
-
+.main-menu .nav li > form > button.logout {
+    color: #777;
+    line-height: 36px;
+    text-transform: uppercase;
+}
 .social-share ul li {
     list-style: none;
     display: inline-block;

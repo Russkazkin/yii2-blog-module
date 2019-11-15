@@ -2,6 +2,7 @@
 
 use app\assets\AppAsset;
 use app\modules\blog\assets\BlogAsset;
+use app\modules\blog\Module;
 use app\modules\lang\widgets\selector\LanguageSelectorWidget;
 use xtetis\bootstrap4glyphicons\assets\GlyphiconAsset;
 use yii\bootstrap4\Nav;
@@ -37,16 +38,16 @@ NavBar::begin([
     ],
 ]);
 $menuItems = [
-    ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
-    ['label' => Yii::t('app', 'About'), 'url' => ['/site/about']],
-    ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']],
+    ['label' => Module::t('blog', 'Home'), 'url' => ['/blog/index']],
+    ['label' => Module::t('blog', 'Single'), 'url' => ['/blog/single']],
+    ['label' => Module::t('blog', 'Category'), 'url' => ['/blog/archive']],
 ];
 if (Yii::$app->user->isGuest) {
-    $menuItems[] = ['label' => Yii::t('app', 'Sign In'), 'url' => ['/auth/sign-in']];
-    $menuItems[] = ['label' => Yii::t('app', 'Sign Up'), 'url' => ['/auth/sign-up']];
+    $menuItems[] = ['label' => Module::t('blog', 'Login'), 'url' => ['/auth/sign-in']];
+    $menuItems[] = ['label' => Module::t('blog', 'Register'), 'url' => ['/auth/sign-up']];
 } else {
-    $menuItems[] = ['label' => Yii::t('app', 'Admin'), 'url' => ['/admin']];
-    $menuItems[] = '<li>'
+    $menuItems[] = ['label' => Module::t('blog', 'Admin'), 'url' => ['/admin']];
+    $menuItems[] = '<li class="nav-item">'
         . Html::beginForm(['/auth/logout'], 'post')
         . Html::submitButton(
             Yii::t('app', 'Logout (') . Yii::$app->user->identity->username . ')',
