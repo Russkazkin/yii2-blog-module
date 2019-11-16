@@ -495,9 +495,9 @@ pagination
     border-bottom-right-radius: 0;
 }
 
-.pagination > .active > a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover,
+.pagination > .page-item.active > a.page-link,
+.pagination > .page-item.active > a.page-link:focus,
+.pagination > .page-item.active > a.page-link:hover,
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
@@ -505,7 +505,10 @@ pagination
     color: #fff;
     background-color: #00BFF3;
 }
-
+.pagination > .next > .page-link > span,
+.pagination > .prev > .page-link > span {
+    line-height: 22px;
+}
 /*==========
 sidebar
 ===========*/
