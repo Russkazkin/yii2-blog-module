@@ -14,7 +14,7 @@ class IndexAction extends BaseAction
     {
         $query = Article::find()->where(['status' => 10]);
         $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 1]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
