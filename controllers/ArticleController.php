@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\lang\components\LangDateComponent;
 use Yii;
 use app\modules\blog\models\Article;
 use app\modules\blog\models\search\ArticleSearch;
@@ -173,5 +174,14 @@ class ArticleController extends BaseController
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    /**
+     * @var $manager LangDateComponent
+     */
+    public function actionTest()
+    {
+        $manager = Yii::$app->getModule('lang')->dateManager;
+        $manager->test();
     }
 }
