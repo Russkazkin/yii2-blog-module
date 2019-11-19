@@ -181,7 +181,6 @@ class ArticleController extends BaseController
      */
     public function actionTest()
     {
-        $manager = Yii::$app->getModule('lang')->dateManager;
-        $manager->test();
+        $this->dateManager->test();
     }
 }
