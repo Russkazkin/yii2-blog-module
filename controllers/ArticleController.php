@@ -181,6 +181,6 @@ class ArticleController extends BaseController
      */
     public function actionTest()
     {
-        $this->dateManager->test();
+        echo $this->dateManager->timestampToDate(mktime(0,0,0, 12, 31, 2020));
     }
 }
