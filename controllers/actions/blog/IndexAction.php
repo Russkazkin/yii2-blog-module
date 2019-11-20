@@ -22,6 +22,7 @@ class IndexAction extends BaseAction
         return $this->controller->render('index', [
             'models' => $models,
             'pages' => $pages,
+            'dateManager' => $this->controller->dateManager,
         ]);
     }
 }

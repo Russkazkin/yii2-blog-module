@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $pages \yii\data\Pagination */
 /* @var $models \app\modules\blog\models\Article [] */
+/* @var $dateManager \app\modules\lang\components\LangDateComponent */
 
 $this->title = Yii::t('blog', 'Blog');
 
@@ -35,7 +36,7 @@ use yii\bootstrap4\LinkPager; ?>
                 </div>
                 <div class="social-share">
                             <span class="social-share-title float-left text-capitalize">By <a href="#">Rubel</a> On
-                                <?= $model->date; ?></span>
+                                <?= $dateManager->timestampToDate($model->date); ?></span>
                     <ul class="text-center float-right">
                         <li><a class="s-facebook" href="#"><i class="fas fa-eye"></i></a></li>
                         <?= (int) $model->viewed; ?>
