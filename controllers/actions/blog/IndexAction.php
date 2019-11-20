@@ -12,7 +12,7 @@ class IndexAction extends BaseAction
 {
     public function run()
     {
-        $query = Article::find()->where(['status' => 10]);
+        $query = Article::find()->where(['status' => 10])->orderBy(['date' => SORT_DESC]);
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
         $models = $query->offset($pages->offset)
