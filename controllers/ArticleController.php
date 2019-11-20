@@ -175,12 +175,4 @@ class ArticleController extends BaseController
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
-
-    /**
-     * @var $manager LangDateComponent
-     */
-    public function actionTest()
-    {
-        echo $this->dateManager->timestampToDate(mktime(0,0,0, 12, 31, 2020));
-    }
 }
