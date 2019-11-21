@@ -10,19 +10,18 @@ use app\modules\blog\models\Category;
 
 class BaseBlogAction extends BaseAction
 {
-    public $popularArticles;
-    public $recentArticles;
-
-    public function init()
-    {
-        parent::init();
-
-        $this->popularArticles = Article::find()->orderBy('viewed desc')->limit(3)->all();
-        $this->recentArticles = Article::find()->orderBy('date desc')->limit(4)->all();
-    }
-
     public function getCategoriesList()
     {
         return Category::find()->all();
+    }
+
+    public function getPopularArticles()
+    {
+        return Article::find()->orderBy('viewed desc')->limit(3)->all();
+    }
+
+    public function getRecentArticles()
+    {
+        return Article::find()->orderBy('date desc')->limit(4)->all();
     }
 }
