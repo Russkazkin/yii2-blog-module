@@ -31,7 +31,7 @@
             <?php foreach ($recent as $model): ?>
             <div class="thumb-latest-posts">
                 <div class="media">
-                    <div class="media-left">
+                    <div class="media-left mr-3">
                         <a href="#" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
                             <div class="p-overlay"></div>
                         </a>

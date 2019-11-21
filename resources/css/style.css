@@ -562,6 +562,9 @@ about me
     margin-bottom: 0;
 }
 
+.thumb-latest-posts .media-left {
+    max-width: 33.333333%;
+}
 /*=============
 subscribe newsletter
 ================*/
