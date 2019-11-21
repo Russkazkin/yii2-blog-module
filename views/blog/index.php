@@ -53,4 +53,5 @@ use yii\bootstrap4\LinkPager; ?>
 </div>
 <?= $this->render('_sidebar', [
         'popular' => $popularArticles,
+        'dateManager' => $dateManager,
 ]);
