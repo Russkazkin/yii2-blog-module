@@ -8,7 +8,7 @@ use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\Article;
 use yii\data\Pagination;
 
-class IndexAction extends BaseAction
+class IndexAction extends BaseBlogAction
 {
     public function run()
     {
@@ -23,6 +23,7 @@ class IndexAction extends BaseAction
             'models' => $models,
             'pages' => $pages,
             'dateManager' => $this->controller->dateManager,
+            'popularArticles' => $this->popularArticles,
         ]);
     }
 }
