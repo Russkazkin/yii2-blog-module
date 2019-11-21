@@ -23,9 +23,7 @@ class IndexAction extends BaseBlogAction
             'models' => $models,
             'pages' => $pages,
             'dateManager' => $this->controller->dateManager,
-            'popularArticles' => $this->popularArticles,
-            'recentArticles' => $this->recentArticles,
-            'categories' => $this->categoriesList,
+            'sidebarData' => $this->getSidebarData(),
         ]);
     }
 }
