@@ -30,4 +30,6 @@
     'Reset password' => 'Сброс пароля',
     'Please choose your new password:' => 'Пожалуйста, выберите ваш новый пароль:',
     'Save' => 'Сохранить',
+    'Search and hit enter...' => 'Для поиска нажмите ВВОД...',
+    'Back to Home Page' => 'Назад на Главную',
 ];

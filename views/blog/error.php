@@ -5,6 +5,7 @@
 /* @var $message string */
 /* @var $exception Exception */
 
+use app\modules\auth\Module;
 use yii\helpers\Html;
 use yii\web\View;
 
@@ -23,10 +24,10 @@ $this->title = $name;
                     <div class="col-sm-4 offset-sm-4">
                         <form role="search" method="get" id="searchform" action="#">
                             <div>
-                                <input type="text" placeholder="Search and hit enter..." name="s" id="s"/>
+                                <input type="text" placeholder="<?= Module::t('blog', 'Search and hit enter...')?>" name="s" id="s"/>
                             </div>
                         </form>
-                        <p class="go-back-home"><a href="/">Back to Home Page</a></p>
+                        <p class="go-back-home"><a href="/"><?= Module::t('blog', 'Back to Home Page')?></a></p>
                     </div>
                 </div>
             </section><!-- .error-404 -->
