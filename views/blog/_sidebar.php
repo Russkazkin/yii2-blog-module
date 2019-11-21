@@ -1,5 +1,6 @@
 <?php
 /* @var $popular \app\modules\blog\controllers\actions\blog\BaseBlogAction[] */
+/* @var $recent \app\modules\blog\controllers\actions\blog\BaseBlogAction */
 /* @var $model \app\modules\blog\models\Article */
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
 ?>
@@ -27,66 +28,22 @@
         <aside class="widget pos-padding">
             <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
 
+            <?php foreach ($recent as $model): ?>
             <div class="thumb-latest-posts">
-
-
                 <div class="media">
                     <div class="media-left">
-                        <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
+                        <a href="#" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
                             <div class="p-overlay"></div>
                         </a>
                     </div>
                     <div class="p-content">
-                        <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                        <span class="p-date">February 15, 2016</span>
+                        <a href="#" class="text-uppercase"><?= $model->title; ?></a>
+                        <span class="p-date"><?= $dateManager->timestampToDate($model->date); ?></span>
                     </div>
                 </div>
             </div>
-            <div class="thumb-latest-posts">
+            <?php endforeach; ?>
 
-
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
-                            <div class="p-overlay"></div>
-                        </a>
-                    </div>
-                    <div class="p-content">
-                        <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                        <span class="p-date">February 15, 2016</span>
-                    </div>
-                </div>
-            </div>
-            <div class="thumb-latest-posts">
-
-
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
-                            <div class="p-overlay"></div>
-                        </a>
-                    </div>
-                    <div class="p-content">
-                        <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                        <span class="p-date">February 15, 2016</span>
-                    </div>
-                </div>
-            </div>
-            <div class="thumb-latest-posts">
-
-
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#" class="popular-img"><img src="/temp/r-p.jpg" alt="">
-                            <div class="p-overlay"></div>
-                        </a>
-                    </div>
-                    <div class="p-content">
-                        <a href="#" class="text-uppercase">Home is peaceful Place</a>
-                        <span class="p-date">February 15, 2016</span>
-                    </div>
-                </div>
-            </div>
         </aside>
         <aside class="widget border pos-padding">
             <h3 class="widget-title text-uppercase text-center">Categories</h3>
