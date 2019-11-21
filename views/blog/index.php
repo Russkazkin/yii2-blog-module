@@ -4,8 +4,9 @@
 /* @var $pages \yii\data\Pagination */
 /* @var $models \app\modules\blog\models\Article [] */
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
-/* @var $popularArticles \app\modules\blog\controllers\actions\blog\BaseBlogAction */
-/* @var $recentArticles \app\modules\blog\controllers\actions\blog\BaseBlogAction */
+/* @var $popularArticles \app\modules\blog\models\Article [] */
+/* @var $recentArticles \app\modules\blog\models\Article [] */
+/* @var $categories \app\modules\blog\models\Category [] */
 
 $this->title = Yii::t('blog', 'Blog');
 
@@ -55,5 +56,6 @@ use yii\bootstrap4\LinkPager; ?>
 <?= $this->render('_sidebar', [
         'popular' => $popularArticles,
         'recent' => $recentArticles,
+        'categories' => $categories,
         'dateManager' => $dateManager,
 ]);

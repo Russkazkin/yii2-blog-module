@@ -1,8 +1,8 @@
 <?php
-/* @var $popular \app\modules\blog\controllers\actions\blog\BaseBlogAction[] */
-/* @var $recent \app\modules\blog\controllers\actions\blog\BaseBlogAction */
-/* @var $model \app\modules\blog\models\Article */
+/* @var $popular \app\modules\blog\models\Article [] */
+/* @var $recent \app\modules\blog\models\Article [] */
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
+/* @var $categories \app\modules\blog\models\Category [] */
 ?>
 
 <div class="col-md-4 sticky_column">
@@ -48,30 +48,12 @@
         <aside class="widget border pos-padding">
             <h3 class="widget-title text-uppercase text-center">Categories</h3>
             <ul>
+                <?php foreach ($categories as $category):?>
                 <li>
-                    <a href="#">Food & Drinks</a>
-                    <span class="post-count float-right"> (2)</span>
+                    <a href="#"><?= $category->title; ?></a>
+                    <span class="post-count float-right"> (<?= $category->getArticles()->count(); ?>)</span>
                 </li>
-                <li>
-                    <a href="#">Travel</a>
-                    <span class="post-count float-right"> (2)</span>
-                </li>
-                <li>
-                    <a href="#">Business</a>
-                    <span class="post-count float-right"> (2)</span>
-                </li>
-                <li>
-                    <a href="#">Story</a>
-                    <span class="post-count float-right"> (2)</span>
-                </li>
-                <li>
-                    <a href="#">DIY & Tips</a>
-                    <span class="post-count float-right"> (2)</span>
-                </li>
-                <li>
-                    <a href="#">Lifestyle</a>
-                    <span class="post-count float-right"> (2)</span>
-                </li>
+                <?php endforeach; ?>
             </ul>
         </aside>
     </div>

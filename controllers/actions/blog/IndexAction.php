@@ -25,6 +25,7 @@ class IndexAction extends BaseBlogAction
             'dateManager' => $this->controller->dateManager,
             'popularArticles' => $this->popularArticles,
             'recentArticles' => $this->recentArticles,
+            'categories' => $this->getCategoriesList(),
         ]);
     }
 }
