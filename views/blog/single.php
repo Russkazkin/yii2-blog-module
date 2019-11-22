@@ -1,87 +1,27 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $model \app\modules\blog\models\Article */
 
 $this->title = Yii::t('blog', 'Single');
 
-?>
+use yii\helpers\Url; ?>
 
     <div class="col-md-8">
         <article class="post">
             <div class="post-thumb">
-                <a href="blog.html"><img src="/temp/blog-1.jpg" alt=""></a>
+                <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $model->getImage(); ?>" alt=""></a>
             </div>
             <div class="post-content">
                 <header class="entry-header text-center text-uppercase">
                     <h6><a href="#"> Travel</a></h6>
 
-                    <h1 class="entry-title"><a href="blog.html">Home is peaceful place</a></h1>
+                    <h1 class="entry-title"><a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><?= $model->title; ?></a></h1>
 
 
                 </header>
                 <div class="entry-content">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tevidulabore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                        justo duo dolores rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-                        ipsum dolor sit am Lorem ipsum dolor sitconsetetur sadipscing elitr, sed diam nonumy
-                        eirmod tempor invidunt ut labore et dolore maliquyam erat, sed diam voluptua.
-                    </p>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirtempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctusest
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elised
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sdiam
-                        voluptua. At vero eos et accusam.
-                    </p>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirtempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctusest
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elised
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sdiam
-                        voluptua. At vero eos et accusam.
-                    </p>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirtempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctusest
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elised
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sdiam
-                        voluptua. At vero eos et accusam.
-                    </p>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirtempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctusest
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elised
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sdiam
-                        voluptua. At vero eos et accusam.
-                    </p>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirtempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctusest
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elised
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sdiam
-                        voluptua. At vero eos et accusam.
-                    </p>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirtempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctusest
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elised
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sdiam
-                        voluptua. At vero eos et accusam.
-                    </p>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirtempor
-                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero accusam et
-                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctusest
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elised
-                        diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sdiam
-                        voluptua. At vero eos et accusam.
-                    </p>
+                    <?= $model->content; ?>
                 </div>
                 <div class="decoration">
                     <a href="#" class="btn btn-default">Decoration</a>
@@ -89,7 +29,7 @@ $this->title = Yii::t('blog', 'Single');
                 </div>
 
                 <div class="social-share">
-                    <span class="social-share-title float-left text-capitalize">By Rubel On February 12, 2016</span>
+                    <span class="social-share-title float-left text-capitalize">By Rubel <?= $dateManager->timestampToDate($model->date); ?></span>
                     <ul class="text-center float-right">
                         <li><a class="s-facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a class="s-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
