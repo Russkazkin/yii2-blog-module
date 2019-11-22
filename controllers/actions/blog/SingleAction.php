@@ -3,13 +3,13 @@
 
 namespace app\modules\blog\controllers\actions\blog;
 
-
-use app\modules\blog\controllers\actions\BaseAction;
-
-class SingleAction extends BaseAction
+class SingleAction extends BaseBlogAction
 {
     public function run()
     {
-        return $this->controller->render('single');
+        return $this->controller->render('single', [
+            'sidebarData' => $this->getSidebarData(),
+            'dateManager' => $this->controller->dateManager,
+        ]);
     }
 }

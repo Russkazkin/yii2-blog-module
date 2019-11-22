@@ -244,4 +244,9 @@ $this->title = Yii::t('blog', 'Single');
             </form>
         </div><!--end leave comment-->
     </div>
-<?= $this->render('_sidebar');
+<?= $this->render('_sidebar', [
+    'popular' => $sidebarData['popular'],
+    'recent' => $sidebarData['recent'],
+    'categories' => $sidebarData['categories'],
+    'dateManager' => $dateManager,
+]);
