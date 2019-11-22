@@ -8,15 +8,16 @@
 
 $this->title = Yii::t('blog', 'Blog');
 
-use yii\bootstrap4\LinkPager; ?>
+use yii\bootstrap4\LinkPager;
+use yii\helpers\Url; ?>
 
 <div class="col-md-8">
     <?php foreach ($models as $model): ?>
         <article class="post">
             <div class="post-thumb">
-                <a href="blog.html"><img src="<?= $model->getImage(); ?>" alt="<?= $model->image; ?>"></a>
+                <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $model->getImage(); ?>" alt="<?= $model->image; ?>"></a>
 
-                <a href="blog.html" class="post-thumb-overlay text-center">
+                <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="post-thumb-overlay text-center">
                     <div class="text-uppercase text-center">View Post</div>
                 </a>
             </div>
@@ -24,7 +25,7 @@ use yii\bootstrap4\LinkPager; ?>
                 <header class="entry-header text-center text-uppercase">
                     <h6><a href="#"><?= $model->category->title; ?></a></h6>
 
-                    <h1 class="entry-title"><a href="blog.html"><?= $model->title; ?></a></h1>
+                    <h1 class="entry-title"><a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><?= $model->title; ?></a></h1>
 
 
                 </header>
@@ -32,7 +33,7 @@ use yii\bootstrap4\LinkPager; ?>
                     <p><?= $model->description; ?></p>
 
                     <div class="btn-continue-reading text-center text-uppercase">
-                        <a href="blog.html" class="more-link">Continue Reading</a>
+                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="more-link">Continue Reading</a>
                     </div>
                 </div>
                 <div class="social-share">
