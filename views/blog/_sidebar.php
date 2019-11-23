@@ -1,5 +1,8 @@
 <?php
 /* @var $popular \app\modules\blog\models\Article [] */
+
+use yii\helpers\Url;
+
 /* @var $recent \app\modules\blog\models\Article [] */
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
 /* @var $categories \app\modules\blog\models\Category [] */
@@ -12,13 +15,13 @@
             <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
             <?php foreach ($popular as $model): ?>
                 <div class="popular-post">
-                    <a href="#" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
 
                         <div class="p-overlay"></div>
                     </a>
 
                     <div class="p-content">
-                        <a href="#" class="text-uppercase"><?= $model->title; ?></a>
+                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="text-uppercase"><?= $model->title; ?></a>
                         <span class="p-date"><?= $dateManager->timestampToDate($model->date); ?></span>
 
                     </div>
@@ -32,12 +35,12 @@
             <div class="thumb-latest-posts">
                 <div class="media">
                     <div class="media-left mr-3">
-                        <a href="#" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
+                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
                             <div class="p-overlay"></div>
                         </a>
                     </div>
                     <div class="p-content">
-                        <a href="#" class="text-uppercase"><?= $model->title; ?></a>
+                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="text-uppercase"><?= $model->title; ?></a>
                         <span class="p-date"><?= $dateManager->timestampToDate($model->date); ?></span>
                     </div>
                 </div>
