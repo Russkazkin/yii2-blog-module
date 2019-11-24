@@ -198,4 +198,9 @@ $this->title = Yii::t('blog', 'Category');
         <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
     </ul>
 </div>
-<?= $this->render('_sidebar');
+<?= $this->render('_sidebar', [
+    'popular' => $sidebarData['popular'],
+    'recent' => $sidebarData['recent'],
+    'categories' => $sidebarData['categories'],
+    'dateManager' => $dateManager,
+]);
