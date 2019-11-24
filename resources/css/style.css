@@ -1650,6 +1650,7 @@ header two
 .error-message {
     font-size: 3rem;
     margin: 5rem 0;
+    line-height: unset;
 }
 
 .st-content #searchform input#s {
