@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 /* @var $model \app\modules\blog\models\Article */
+/** @var \app\modules\blog\models\Tag $tags */
 
 $this->title = Yii::t('blog', 'Single');
 
@@ -25,7 +26,6 @@ use yii\helpers\Url; ?>
                 </div>
                 <div class="decoration">
                     <?php
-                    $tags = $model->getTags()->all();
                     foreach ($tags as $tag): ?>
                     <a href="<?= Url::toRoute(['blog/archive', 'tag_id' => $tag->id]) ?>" class="btn btn-default">
                         <?= $tag->title; ?>
