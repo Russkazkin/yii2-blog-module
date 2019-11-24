@@ -24,8 +24,13 @@ use yii\helpers\Url; ?>
                     <?= $model->content; ?>
                 </div>
                 <div class="decoration">
-                    <a href="#" class="btn btn-default">Decoration</a>
-                    <a href="#" class="btn btn-default">Decoration</a>
+                    <?php
+                    $tags = $model->getTags()->all();
+                    foreach ($tags as $tag): ?>
+                    <a href="<?= Url::toRoute(['blog/archive', 'tag_id' => $tag->id]) ?>" class="btn btn-default">
+                        <?= $tag->title; ?>
+                    </a>
+                    <?php endforeach; ?>
                 </div>
 
                 <div class="social-share">

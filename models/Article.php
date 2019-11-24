@@ -168,6 +168,9 @@ class Article extends BaseArticle
         return ArrayHelper::map(Category::find()->all(), 'id', 'title');
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getTags()
     {
         try {
