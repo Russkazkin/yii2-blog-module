@@ -29,7 +29,8 @@ $this->title = Yii::t('blog', 'Category');
             <div class="col-md-6">
                 <div class="post-content">
                     <header class="entry-header text-uppercase">
-                        <h6><a href=""><?= $model->category->title; ?></a></h6>
+                        <h6><a href="<?= Url::toRoute(['blog/archive', 'category_id' => $model->id]) ?>"><?=
+                                $model->category->title; ?></a></h6>
 
                         <h1 class="entry-title"><a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>">Home is peaceful place</a></h1>
                     </header>

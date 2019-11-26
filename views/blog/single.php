@@ -15,8 +15,11 @@ use yii\helpers\Url; ?>
             </div>
             <div class="post-content">
                 <header class="entry-header text-center text-uppercase">
-                    <h6><a href="<?= Url::toRoute(['blog/archive', 'category_id' => $model->category_id]) ?>">
-                            Travel</a></h6>
+                    <h6>
+                        <a href="<?= Url::toRoute(['blog/archive', 'category_id' => $model->category_id]) ?>">
+                            <?= $model->category->title; ?>
+                        </a>
+                    </h6>
 
                     <h1 class="entry-title"><a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><?= $model->title; ?></a></h1>
 
