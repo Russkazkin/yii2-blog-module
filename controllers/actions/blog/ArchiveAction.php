@@ -6,11 +6,13 @@ namespace app\modules\blog\controllers\actions\blog;
 
 use app\modules\blog\models\Article;
 use app\modules\blog\models\Tag;
+use Yii;
 use yii\data\Pagination;
+use yii\web\NotFoundHttpException;
 
 class ArchiveAction extends BaseBlogAction
 {
-    public function run(int $category_id = null, int $tag_id = null)
+    public function run($category_id = null, $tag_id = null)
     {
         if(isset($category_id)) {
             $query = Article::find()
@@ -19,6 +21,9 @@ class ArchiveAction extends BaseBlogAction
                 ->orderBy(['date' => SORT_DESC]);
         } elseif (isset($tag_id)) {
             $tag = Tag::find()->where(['id' => $tag_id])->one();
+            if(!$tag) {
+                throw new NotFoundHttpException(Yii::t('blog', 'The requested articles not found.'));
+            }
             $query = $tag->getArticles();
         }
         $countQuery = clone $query;

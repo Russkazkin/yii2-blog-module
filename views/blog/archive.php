@@ -6,6 +6,7 @@
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
 /* @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData() [] */
 
+use yii\bootstrap4\LinkPager;
 use yii\helpers\Url;
 use yii\web\View;
 
@@ -48,13 +49,9 @@ $this->title = Yii::t('blog', 'Category');
         </div>
     </article>
 <?php endforeach; ?>
-    <ul class="pagination">
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-    </ul>
+<?= LinkPager::widget([
+    'pagination' => $pages
+])?>
 </div>
 <?= $this->render('_sidebar', [
     'popular' => $sidebarData['popular'],
