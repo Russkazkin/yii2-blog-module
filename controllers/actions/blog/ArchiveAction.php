@@ -10,7 +10,7 @@ use yii\data\Pagination;
 
 class ArchiveAction extends BaseBlogAction
 {
-    public function run($category_id = null, $tag_id = null)
+    public function run(int $category_id = null, int $tag_id = null)
     {
         if(isset($category_id)) {
             $query = Article::find()
@@ -22,7 +22,7 @@ class ArchiveAction extends BaseBlogAction
             $query = $tag->getArticles();
         }
         $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 6]);
         $models = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
