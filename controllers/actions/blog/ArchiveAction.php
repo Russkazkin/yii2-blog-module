@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers\actions\blog;
 
 
 use app\modules\blog\models\Article;
+use app\modules\blog\models\Tag;
 use yii\data\Pagination;
 
 class ArchiveAction extends BaseBlogAction
@@ -17,7 +18,8 @@ class ArchiveAction extends BaseBlogAction
                 ->andWhere(['status' => 10])
                 ->orderBy(['date' => SORT_DESC]);
         } elseif (isset($tag_id)) {
-            echo 'it\'s tag';
+            $tag = Tag::find()->where(['id' => $tag_id])->one();
+            $query = $tag->getArticles();
         }
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
