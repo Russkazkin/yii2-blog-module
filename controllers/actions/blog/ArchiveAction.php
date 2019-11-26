@@ -19,6 +19,7 @@ class ArchiveAction extends BaseBlogAction
                 ->andWhere(['category_id' => $category_id])
                 ->andWhere(['status' => 10])
                 ->orderBy(['date' => SORT_DESC]);
+            //TODO Add not found exception
         } elseif (isset($tag_id)) {
             $tag = Tag::find()->where(['id' => $tag_id])->one();
             if(!$tag) {
