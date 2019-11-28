@@ -29,6 +29,8 @@ class ArchiveAction extends BaseBlogAction
                 throw new NotFoundHttpException(Yii::t('blog', 'The requested articles not found.'));
             }
             $query = $tag->getArticles();
+        }else{
+            throw new NotFoundHttpException(Yii::t('blog', 'The requested articles not found.'));
         }
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 6]);
