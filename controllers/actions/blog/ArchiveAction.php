@@ -12,7 +12,7 @@ use yii\web\NotFoundHttpException;
 
 class ArchiveAction extends BaseBlogAction
 {
-    public function run($category_id = null, $tag_id = null)
+    public function run($category_id = null, $tag_id = null, $author_id = null)
     {
         if(isset($category_id)) {
             $query = Article::find()
@@ -29,7 +29,12 @@ class ArchiveAction extends BaseBlogAction
                 throw new NotFoundHttpException(Yii::t('blog', 'The requested articles not found.'));
             }
             $query = $tag->getArticles();
-        }else{
+        } elseif (isset($author_id)){
+            $query = Article::find()
+                ->andWhere(['user_id' => $author_id])
+                ->andWhere(['status' => 10])
+                ->orderBy(['date' => SORT_DESC]);
+        } else {
             throw new NotFoundHttpException(Yii::t('blog', 'The requested articles not found.'));
         }
         $countQuery = clone $query;
