@@ -38,7 +38,9 @@ use yii\helpers\Url; ?>
                 </div>
                 <div class="social-share">
                             <span class="social-share-title float-left text-capitalize">By <a href="<?= Url::toRoute
-                                (['blog/archive', 'author_id' => $model->user_id]) ?>">Rubel</a> On
+                                (['blog/archive', 'author_id' => $model->user_id]) ?>">
+                                    <?= $model->user->name; ?>
+                                </a> On
                                 <?= $dateManager->timestampToDate($model->date); ?></span>
                     <ul class="text-center float-right">
                         <li><a class="s-facebook" href="#"><i class="fas fa-eye"></i></a></li>
