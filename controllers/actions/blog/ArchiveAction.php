@@ -12,6 +12,7 @@ use yii\web\NotFoundHttpException;
 
 class ArchiveAction extends BaseBlogAction
 {
+    //TODO Split to 3 different actions
     public function run($category_id = null, $tag_id = null, $author_id = null)
     {
         if(isset($category_id)) {
