@@ -41,4 +41,10 @@ class Category extends BaseCategory
             'updated_at' => Module::t('blog', 'Updated At'),
         ];
     }
+
+    public function getArticlesCount()
+    {
+        return $this->hasMany(Article::class, ['category_id' => 'id'])->count();
+    }
+
 }
