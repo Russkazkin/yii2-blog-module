@@ -32,4 +32,5 @@
     'Save' => 'Сохранить',
     'Search and hit enter...' => 'Для поиска нажмите ВВОД...',
     'Back to Home Page' => 'Назад на Главную',
+    'No articles with this tag found.' => 'Статьи с этим тегом не найдены'
 ];
