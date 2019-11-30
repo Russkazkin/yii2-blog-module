@@ -5,9 +5,7 @@ namespace app\modules\blog\controllers\actions\blog;
 
 
 use app\modules\blog\models\Article;
-use app\modules\blog\models\Tag;
 use Yii;
-use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 
 class ArchiveAction extends BaseBlogAction
