@@ -25,8 +25,9 @@ Yii2 Blog module
         
         'blog*' => [
             'class' => PhpMessageSource::class,
+            'basePath' => '@app/modules/blog/messages',
             'fileMap' => [
-                'blog' => '/modules/blog/messages'
+                'blog' => 'blog.php'
             ]
         ],
        
