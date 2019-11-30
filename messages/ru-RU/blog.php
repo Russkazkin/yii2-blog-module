@@ -34,4 +34,5 @@
     'Back to Home Page' => 'Назад на Главную',
     'No articles with this tag found.' => 'Статьи с этим тегом не найдены',
     'This author has no articles.' => 'У этого автора нет статей',
+    'There are no posts in this category yet.' => 'В этой категории еще нет записей',
 ];
