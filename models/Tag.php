@@ -42,6 +42,10 @@ class Tag extends BaseTag
         ];
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     * @throws \yii\base\InvalidConfigException
+     */
     public function getArticles()
     {
         return $this->hasMany(Article::class, ['id' => 'article_id'])

@@ -8,7 +8,9 @@ use app\modules\blog\controllers\actions\blog\ArchiveAction;
 use app\modules\blog\controllers\actions\blog\ErrorAction;
 use app\modules\blog\controllers\actions\blog\IndexAction;
 use app\modules\blog\controllers\actions\blog\SingleAction;
+use app\modules\blog\controllers\actions\blog\TagAction;
 use app\modules\blog\models\Article;
+use app\modules\blog\models\Tag;
 use Yii;
 use yii\web\NotFoundHttpException;
 
@@ -23,6 +25,7 @@ class BlogController extends BaseController
             'index' => ['class' => IndexAction::class],
             'single' => ['class' => SingleAction::class],
             'archive' => ['class' => ArchiveAction::class],
+            'tag' => ['class' => TagAction::class],
         ];
     }
 
