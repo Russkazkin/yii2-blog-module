@@ -3,23 +3,31 @@
 
 namespace app\modules\blog\controllers\actions\blog;
 
-use app\modules\blog\controllers\BlogController;
-
-/** @var $model \app\modules\blog\models\Article
- * @var $controller BlogController
-*/
-
+use app\modules\blog\models\Article;
+use yii\data\Pagination;
 
 class SingleAction extends BaseBlogAction
 {
     public function run($id)
     {
         $model = $this->controller->findModel($id);
+        $query = Article::find()
+            ->where(['status' => 10, 'user_id' => $model->user_id])
+            ->orderBy(['date' => SORT_DESC])
+            ->with(['user', 'category']);
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
+        $authorItems = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
         return $this->controller->render('single', [
             'model' => $model,
             'tags' => $model->getTags()->all(),
             'sidebarData' => $this->getSidebarData(),
             'dateManager' => $this->controller->dateManager,
+            'pages' => $pages,
+            'authorItems' => $authorItems,
         ]);
     }
 }

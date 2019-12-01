@@ -5,11 +5,14 @@
  * @var \app\modules\blog\models\Tag $tags
  * @var \app\modules\lang\components\LangDateComponent $dateManager
  * @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData()
+ * @var $pages \yii\data\Pagination
+ * @var $authorItems \app\modules\blog\models\Article []
  */
 
 
 $this->title = Yii::t('blog', 'Single');
 
+use yii\bootstrap4\Html;
 use yii\helpers\Url; ?>
 
     <div class="col-md-8">
@@ -68,13 +71,16 @@ use yii\helpers\Url; ?>
         <div class="row"><!--blog next previous-->
             <div class="col-md-6">
                 <div class="single-blog-box">
-                    <a href="#">
-                        <img src="/temp/blog-next.jpg" alt="">
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[0]->id]) ?>">
+                        <img src="<?= $authorItems[0]->getImage(); ?>" alt="">
 
                         <div class="overlay">
 
                             <div class="promo-text">
-                                <h5><i class="fa fa-2x fa-angle-left"></i>Rubel is doing Cherry theme</h5>
+                                <h5>
+                                    <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev']);?>
+                                    <?= $authorItems[0]->title; ?>
+                                </h5>
                             </div>
                         </div>
 
@@ -84,12 +90,15 @@ use yii\helpers\Url; ?>
             </div>
             <div class="col-md-6">
                 <div class="single-blog-box">
-                    <a href="#">
-                        <img src="/temp/blog-next.jpg" alt="">
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id]) ?>">
+                        <img src="<?= $authorItems[1]->getImage(); ?>" alt="">
 
                         <div class="overlay">
                             <div class="promo-text">
-                                <h5>Rubel is doing Cherry theme<i class="fa fa-2x fa-angle-right"></i></h5>
+                                <h5>
+                                    <?= $authorItems[1]->title; ?>
+                                    <?= Html::a('<i class="fa fa-2x fa-angle-right"></i>', $pages->links['next']);?>
+                                </h5>
                             </div>
                         </div>
                     </a>
