@@ -1,8 +1,12 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $model \app\modules\blog\models\Article */
-/** @var \app\modules\blog\models\Tag $tags */
+/** @var $this yii\web\View
+ * @var $model \app\modules\blog\models\Article
+ * @var \app\modules\blog\models\Tag $tags
+ * @var \app\modules\lang\components\LangDateComponent $dateManager
+ * @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData()
+ */
+
 
 $this->title = Yii::t('blog', 'Single');
 
