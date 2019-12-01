@@ -3,7 +3,12 @@
 
 namespace app\modules\blog\controllers\actions\blog;
 
-/* @var $model \app\modules\blog\models\Article */
+use app\modules\blog\controllers\BlogController;
+
+/** @var $model \app\modules\blog\models\Article
+ * @var $controller BlogController
+*/
+
 
 class SingleAction extends BaseBlogAction
 {

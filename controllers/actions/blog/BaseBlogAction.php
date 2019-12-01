@@ -3,8 +3,6 @@
 
 namespace app\modules\blog\controllers\actions\blog;
 
-
-use app\modules\auth\models\User;
 use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\Article;
 use app\modules\blog\models\Category;
