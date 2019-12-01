@@ -13,7 +13,8 @@
 $this->title = Yii::t('blog', 'Single');
 
 use yii\bootstrap4\Html;
-use yii\helpers\Url; ?>
+use yii\helpers\Url;
+use yii\widgets\Pjax; ?>
 
     <div class="col-md-8">
         <article class="post">
@@ -68,6 +69,7 @@ use yii\helpers\Url; ?>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor
                 invidunt ut labore et dolore magna aliquyam erat.</p>
         </div><!--top comment end-->
+        <?php Pjax::begin(); ?>
         <div class="row"><!--blog next previous-->
             <div class="col-md-6">
                 <div class="single-blog-box">
@@ -105,6 +107,7 @@ use yii\helpers\Url; ?>
                 </div>
             </div>
         </div><!--blog next previous end-->
+        <?php Pjax::end(); ?>
         <div class="related-post-carousel"><!--related post carousel-->
             <div class="related-heading">
                 <h4>You might also like</h4>
