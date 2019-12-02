@@ -90,6 +90,8 @@ use yii\widgets\Pjax; ?>
                     </a>
                 </div>
             </div>
+            <?php if(isset($authorItems[1])):?>
+
             <div class="col-md-6">
                 <div class="single-blog-box">
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id]) ?>">
@@ -106,6 +108,7 @@ use yii\widgets\Pjax; ?>
                     </a>
                 </div>
             </div>
+            <?php endif; ?>
         </div><!--blog next previous end-->
         <?php Pjax::end(); ?>
         <div class="related-post-carousel"><!--related post carousel-->
