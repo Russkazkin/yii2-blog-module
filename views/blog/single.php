@@ -47,7 +47,7 @@ use yii\widgets\Pjax; ?>
 
                 <div class="social-share">
                     <span class="social-share-title float-left text-capitalize">By
-                        <a href="<?= Url::toRoute(['blog/archive', 'author_id' => $model->user_id]) ?>">
+                        <a href="<?= Url::toRoute(['blog/author', 'id' => $model->user_id]) ?>">
                                     <?= $model->user->name; ?>
                         </a>
                         <?= $dateManager->timestampToDate($model->date); ?>
