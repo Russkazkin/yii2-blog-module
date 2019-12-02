@@ -1007,7 +1007,24 @@ athuor
 .author-id .author-text {
     margin-left: 20px;
 }
-
+.author-carousel-item {
+    display: flex;
+}
+.single-blog-arrow {
+    display: flex;
+    align-items: center;
+}
+.single-blog-arrow a {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+.single-blog-arrow a svg {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+}
 .p-date {
     font-size: 12px;
     font-style: italic;

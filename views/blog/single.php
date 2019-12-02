@@ -73,7 +73,7 @@ use yii\widgets\Pjax; ?>
         <div class="row"><!--blog next previous-->
             <div class="col-md-6 author-carousel-item">
                 <div class="single-blog-arrow">
-                    <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev']);?>
+                    <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev'], ['class' => 'rounded-circle']);?>
                 </div>
                 <div class="single-blog-box">
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[0]->id]) ?>">
@@ -90,9 +90,10 @@ use yii\widgets\Pjax; ?>
             </div>
 
             <?php if(isset($authorItems[1])):?>
-            <div class="col-md-6">
-                <div class="single-blog-box author-carousel-item">
-                    <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id]) ?>">
+            <div class="col-md-6 author-carousel-item">
+                <div class="single-blog-box">
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id])
+                    ?>">
                         <img src="<?= $authorItems[1]->getImage(); ?>" alt="">
                         <div class="overlay">
                             <div class="promo-text">
@@ -104,7 +105,7 @@ use yii\widgets\Pjax; ?>
                     </a>
                 </div>
                 <div class="single-blog-arrow">
-                    <?= Html::a('<i class="fa fa-2x fa-angle-right"></i>', $pages->links['next']);?>
+                    <?= Html::a('<i class="fa fa-2x fa-angle-right"></i>', $pages->links['next'], ['class' => 'rounded-circle']);?>
                 </div>
             </div>
             <?php endif; ?>
