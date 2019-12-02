@@ -72,41 +72,36 @@ use yii\widgets\Pjax; ?>
         <?php Pjax::begin(); ?>
         <div class="row"><!--blog next previous-->
             <div class="col-md-6">
+                <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev']);?>
                 <div class="single-blog-box">
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[0]->id]) ?>">
                         <img src="<?= $authorItems[0]->getImage(); ?>" alt="">
-
                         <div class="overlay">
-
                             <div class="promo-text">
                                 <h5>
-                                    <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev']);?>
                                     <?= $authorItems[0]->title; ?>
                                 </h5>
                             </div>
                         </div>
-
-
                     </a>
                 </div>
             </div>
-            <?php if(isset($authorItems[1])):?>
 
+            <?php if(isset($authorItems[1])):?>
             <div class="col-md-6">
                 <div class="single-blog-box">
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id]) ?>">
                         <img src="<?= $authorItems[1]->getImage(); ?>" alt="">
-
                         <div class="overlay">
                             <div class="promo-text">
                                 <h5>
                                     <?= $authorItems[1]->title; ?>
-                                    <?= Html::a('<i class="fa fa-2x fa-angle-right"></i>', $pages->links['next']);?>
                                 </h5>
                             </div>
                         </div>
                     </a>
                 </div>
+                <?= Html::a('<i class="fa fa-2x fa-angle-right"></i>', $pages->links['next']);?>
             </div>
             <?php endif; ?>
         </div><!--blog next previous end-->
