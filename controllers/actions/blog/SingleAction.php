@@ -20,7 +20,10 @@ class SingleAction extends BaseBlogAction
         $authorItems = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
-
+        $related = Article::find()
+            ->where(['status' => 10, 'category_id' => $model->category_id])
+            ->orderBy(['date' => SORT_DESC])
+            ->all();
         return $this->controller->render('single', [
             'model' => $model,
             'tags' => $model->getTags()->all(),
@@ -28,6 +31,7 @@ class SingleAction extends BaseBlogAction
             'dateManager' => $this->controller->dateManager,
             'pages' => $pages,
             'authorItems' => $authorItems,
+            'related' => $related,
         ]);
     }
 }

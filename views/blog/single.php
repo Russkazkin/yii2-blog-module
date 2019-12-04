@@ -7,6 +7,7 @@
  * @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData()
  * @var $pages \yii\data\Pagination
  * @var $authorItems \app\modules\blog\models\Article []
+ * @var $related \app\modules\blog\models\Article []
  */
 
 
@@ -92,8 +93,7 @@ use yii\widgets\Pjax; ?>
             <?php if(isset($authorItems[1])):?>
             <div class="col-md-6 author-carousel-item">
                 <div class="single-blog-box">
-                    <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id])
-                    ?>">
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id]) ?>">
                         <img src="<?= $authorItems[1]->getImage(); ?>" alt="">
                         <div class="overlay">
                             <div class="promo-text">
@@ -116,57 +116,15 @@ use yii\widgets\Pjax; ?>
                 <h4>You might also like</h4>
             </div>
             <div class="items">
+                <?php foreach ($related as $item):?>
                 <div class="single-item">
-                    <a href="#">
-                        <img src="/temp/related-post-1.jpg" alt="">
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $item->id]) ?>">
+                        <img src="<?= $item->getImage(); ?>" alt="">
 
-                        <p>Just Wondering at Beach</p>
+                        <p><?= $item->title; ?></p>
                     </a>
                 </div>
-
-
-                <div class="single-item">
-                    <a href="#">
-                        <img src="/temp/related-post-2.jpg" alt="">
-
-                        <p>Just Wondering at Beach</p>
-                    </a>
-                </div>
-
-
-                <div class="single-item">
-                    <a href="#">
-                        <img src="/temp/related-post-3.jpg" alt="">
-
-                        <p>Just Wondering at Beach</p>
-                    </a>
-                </div>
-
-
-                <div class="single-item">
-                    <a href="#">
-                        <img src="/temp/related-post-1.jpg" alt="">
-
-                        <p>Just Wondering at Beach</p>
-                    </a>
-                </div>
-
-                <div class="single-item">
-                    <a href="#">
-                        <img src="/temp/related-post-2.jpg" alt="">
-
-                        <p>Just Wondering at Beach</p>
-                    </a>
-                </div>
-
-
-                <div class="single-item">
-                    <a href="#">
-                        <img src="/temp/related-post-3.jpg" alt="">
-
-                        <p>Just Wondering at Beach</p>
-                    </a>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div><!--related post carousel-->
         <div class="bottom-comment"><!--bottom comment-->
