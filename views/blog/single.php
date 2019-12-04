@@ -70,8 +70,13 @@ use yii\widgets\Pjax; ?>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor
                 invidunt ut labore et dolore magna aliquyam erat.</p>
         </div><!--top comment end-->
-        <?php Pjax::begin(['timeout' => 2000]); ?>
-        <div class="row"><!--blog next previous-->
+        <?php Pjax::begin(['timeout' => 2000, 'id' => 'author-carousel']); ?>
+        <div class="row author-carousel" id="author-carousel"><!--blog next previous-->
+            <div class="author-carousel-loader">
+                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div
+                    ><div></div></div>
+            </div>
+
             <div class="col-md-6 author-carousel-item">
                 <div class="single-blog-arrow">
                     <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev'], ['class' => 'rounded-circle']);?>

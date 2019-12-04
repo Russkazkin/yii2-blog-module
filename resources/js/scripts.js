@@ -66,6 +66,16 @@
         });
     }());
 
+    (function () {
+        console.log('It works!');
+        $('#author-carousel').on('pjax:send', function() {
+            $('.author-carousel-loader').fadeIn();
+        });
+        $('#author-carousel').on('pjax:success', function() {
+            $('.author-carousel-loader').fadeOut();
+        });
+    }());
+
 
 
 
