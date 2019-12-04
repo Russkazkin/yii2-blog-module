@@ -69,7 +69,7 @@ use yii\widgets\Pjax; ?>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor
                 invidunt ut labore et dolore magna aliquyam erat.</p>
         </div><!--top comment end-->
-        <?php Pjax::begin(); ?>
+        <?php Pjax::begin(['timeout' => 2000]); ?>
         <div class="row"><!--blog next previous-->
             <div class="col-md-6 author-carousel-item">
                 <div class="single-blog-arrow">
