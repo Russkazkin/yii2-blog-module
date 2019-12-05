@@ -67,7 +67,6 @@
     }());
 
     (function () {
-        console.log('It works!');
         $('#author-carousel').on('pjax:send', function() {
             $('.author-carousel-loader').fadeIn();
         });

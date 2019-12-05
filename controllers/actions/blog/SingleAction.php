@@ -16,7 +16,7 @@ class SingleAction extends BaseBlogAction
             ->orderBy(['date' => SORT_DESC])
             ->with(['user', 'category']);
         $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2,'forcePageParam' => false]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 2]);
         $authorItems = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
