@@ -122,9 +122,9 @@ use yii\widgets\Pjax; ?>
             <div class="items">
                 <?php foreach ($related as $item):?>
                 <div class="single-item">
-                    <a href="<?= Url::toRoute(['blog/single', 'id' => $item->id]) ?>">
-                        <img src="<?= $item->getImage(); ?>" alt="">
 
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $item->id]) ?>">
+                        <div class="single-item-img" style="background-image: url('<?= $item->getImage(); ?>')"></div>
                         <p><?= $item->title; ?></p>
                     </a>
                 </div>
