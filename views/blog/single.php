@@ -25,7 +25,7 @@ use yii\widgets\Pjax; ?>
             <div class="post-content">
                 <header class="entry-header text-center text-uppercase">
                     <h6>
-                        <a href="<?= Url::toRoute(['blog/archive', 'category_id' => $model->category_id]) ?>">
+                        <a href="<?= Url::toRoute(['blog/archive', 'id' => $model->category_id]) ?>">
                             <?= $model->category->title; ?>
                         </a>
                     </h6>
@@ -40,7 +40,7 @@ use yii\widgets\Pjax; ?>
                 <div class="decoration">
                     <?php
                     foreach ($tags as $tag): ?>
-                    <a href="<?= Url::toRoute(['blog/archive', 'tag_id' => $tag->id]) ?>" class="btn btn-default">
+                    <a href="<?= Url::toRoute(['blog/tag', 'id' => $tag->id]) ?>" class="btn btn-default">
                         <?= $tag->title; ?>
                     </a>
                     <?php endforeach; ?>
