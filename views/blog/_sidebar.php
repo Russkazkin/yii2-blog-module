@@ -1,6 +1,7 @@
 <?php
 /* @var $popular \app\modules\blog\models\Article [] */
 
+use app\modules\blog\Module;
 use yii\helpers\Url;
 
 /* @var $recent \app\modules\blog\models\Article [] */
@@ -12,7 +13,7 @@ use yii\helpers\Url;
     <div class="primary-sidebar">
 
         <aside class="widget">
-            <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
+            <h3 class="widget-title text-uppercase text-center"><?= Module::t('blog', 'Popular Posts'); ?></h3>
             <?php foreach ($popular as $model): ?>
                 <div class="popular-post">
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
@@ -29,7 +30,7 @@ use yii\helpers\Url;
             <?php endforeach; ?>
         </aside>
         <aside class="widget pos-padding">
-            <h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
+            <h3 class="widget-title text-uppercase text-center"><?= Module::t('blog', 'Recent Posts'); ?></h3>
 
             <?php foreach ($recent as $model): ?>
             <div class="thumb-latest-posts">
@@ -49,7 +50,7 @@ use yii\helpers\Url;
 
         </aside>
         <aside class="widget border pos-padding">
-            <h3 class="widget-title text-uppercase text-center">Categories</h3>
+            <h3 class="widget-title text-uppercase text-center"><?= Module::t('blog', 'Categories'); ?></h3>
             <ul>
                 <?php foreach ($categories as $category):?>
                 <li>
