@@ -54,7 +54,7 @@ use yii\helpers\Url;
             <ul>
                 <?php foreach ($categories as $category):?>
                 <li>
-                    <a href="<?= Url::toRoute(['blog/archive', 'category_id' => $category->id]) ?>"><?= $category->title; ?></a>
+                    <a href="<?= Url::toRoute(['blog/archive', 'id' => $category->id]) ?>"><?= $category->title; ?></a>
                     <span class="post-count float-right"> (<?= $category->getArticles()->count(); ?>)</span>
                 </li>
                 <?php endforeach; ?>
