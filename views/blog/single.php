@@ -13,6 +13,7 @@
 
 $this->title = Yii::t('blog', 'Single');
 
+use app\modules\blog\Module;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use yii\widgets\Pjax; ?>
@@ -47,9 +48,9 @@ use yii\widgets\Pjax; ?>
                 </div>
 
                 <div class="social-share">
-                    <span class="social-share-title float-left text-capitalize">By
+                    <span class="social-share-title float-left text-capitalize">
                         <a href="<?= Url::toRoute(['blog/author', 'id' => $model->user_id]) ?>">
-                                    <?= $model->user->name; ?>
+                            <?= Module::t('blog', 'By {author} On ', ['author' => $model->user->name])?>
                         </a>
                         <?= $dateManager->timestampToDate($model->date); ?>
                     </span>

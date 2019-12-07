@@ -38,4 +38,5 @@
     'Popular Posts' => 'Популяные записи',
     'Recent Posts' => 'Новые записи',
     'Categories' => 'Категории',
+    'By {author} On ' => '{author}, ',
 ];
