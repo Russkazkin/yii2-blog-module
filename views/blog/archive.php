@@ -6,6 +6,7 @@
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
 /* @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData() [] */
 
+use app\modules\blog\Module;
 use yii\bootstrap4\LinkPager;
 use yii\helpers\Url;
 use yii\web\View;
@@ -41,8 +42,12 @@ $this->title = Yii::t('blog', 'Category');
                         </p>
                     </div>
                     <div class="social-share">
-                        <span class="social-share-title pull-left text-capitalize">By Rubel On <?= $dateManager->timestampToDate($model->date); ?></span>
-
+                        <span class="social-share-title pull-left text-capitalize">
+                            <a href="<?= Url::toRoute(['blog/author', 'id' => $model->user_id]) ?>">
+                                <?= Module::t('blog', 'By {author} On ', ['author' => $model->user->name])?>
+                            </a>
+                            <?= $dateManager->timestampToDate($model->date); ?>
+                        </span>
                     </div>
                 </div>
             </div>
