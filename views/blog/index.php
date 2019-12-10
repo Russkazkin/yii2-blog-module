@@ -40,7 +40,7 @@ use yii\helpers\Url; ?>
                 <div class="social-share">
                             <span class="social-share-title float-left text-capitalize">
                                  <a href="<?= Url::toRoute(['blog/author', 'id' => $model->user_id]) ?>">
-                            <?= Module::t('blog', 'By {author} On ', ['author' => $model->user->name])?>
+                                    <?= Module::t('blog', 'By {author} On ', ['author' => $model->user->name])?>
                                 </a>
                                 <?= $dateManager->timestampToDate($model->date); ?></span>
                     <ul class="text-center float-right">
