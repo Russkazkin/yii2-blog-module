@@ -8,6 +8,7 @@
 
 $this->title = Yii::t('blog', 'Blog');
 
+use app\modules\blog\Module;
 use yii\bootstrap4\LinkPager;
 use yii\helpers\Url; ?>
 
@@ -37,10 +38,10 @@ use yii\helpers\Url; ?>
                     </div>
                 </div>
                 <div class="social-share">
-                            <span class="social-share-title float-left text-capitalize">By <a href="<?= Url::toRoute
-                                (['blog/archive', 'author_id' => $model->user_id]) ?>">
-                                    <?= $model->user->name; ?>
-                                </a> On
+                            <span class="social-share-title float-left text-capitalize">
+                                 <a href="<?= Url::toRoute(['blog/author', 'id' => $model->user_id]) ?>">
+                            <?= Module::t('blog', 'By {author} On ', ['author' => $model->user->name])?>
+                                </a>
                                 <?= $dateManager->timestampToDate($model->date); ?></span>
                     <ul class="text-center float-right">
                         <li><a class="s-facebook" href="#"><i class="fas fa-eye"></i></a></li>
