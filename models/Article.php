@@ -7,6 +7,7 @@ namespace app\modules\blog\models;
 use app\modules\auth\models\User;
 use app\modules\blog\models\base\BaseArticle;
 use app\modules\blog\Module;
+use app\modules\lang\behaviors\LangDateBehavior;
 use DateTime;
 use phpDocumentor\Reflection\Types\This;
 use Yii;
@@ -36,23 +37,14 @@ class Article extends BaseArticle
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
-    public $format;
-    public $phpFormat;
     public $file;
     public $tags;
-
-    public function init()
-    {
-        parent::init();
-
-        $this->format = Yii::$app->language == 'en-US' ? 'mm-dd-yyyy' : 'dd-mm-yyyy';
-        $this->phpFormat = substr(Yii::$app->formatter->dateFormat, 4, 5);
-    }
 
     public function behaviors()
     {
         return [
             TimestampBehavior::class,
+            ['class' => LangDateBehavior::class, 'attributeName' => 'date']
         ];
     }
 
@@ -92,18 +84,6 @@ class Article extends BaseArticle
             'created_at' => Module::t('blog', 'Created At'),
             'updated_at' => Module::t('blog', 'Updated At'),
         ];
-    }
-
-    public function beforeValidate()
-    {
-
-        $date = DateTime::createFromFormat($this->phpFormat, $this->date);
-
-        if ($date) {
-            $this->date = $date->getTimestamp();
-        }
-
-        return parent::beforeValidate();
     }
 
     /**
