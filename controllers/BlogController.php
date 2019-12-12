@@ -11,13 +11,21 @@ use app\modules\blog\controllers\actions\blog\IndexAction;
 use app\modules\blog\controllers\actions\blog\SingleAction;
 use app\modules\blog\controllers\actions\blog\TagAction;
 use app\modules\blog\models\Article;
-use app\modules\blog\models\Tag;
 use Yii;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-class BlogController extends BaseController
+class BlogController extends Controller
 {
     public $layout = '@app/modules/blog/views/layout/blog';
+    public $dateManager;
+
+    public function __construct($id, $module, $config = [])
+    {
+        $this->dateManager = Yii::$app->getModule('lang')->dateManager;
+
+        parent::__construct($id, $module, $config);
+    }
 
     public function actions()
     {

@@ -17,16 +17,6 @@ use yii\web\Controller;
  */
 class BaseController extends Controller
 {
-
-    public $dateManager;
-
-    public function __construct($id, $module, $config = [])
-    {
-        $this->dateManager = Yii::$app->getModule('lang')->dateManager;
-
-        parent::__construct($id, $module, $config);
-    }
-
     public function behaviors()
     {
         return [
