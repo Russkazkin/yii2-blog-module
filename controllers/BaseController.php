@@ -6,6 +6,7 @@ namespace app\modules\blog\controllers;
 
 use app\modules\lang\components\LangDateComponent;
 use Yii;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 
@@ -24,6 +25,21 @@ class BaseController extends Controller
         $this->dateManager = Yii::$app->getModule('lang')->dateManager;
 
         parent::__construct($id, $module, $config);
+    }
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
