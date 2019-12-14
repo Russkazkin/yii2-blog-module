@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\admin\assets\DataTablesAsset;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -10,6 +11,7 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
+DataTablesAsset::register($this);
 ?>
 <div class="article-index">
 
@@ -22,10 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        //'tableOptions' => ['class' => ]
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            //'id',
             'title',
             [
                 'label' => Yii::t('app', 'Category'),
