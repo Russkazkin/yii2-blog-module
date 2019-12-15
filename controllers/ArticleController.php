@@ -35,13 +35,9 @@ class ArticleController extends BaseController
 
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $articles = Article::findAll(['status' => Article::STATUS_ACTIVE]);
+        $articles = Article::find()->where(['status' => Article::STATUS_ACTIVE])->with('category')->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
             'articles' => $articles,
         ]);
     }
