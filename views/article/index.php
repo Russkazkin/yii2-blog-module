@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -17,6 +18,9 @@ DataTablesAsset::register($this);
 
 <div class="row">
     <div class="col-12">
+        <p>
+            <?= Html::a(Module::t('blog', 'Create Article'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+        </p>
         <div class="card-box">
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
