@@ -35,7 +35,7 @@ class ArticleController extends BaseController
 
     public function actionIndex()
     {
-        $articles = Article::find()->where(['status' => Article::STATUS_ACTIVE])->with('category')->all();
+        $articles = Article::find()->where(['status' => Article::STATUS_ACTIVE])->with(['category', 'tags'])->all();
 
         return $this->render('index', [
             'articles' => $articles,

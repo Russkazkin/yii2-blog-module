@@ -40,7 +40,7 @@ DataTablesAsset::register($this);
                     <td><?= $article->title; ?></td>
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->date; ?></td>
-                    <td><?= $article->tags; ?></td>
+                    <td><?= $article->getSelectedTagsTitle(); ?></td>
                     <td><?= $article->getImage(); ?></td>
                 </tr>
                 <?php endforeach; ?>
