@@ -7,6 +7,7 @@ namespace app\modules\blog\controllers;
 use app\modules\lang\components\LangDateComponent;
 use Yii;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 
 
@@ -19,18 +20,27 @@ class BaseController extends Controller
 {
     public function behaviors()
     {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
+        return array_merge(
+            parent::behaviors(),
+            [
+                'verbs' => [
+                    'class' => VerbFilter::class,
+                    'actions' => [
+                        'delete' => ['POST'],
                     ],
                 ],
-            ],
-        ];
+                'access' => [
+                    'class' => AccessControl::class,
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'roles' => ['@'],
+                        ],
+                    ],
+                ],
+            ]);
     }
+
 
     /**
      * @return string
