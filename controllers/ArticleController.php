@@ -39,10 +39,12 @@ class ArticleController extends BaseController
     {
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $articles = Article::findAll(['status' => Article::STATUS_ACTIVE]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'articles' => $articles,
         ]);
     }
 
