@@ -41,7 +41,6 @@ class BaseController extends Controller
             ]);
     }
 
-
     /**
      * @return string
      * @throws \yii\base\InvalidConfigException

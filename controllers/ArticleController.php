@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\article\GridAction;
 use app\modules\lang\components\LangDateComponent;
 use Yii;
 use app\modules\blog\models\Article;
@@ -23,18 +24,17 @@ class ArticleController extends BaseController
         return array_merge(
             parent::behaviors(),
             [
-                'verbs' => [
-                    'class' => VerbFilter::class,
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ]
+
             ]);
     }
-    /**
-     * Lists all Article models.
-     * @return mixed
-     */
+
+    public function actions()
+    {
+        return [
+            'grid' => ['class' => GridAction::class],
+            ];
+    }
+
     public function actionIndex()
     {
         $searchModel = new ArticleSearch();
