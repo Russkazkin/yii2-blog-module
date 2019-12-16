@@ -40,7 +40,7 @@ DataTablesAsset::register($this);
                     <td>
                         <?= Html::a('<i class="mdi mdi-eye"></i>', ['view', 'id' => $article->id]) ?>
                         <?= Html::a('<i class="mdi mdi-pencil-outline"></i>', ['update', 'id' => $article->id]) ?>
-                        <?= Html::a('<i class="mdi mdi-delete"></i>', ['delete', 'id' => $article->id]) ?>
+                        <?= Html::a('<i class="mdi mdi-delete"></i>', ['delete', 'id' => $article->id], ['data-method' => 'post']) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
