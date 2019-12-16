@@ -39,7 +39,7 @@ DataTablesAsset::register($this);
                     <td></td>
                     <td><?= $article->title; ?></td>
                     <td><?= $article->category->title; ?></td>
-                    <td><?= $article->date; ?></td>
+                    <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
                     <td><?= $article->getImage(); ?></td>
                 </tr>
