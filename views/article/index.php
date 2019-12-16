@@ -3,12 +3,8 @@
 use app\modules\admin\assets\DataTablesAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
-use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\blog\models\search\ArticleSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $data \app\modules\blog\models\Article */
 /* @var $articles \app\modules\blog\models\Article [] */
 
 $this->title = Yii::t('app', 'Articles');
@@ -25,23 +21,25 @@ DataTablesAsset::register($this);
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                 <tr>
+                    <th>Actions</th>
                     <th>Title</th>
                     <th>Category</th>
                     <th>Date</th>
                     <th>Tags</th>
                     <th>Image</th>
-                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($articles as $article):?>
                 <tr>
+                    <td>
+
+                    </td>
                     <td><?= $article->title; ?></td>
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
                     <td><img src="<?= $article->getImage(); ?>" alt="<?= $article->title; ?> img" height="20"></td>
-                    <td></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
