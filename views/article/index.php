@@ -25,23 +25,23 @@ DataTablesAsset::register($this);
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                 <tr>
-                    <th>Actions</th>
                     <th>Title</th>
                     <th>Category</th>
                     <th>Date</th>
                     <th>Tags</th>
                     <th>Image</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php foreach ($articles as $article):?>
                 <tr>
-                    <td></td>
                     <td><?= $article->title; ?></td>
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
-                    <td><?= $article->getImage(); ?></td>
+                    <td><img src="<?= $article->getImage(); ?>" alt="<?= $article->title; ?> img" height="20"></td>
+                    <td></td>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
