@@ -4,7 +4,7 @@
 namespace app\modules\blog\controllers;
 
 
-use app\modules\lang\components\LangDateComponent;
+use app\modules\auth\components\RbacComponent;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -14,10 +14,20 @@ use yii\web\Controller;
 /**
  * Class BaseController
  * @package app\modules\blog\controllers
- * @property LangDateComponent dateManager
+ * @property RbacComponent rbacManager
  */
 class BaseController extends Controller
 {
+
+    public $rbacManager;
+
+    public function __construct($id, $module, $config = [])
+    {
+        $this->rbacManager = Yii::$app->getModule('auth')->rbac;
+
+        parent::__construct($id, $module, $config);
+    }
+
     public function behaviors()
     {
         return array_merge(
