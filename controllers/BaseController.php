@@ -24,6 +24,7 @@ class BaseController extends Controller
     public function __construct($id, $module, $config = [])
     {
         $this->rbacManager = Yii::$app->getModule('auth')->rbac;
+        $this->view->params['adminPermissions'] = $this->rbacManager->haveAdminPermissions();
 
         parent::__construct($id, $module, $config);
     }
