@@ -24,7 +24,7 @@ $this->title = Yii::t('blog', 'Category');
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $model->getImage(); ?>" alt="" class="pull-left"></a>
 
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="post-thumb-overlay text-center">
-                        <div class="text-uppercase text-center"><?= $model->title; ?></div>
+                        <div class="text-uppercase text-center"><?= Module::t('blog', 'View Post'); ?></div>
                     </a>
                 </div>
             </div>
@@ -34,7 +34,11 @@ $this->title = Yii::t('blog', 'Category');
                         <h6><a href="<?= Url::toRoute(['blog/archive', 'id' => $model->category_id]) ?>"><?=
                                 $model->category->title; ?></a></h6>
 
-                        <h1 class="entry-title"><a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>">Home is peaceful place</a></h1>
+                        <h1 class="entry-title">
+                            <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>">
+                                <?= $model->title; ?>
+                            </a>
+                        </h1>
                     </header>
                     <div class="entry-content">
                         <p>
