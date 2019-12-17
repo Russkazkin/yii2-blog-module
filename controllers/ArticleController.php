@@ -5,7 +5,6 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\controllers\actions\article\GridAction;
 use Yii;
 use app\modules\blog\models\Article;
-use app\modules\blog\models\search\ArticleSearch;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
