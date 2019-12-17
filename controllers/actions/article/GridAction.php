@@ -11,11 +11,17 @@ use yii\web\UnauthorizedHttpException;
 
 class GridAction extends BaseAction
 {
-    public function run()
+
+    public function beforeRun()
     {
-        if(!Yii::$app->user->can('adminArticlesPermissions')){
+        if(!$this->controller->rbacManager->haveAdminPermissions()){
             throw new UnauthorizedHttpException('Unauthorized Access');
         }
+        return parent::beforeRun();
+    }
+
+    public function run()
+    {
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
