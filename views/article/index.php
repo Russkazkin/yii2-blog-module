@@ -17,6 +17,12 @@ DataTablesAsset::register($this);
         <p>
             <?= Html::a(Module::t('blog', 'Create Article'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
         </p>
+        <?php if( Yii::$app->session->hasFlash('error') ): ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <?php echo Yii::$app->session->getFlash('error'); ?>
+            </div>
+        <?php endif;?>
         <div class="card-box">
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
