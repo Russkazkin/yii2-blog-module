@@ -38,9 +38,15 @@ DataTablesAsset::register($this);
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
                     <td><img src="<?= $article->getImage(); ?>" alt="<?= $article->title; ?> img" height="20"></td>
                     <td>
-                        <?= Html::a('<i class="mdi mdi-eye"></i>', ['view', 'id' => $article->id]) ?>
-                        <?= Html::a('<i class="mdi mdi-pencil-outline"></i>', ['update', 'id' => $article->id]) ?>
-                        <?= Html::a('<i class="mdi mdi-delete"></i>', ['delete', 'id' => $article->id], ['data-method' => 'post']) ?>
+                        <?= Html::a('<i class="mdi mdi-eye"></i>',
+                            ['view', 'id' => $article->id],
+                            ['title' => 'View']) ?>
+                        <?= Html::a('<i class="mdi mdi-pencil-outline"></i>',
+                            ['update', 'id' => $article->id],
+                            ['title' => 'Update']) ?>
+                        <?= Html::a('<i class="mdi mdi-delete"></i>',
+                            ['delete', 'id' => $article->id],
+                            ['data-method' => 'post', 'title' => 'Delete']) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
