@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\article\GridAction;
+use app\modules\blog\controllers\actions\article\SoftDeleteAction;
 use Yii;
 use app\modules\blog\models\Article;
 use yii\web\NotFoundHttpException;
@@ -29,6 +30,7 @@ class ArticleController extends BaseController
     {
         return [
             'grid' => ['class' => GridAction::class],
+            'soft-delete' => ['class' => SoftDeleteAction::class],
             ];
     }
 
