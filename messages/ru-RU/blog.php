@@ -39,4 +39,11 @@
     'Recent Posts' => 'Новые записи',
     'Categories' => 'Категории',
     'By {author} On ' => '{author}, ',
+    'Title' => 'Заголовок',
+    'Category' => 'Категория',
+    'Date' => 'Дата',
+    'Tags' => 'Теги',
+    'Image' => 'Изображение',
+    'Actions' => 'Действия',
+
 ];

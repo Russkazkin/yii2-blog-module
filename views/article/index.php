@@ -21,12 +21,12 @@ DataTablesAsset::register($this);
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                    <th>Tags</th>
-                    <th>Image</th>
-                    <th>Actions</th>
+                    <th><?=Module::t('blog', 'Title')?></th>
+                    <th><?=Module::t('blog', 'Category')?></th>
+                    <th><?=Module::t('blog', 'Date')?></th>
+                    <th><?=Module::t('blog', 'Tags')?></th>
+                    <th><?=Module::t('blog', 'Image')?></th>
+                    <th><?=Module::t('blog', 'Actions')?></th>
                 </tr>
                 </thead>
                 <tbody>
