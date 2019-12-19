@@ -3,6 +3,8 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\article\GridAction;
+use app\modules\blog\controllers\actions\article\IndexAction;
+use app\modules\blog\controllers\actions\article\RestoreAction;
 use app\modules\blog\controllers\actions\article\SoftDeleteAction;
 use Yii;
 use app\modules\blog\models\Article;
@@ -29,19 +31,11 @@ class ArticleController extends BaseController
     public function actions()
     {
         return [
+            'index' => ['class' => IndexAction::class],
             'grid' => ['class' => GridAction::class],
             'soft-delete' => ['class' => SoftDeleteAction::class],
-            'restore' => ['class' => SoftDeleteAction::class],
+            'restore' => ['class' => RestoreAction::class],
             ];
-    }
-
-    public function actionIndex()
-    {
-        $articles = Article::find()->where(['status' => Article::STATUS_ACTIVE])->with(['category', 'tags'])->all();
-
-        return $this->render('index', [
-            'articles' => $articles,
-        ]);
     }
 
     /**
