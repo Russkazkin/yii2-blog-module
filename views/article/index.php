@@ -17,10 +17,10 @@ DataTablesAsset::register($this);
         <p>
             <?= Html::a(Module::t('blog', 'Create Article'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
         </p>
-        <?php if( Yii::$app->session->hasFlash('error') ): ?>
+        <?php if( Yii::$app->session->hasFlash('success') ): ?>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <?php echo Yii::$app->session->getFlash('error'); ?>
+                <?php echo Yii::$app->session->getFlash('success'); ?>
             </div>
         <?php endif;?>
         <div class="card-box">
@@ -44,15 +44,21 @@ DataTablesAsset::register($this);
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
                     <td><img src="<?= $article->getImage(); ?>" alt="<?= $article->title; ?> img" height="20"></td>
                     <td>
-                        <?= Html::a('<i class="mdi mdi-eye"></i>',
+                        <?= Html::a('<i class="mdi mdi-note-text"></i>',
                             ['view', 'id' => $article->id],
                             ['title' => 'View']) ?>
                         <?= Html::a('<i class="mdi mdi-pencil-outline"></i>',
                             ['update', 'id' => $article->id],
                             ['title' => 'Update']) ?>
-                        <?= Html::a('<i class="mdi mdi-eye-off"></i>',
-                            ['soft-delete', 'id' => $article->id],
-                            ['title' => 'Hide']) ?>
+                        <?php if($article->status == $article::STATUS_ACTIVE):?>
+                            <?= Html::a('<i class="mdi mdi-eye-off"></i>',
+                                ['soft-delete', 'id' => $article->id],
+                                ['title' => 'Hide']) ?>
+                        <?php elseif ($article->status == $article::STATUS_DELETED): ?>
+                            <?= Html::a('<i class="mdi mdi-eye"></i>',
+                                ['restore', 'id' => $article->id],
+                                ['title' => 'Restore']) ?>
+                        <?php endif; ?>
                         <?= Html::a('<i class="mdi mdi-delete"></i>',
                             ['delete', 'id' => $article->id],
                             ['data-method' => 'post', 'title' => 'Delete']) ?>
