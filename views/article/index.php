@@ -50,6 +50,9 @@ DataTablesAsset::register($this);
                         <?= Html::a('<i class="mdi mdi-pencil-outline"></i>',
                             ['update', 'id' => $article->id],
                             ['title' => 'Update']) ?>
+                        <?= Html::a('<i class="mdi mdi-eye-off"></i>',
+                            ['soft-delete', 'id' => $article->id],
+                            ['title' => 'Hide']) ?>
                         <?= Html::a('<i class="mdi mdi-delete"></i>',
                             ['delete', 'id' => $article->id],
                             ['data-method' => 'post', 'title' => 'Delete']) ?>
