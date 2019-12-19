@@ -31,6 +31,7 @@ class ArticleController extends BaseController
         return [
             'grid' => ['class' => GridAction::class],
             'soft-delete' => ['class' => SoftDeleteAction::class],
+            'restore' => ['class' => SoftDeleteAction::class],
             ];
     }
 
