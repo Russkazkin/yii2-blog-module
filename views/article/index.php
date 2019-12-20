@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\widgets\NotificationWidget;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 
@@ -23,6 +24,7 @@ DataTablesAsset::register($this);
                 <?php echo Yii::$app->session->getFlash('success'); ?>
             </div>
         <?php endif;?>
+        <?= NotificationWidget::widget(); ?>
         <div class="card-box">
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
