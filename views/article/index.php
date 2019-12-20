@@ -1,7 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
-use app\modules\admin\widgets\NotificationWidget;
+use app\modules\admin\widgets\notification\NotificationWidget;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 
