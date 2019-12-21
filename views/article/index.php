@@ -31,8 +31,7 @@ DataTablesAsset::register($this);
                 </thead>
                 <tbody>
                 <?php foreach ($articles as $article):?>
-                <?php $class = $article->status ? 'article-active' : 'article-inactive'; ?>
-                <tr class="<?= $class; ?>">
+                <tr class="status-<?= $article->status; ?>">
                     <td><?= $article->title; ?></td>
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->timestampToDate(); ?></td>
