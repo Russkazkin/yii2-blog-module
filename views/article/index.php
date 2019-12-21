@@ -1,7 +1,6 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
-use app\modules\admin\widgets\notification\NotificationWidget;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 
@@ -32,7 +31,8 @@ DataTablesAsset::register($this);
                 </thead>
                 <tbody>
                 <?php foreach ($articles as $article):?>
-                <tr>
+                <?php $class = $article->status ? 'article-active' : 'article-inactive'; ?>
+                <tr class="<?= $class; ?>">
                     <td><?= $article->title; ?></td>
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->timestampToDate(); ?></td>
