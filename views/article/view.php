@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' =>
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
 ?>
-<div class="article-view">
+<div class="card-box">
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm waves-effect width-md waves-light']) ?>
         <?php if ($model->status == $model::STATUS_ACTIVE): ?>
@@ -65,5 +65,4 @@ DataTablesAsset::register($this);
             'updated_at:date',
         ],
     ]) ?>
-
 </div>
