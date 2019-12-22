@@ -15,7 +15,11 @@ DataTablesAsset::register($this);
 <div class="article-view">
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm waves-effect width-md waves-light']) ?>
+        <?php if ($model->status == $model::STATUS_ACTIVE): ?>
         <?= Html::a(Yii::t('app', 'Hide'), ['soft-delete', 'id' => $model->id], ['class' => 'btn btn-warning btn-sm waves-effect width-md waves-light']) ?>
+        <?php elseif ($model->status == $model::STATUS_DELETED): ?>
+        <?= Html::a(Yii::t('app', 'Restore'), ['restore', 'id' => $model->id], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+        <?php endif; ?>
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-sm waves-effect width-md waves-light',
             'data' => [
