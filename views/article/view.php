@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -60,7 +61,12 @@ DataTablesAsset::register($this);
             ],
             'viewed',
             'user_id',
-            'status',
+            [
+                'attribute' => 'status',
+                'value' => function($data){
+                    return $data->status === 0 ? Module::t('blog', 'Hidden') : Module::t('blog', 'Active');
+                },
+            ],
             'created_at:date',
             'updated_at:date',
         ],
