@@ -26,6 +26,6 @@ class SoftDeleteAction extends BaseAction
             return $this->controller->redirect('/admin/blog/article/index');
         }
         Yii::$app->session->setFlash('success', Module::t('blog', 'Soft delete successful'));
-        return $this->controller->redirect('/admin/blog/article/index');
+        return $this->controller->redirect(Yii::$app->request->referrer ?: '/admin/blog/article/index');
     }
 }
