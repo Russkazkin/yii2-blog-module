@@ -1,7 +1,7 @@
 <?php
 
+use app\modules\admin\assets\FormAdvancedAsset;
 use app\modules\blog\models\Article;
-use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Article */
@@ -11,6 +11,7 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'Create Article');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+FormAdvancedAsset::register($this);
 ?>
 
 <div class="row article-create">
