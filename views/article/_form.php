@@ -41,7 +41,17 @@ FontAwesomeAsset::register($this);
             <?= $form->field($model, 'category_id')->dropDownList($categories,
                 ['prompt' => Yii::t('app', 'Choose category...')]); ?>
 
-            <?= $form->field($model, 'tags')->dropDownList($tags, ['multiple' => 'multiple']); ?>
+            <div class="row form-group">
+                <?= Html::label('Tags', 'tags', ['class' => 'label tags col-sm-2 col-form-label']) ?>
+                <div class="col-sm-10">
+                    <?= Html::dropDownList(
+                        'tags',
+                        [],
+                        $tags,
+                        ['id' => 'article-tags', 'class' => 'form-control', 'multiple' => true])
+                    ?>
+                </div>
+            </div>
 
             <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
