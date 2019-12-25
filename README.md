@@ -6,9 +6,11 @@ Yii2 Blog module
 * Add this to web.php 'modules' section:
 
         'blog' => [
-            'class' => 'app\modules\blog\Module',
-            'components' => ArticleComponent::class,
-        ],
+             'class' => 'app\modules\blog\Module',
+             'components' => [
+                 'article' => ArticleComponent::class,
+             ]
+         ],
 * Add this to console.php 'modules' section:
 
         'blog' => [
