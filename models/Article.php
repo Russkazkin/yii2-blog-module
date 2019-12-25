@@ -41,12 +41,6 @@ class Article extends BaseArticle
     public $tags;
     public $component;
 
-    public function init()
-    {
-        parent::init();
-        $this->component = Yii::$app->getModule('blog')->article;
-    }
-
     public function behaviors()
     {
         return [

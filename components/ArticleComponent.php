@@ -4,12 +4,13 @@
 namespace app\modules\blog\components;
 
 
+use app\modules\blog\models\Article;
 use yii\base\BaseObject;
 
 class ArticleComponent extends BaseObject
 {
-    public function test()
+    public function articleDumper(Article $article)
     {
-        echo '<h1>It works!!!</h1>';
+        die(var_dump($article));
     }
 }

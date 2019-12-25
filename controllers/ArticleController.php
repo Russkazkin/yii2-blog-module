@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\components\ArticleComponent;
 use app\modules\blog\controllers\actions\article\GridAction;
 use app\modules\blog\controllers\actions\article\IndexAction;
 use app\modules\blog\controllers\actions\article\RestoreAction;
@@ -13,19 +14,16 @@ use yii\web\UploadedFile;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
+ * @property ArticleComponent $articleComponent
  */
 class ArticleController extends BaseController
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
+    public $articleComponent;
 
-            ]);
+    public function init()
+    {
+        parent::init();
+        $this->articleComponent = Yii::$app->getModule('blog')->article;
     }
 
     public function actions()
@@ -61,6 +59,7 @@ class ArticleController extends BaseController
     public function actionCreate()
     {
         $model = new Article();
+        $this->articleComponent->articleDumper($model);
 
         if ($model->load(Yii::$app->request->post())) {
             $model->file = UploadedFile::getInstance($model, 'file');
