@@ -20,8 +20,8 @@ class m191001_145042_create_article_table extends Migration
         }
         $this->createTable('blog_article', [
             'id' => $this->primaryKey(),
-            'title' => $this->string(36)->notNull(),
-            'description' => $this->string(128)->notNull(),
+            'title' => $this->string()->notNull(),
+            'description' => $this->string()->notNull(),
             'content' => $this->text()->notNull(),
             'date' => $this->integer(11),
             'image' => $this->string(),
