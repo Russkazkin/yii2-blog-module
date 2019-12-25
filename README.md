@@ -5,12 +5,13 @@ Yii2 Blog module
 
 * Add this to web.php 'modules' section:
 
-        'auth' => [
-            'class' => 'app\modules\blog\Module'
+        'blog' => [
+            'class' => 'app\modules\blog\Module',
+            'components' => ArticleComponent::class,
         ],
 * Add this to console.php 'modules' section:
 
-        'auth' => [
+        'blog' => [
             'class' => 'app\modules\blog\Module'
         ],
 * Add this to console.php 'controllerMap' section:
