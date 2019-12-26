@@ -3,6 +3,7 @@
 use app\modules\admin\assets\DataTablesAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $articles \app\modules\blog\models\Article [] */
@@ -32,7 +33,7 @@ DataTablesAsset::register($this);
                 <tbody>
                 <?php foreach ($articles as $article):?>
                 <tr class="status-<?= $article->status; ?>">
-                    <td><?= $article->title; ?></td>
+                    <td><?= StringHelper::truncate($article->title, 40); ?></td>
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>

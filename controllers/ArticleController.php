@@ -59,7 +59,6 @@ class ArticleController extends BaseController
     public function actionCreate()
     {
         $model = new Article();
-        $this->articleComponent->articleDumper($model);
 
         if ($model->load(Yii::$app->request->post())) {
             $model->file = UploadedFile::getInstance($model, 'file');

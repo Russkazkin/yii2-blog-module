@@ -3,6 +3,7 @@
 use app\modules\admin\assets\DataTablesAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
@@ -10,7 +11,7 @@ use yii\widgets\DetailView;
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = StringHelper::truncate($this->title, 36);
 DataTablesAsset::register($this);
 ?>
 <div class="card-box">
