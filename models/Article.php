@@ -54,7 +54,7 @@ class Article extends BaseArticle
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['title', 'description', 'content', 'date'], 'required'],
+            [['title', 'content', 'date'], 'required'],
             [['description', 'content', 'title'], 'string'],
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'safe'],
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],

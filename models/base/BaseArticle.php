@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\models\base;
 
+use app\modules\auth\models\User;
 use Yii;
 
 /**
@@ -20,10 +21,10 @@ use Yii;
  * @property int $created_at
  * @property int $updated_at
  *
- * @property Category $category
- * @property User $user
- * @property ArticleTag[] $articleTags
- * @property Comment[] $comments
+ * @property BlogCategory $category
+ * @property AuthUser $user
+ * @property BlogArticleTag[] $blogArticleTags
+ * @property BlogComment[] $blogComments
  */
 class BaseArticle extends \yii\db\ActiveRecord
 {
@@ -41,12 +42,13 @@ class BaseArticle extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description', 'content'], 'required'],
-            [['description', 'content'], 'string'],
+            [['title', 'content'], 'required'],
+            [['content'], 'string'],
             [['date', 'viewed', 'user_id', 'category_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'image'], 'string', 'max' => 255],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => BlogCategory::className(), 'targetAttribute' => ['category_id' => 'id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => AuthUser::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['description'], 'string', 'max' => 128],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -76,7 +78,7 @@ class BaseArticle extends \yii\db\ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(BlogCategory::className(), ['id' => 'category_id']);
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
     /**
@@ -84,15 +86,15 @@ class BaseArticle extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(AuthUser::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBlogArticleTags()
+    public function getArticleTags()
     {
-        return $this->hasMany(BlogArticleTag::className(), ['article_id' => 'id']);
+        return $this->hasMany(ArticleTag::class, ['article_id' => 'id']);
     }
 
     /**
@@ -100,6 +102,6 @@ class BaseArticle extends \yii\db\ActiveRecord
      */
     public function getBlogComments()
     {
-        return $this->hasMany(BlogComment::className(), ['article_id' => 'id']);
+        return $this->hasMany(Comment::className(), ['article_id' => 'id']);
     }
 }
