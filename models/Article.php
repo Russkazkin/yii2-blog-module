@@ -80,7 +80,7 @@ class Article extends BaseArticle
             'image' => Module::t('blog', 'Image'),
             'viewed' => Module::t('blog', 'Viewed'),
             'user_id' => Module::t('blog', 'User ID'),
-            'category_id' => Module::t('blog', 'Category ID'),
+            'category_id' => Module::t('blog', 'Category'),
             'status' => Module::t('blog', 'Status'),
             'created_at' => Module::t('blog', 'Created At'),
             'updated_at' => Module::t('blog', 'Updated At'),
