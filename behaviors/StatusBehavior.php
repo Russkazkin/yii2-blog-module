@@ -15,8 +15,8 @@ class StatusBehavior extends Behavior
     {
         parent::init();
         $this->statusesArr = [
-            '0' => Module::t('blog', 'Inactive'),
-            '10' => Module::t('blog', 'Active'),
+            0 => Module::t('blog', 'Inactive'),
+            10 => Module::t('blog', 'Active'),
         ];
     }
 }
