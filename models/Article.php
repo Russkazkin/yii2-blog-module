@@ -132,8 +132,7 @@ class Article extends BaseArticle
 
     public function getImage()
     {
-        return $this->image ? '/blog_uploads/' . $this->image : 'https://via.placeholder.com/300x200.png?text=' .
-            $this->title;
+        return $this->image ? '/blog_uploads/' . $this->image : '/img/placeholder.jpg';
     }
 
     /**
