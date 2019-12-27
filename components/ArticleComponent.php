@@ -13,4 +13,9 @@ class ArticleComponent extends BaseObject
     {
         die(var_dump($article));
     }
+
+    public function getImage(Article $article)
+    {
+        return $article->image ? '/blog_uploads/' . $article->image : '/img/placeholder.jpg';
+    }
 }
