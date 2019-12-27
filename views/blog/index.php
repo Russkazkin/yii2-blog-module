@@ -4,6 +4,7 @@
 /* @var $pages \yii\data\Pagination */
 /* @var $models \app\modules\blog\models\Article [] */
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
+/* @var $articleComponent \app\modules\blog\components\ArticleComponent */
 /* @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData() [] */
 
 $this->title = Yii::t('blog', 'Blog');
@@ -16,8 +17,9 @@ use yii\helpers\Url; ?>
     <?php foreach ($models as $model): ?>
         <article class="post">
             <div class="post-thumb">
-                <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $model->getImage(); ?>" alt="<?= $model->image; ?>"></a>
-
+                <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>">
+                    <img src="<?= $articleComponent->getImage($model) ?>" alt="<?= $model->image; ?>">
+                </a>
                 <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="post-thumb-overlay text-center">
                     <div class="text-uppercase text-center">View Post</div>
                 </a>
@@ -61,4 +63,5 @@ use yii\helpers\Url; ?>
         'recent' => $sidebarData['recent'],
         'categories' => $sidebarData['categories'],
         'dateManager' => $dateManager,
+        'articleComponent' => $articleComponent,
 ]);

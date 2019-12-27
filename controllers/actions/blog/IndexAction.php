@@ -22,6 +22,7 @@ class IndexAction extends BaseBlogAction
             'models' => $models,
             'pages' => $pages,
             'dateManager' => $this->controller->dateManager,
+            'articleComponent' => $this->controller->articleComponent,
             'sidebarData' => $this->getSidebarData(),
         ]);
     }

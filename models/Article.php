@@ -130,11 +130,6 @@ class Article extends BaseArticle
         }
     }
 
-    public function getImage()
-    {
-        return $this->image ? '/blog_uploads/' . $this->image : '/img/placeholder.jpg';
-    }
-
     /**
      * @return \yii\db\ActiveQuery
      */

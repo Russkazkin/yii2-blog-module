@@ -37,7 +37,10 @@ DataTablesAsset::register($this);
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
-                    <td><img src="<?= $article->getImage(); ?>" alt="<?= $article->title; ?> img" height="20"></td>
+                    <td><img src="<?= $articleComponent->getImage($article) ?>"
+                             alt="<?= $article->title; ?> img"
+                             height="20">
+                    </td>
                     <td>
                         <?= Html::a('<i class="mdi mdi-note-text"></i>',
                             ['view', 'id' => $article->id],

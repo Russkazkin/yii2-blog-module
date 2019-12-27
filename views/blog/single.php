@@ -21,7 +21,7 @@ use yii\widgets\Pjax; ?>
     <div class="col-md-8">
         <article class="post">
             <div class="post-thumb">
-                <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $model->getImage(); ?>" alt=""></a>
+                <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $articleComponent->getImage($model) ?>" alt=""></a>
             </div>
             <div class="post-content">
                 <header class="entry-header text-center text-uppercase">
@@ -83,7 +83,7 @@ use yii\widgets\Pjax; ?>
                 <div class="single-blog-arrow">
                     <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev'], ['class' => 'rounded-circle']);?>
                 </div>
-                <div class="single-blog-box" style="background-image: url('<?= $authorItems[0]->getImage(); ?>')">
+                <div class="single-blog-box" style="background-image: url('<?= $articleComponent->getImage($authorItems[0]) ?>')">
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[0]->id]) ?>"
                        data-pjax="0">
                         <div class="overlay">
@@ -99,7 +99,7 @@ use yii\widgets\Pjax; ?>
 
             <?php if(isset($authorItems[1])):?>
             <div class="col-md-6 author-carousel-item">
-                <div class="single-blog-box" style="background-image: url('<?= $authorItems[1]->getImage(); ?>')">
+                <div class="single-blog-box" style="background-image: url('<?= $articleComponent->getImage($authorItems[1]) ?>')">
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $authorItems[1]->id], ['data-pjax' => 0]) ?>"
                        data-pjax="0">
                         <div class="overlay">
@@ -127,7 +127,7 @@ use yii\widgets\Pjax; ?>
                 <div class="single-item">
 
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $item->id]) ?>">
-                        <div class="single-item-img" style="background-image: url('<?= $item->getImage(); ?>')"></div>
+                        <div class="single-item-img" style="background-image: url('<?= $articleComponent->getImage($item) ?>')"></div>
                         <p><?= $item->title; ?></p>
                     </a>
                 </div>
@@ -187,4 +187,5 @@ use yii\widgets\Pjax; ?>
     'recent' => $sidebarData['recent'],
     'categories' => $sidebarData['categories'],
     'dateManager' => $dateManager,
+    'articleComponent' => $articleComponent,
 ]);

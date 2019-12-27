@@ -7,6 +7,7 @@ use yii\helpers\Url;
 /* @var $recent \app\modules\blog\models\Article [] */
 /* @var $dateManager \app\modules\lang\components\LangDateComponent */
 /* @var $categories \app\modules\blog\models\Category [] */
+/* @var $articleComponent \app\modules\blog\components\ArticleComponent */
 ?>
 
 <div class="col-md-4 sticky_column">
@@ -16,7 +17,7 @@ use yii\helpers\Url;
             <h3 class="widget-title text-uppercase text-center"><?= Module::t('blog', 'Popular Posts'); ?></h3>
             <?php foreach ($popular as $model): ?>
                 <div class="popular-post">
-                    <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="popular-img"><img src="<?= $articleComponent->getImage($model) ?>" alt="">
 
                         <div class="p-overlay"></div>
                     </a>
@@ -36,7 +37,7 @@ use yii\helpers\Url;
             <div class="thumb-latest-posts">
                 <div class="media">
                     <div class="media-left mr-3">
-                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="popular-img"><img src="<?= $model->getImage(); ?>" alt="">
+                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="popular-img"><img src="<?= $articleComponent->getImage($model) ?>" alt="">
                             <div class="p-overlay"></div>
                         </a>
                     </div>

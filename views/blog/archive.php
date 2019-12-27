@@ -21,7 +21,7 @@ $this->title = Yii::t('blog', 'Category');
         <div class="row">
             <div class="col-md-6">
                 <div class="post-thumb">
-                    <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $model->getImage(); ?>" alt="" class="pull-left"></a>
+                    <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>"><img src="<?= $articleComponent->getImage($model) ?>" alt="" class="pull-left"></a>
 
                     <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="post-thumb-overlay text-center">
                         <div class="text-uppercase text-center"><?= Module::t('blog', 'View Post'); ?></div>
@@ -67,4 +67,5 @@ $this->title = Yii::t('blog', 'Category');
     'recent' => $sidebarData['recent'],
     'categories' => $sidebarData['categories'],
     'dateManager' => $dateManager,
+    'articleComponent' => $articleComponent,
 ]);

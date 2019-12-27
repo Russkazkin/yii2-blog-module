@@ -29,6 +29,7 @@ class SingleAction extends BaseBlogAction
             'tags' => $model->getTags()->all(),
             'sidebarData' => $this->getSidebarData(),
             'dateManager' => $this->controller->dateManager,
+            'articleComponent' => $this->controller->articleComponent,
             'pages' => $pages,
             'authorItems' => $authorItems,
             'related' => $related,

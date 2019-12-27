@@ -15,6 +15,7 @@ class IndexAction extends BaseAction
 
         return $this->controller->render('index', [
             'articles' => $articles,
+            'articleComponent' => $this->controller->articleComponent,
         ]);
     }
 }
