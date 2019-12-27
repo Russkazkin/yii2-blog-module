@@ -3,6 +3,7 @@
 namespace app\modules\blog\models\base;
 
 use app\modules\auth\models\User;
+use app\modules\blog\models\Category;
 use Yii;
 
 /**
