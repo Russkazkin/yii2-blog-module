@@ -13,6 +13,7 @@ class ViewAction extends BaseAction
         return $this->controller->render('view', [
             'model' => $this->controller->findModel($id),
             'articleComponent' => $this->controller->articleComponent,
+            'rbacManager' => $this->controller->rbacManager,
         ]);
     }
 }

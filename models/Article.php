@@ -39,7 +39,6 @@ class Article extends BaseArticle
 
     public $file;
     public $tags;
-    public $component;
 
     public function behaviors()
     {

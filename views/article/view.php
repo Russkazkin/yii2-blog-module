@@ -6,9 +6,11 @@ use yii\helpers\Html;
 use yii\helpers\StringHelper;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\blog\models\Article */
-/* @var $articleComponent \app\modules\blog\components\ArticleComponent */
+/** @var $this yii\web\View
+ * @var $model app\modules\blog\models\Article
+ * @var $articleComponent \app\modules\blog\components\ArticleComponent
+ * @var $rbacManager \app\modules\auth\components\RbacComponent
+ */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' => ['index']];
@@ -24,6 +26,7 @@ $model->image = $articleComponent->getImage($model);
         <?php elseif ($model->status == $model::STATUS_DELETED): ?>
         <?= Html::a(Yii::t('app', 'Restore'), ['restore', 'id' => $model->id], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
         <?php endif; ?>
+        <?php if ($rbacManager->haveAdminPermissions()): ?>
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-sm waves-effect width-md waves-light',
             'data' => [
@@ -31,6 +34,7 @@ $model->image = $articleComponent->getImage($model);
                 'method' => 'post',
             ],
         ]) ?>
+        <?php endif; ?>
     </p>
 
     <?= DetailView::widget([

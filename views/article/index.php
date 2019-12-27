@@ -5,8 +5,10 @@ use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
 
-/* @var $this yii\web\View */
-/* @var $articles \app\modules\blog\models\Article [] */
+/** @var $this yii\web\View
+ * @var $articles \app\modules\blog\models\Article []
+ * @var $rbacManager \app\modules\auth\components\RbacComponent
+ */
 
 $this->title = Yii::t('app', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
@@ -57,9 +59,11 @@ DataTablesAsset::register($this);
                                 ['restore', 'id' => $article->id],
                                 ['title' => 'Restore']) ?>
                         <?php endif; ?>
+                        <?php if ($rbacManager->haveAdminPermissions()):?>
                         <?= Html::a('<i class="mdi mdi-delete"></i>',
                             ['delete', 'id' => $article->id],
                             ['data-method' => 'post', 'title' => 'Delete']) ?>
+                        <?php endif; ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
