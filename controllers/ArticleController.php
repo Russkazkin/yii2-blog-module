@@ -7,6 +7,7 @@ use app\modules\blog\controllers\actions\article\GridAction;
 use app\modules\blog\controllers\actions\article\IndexAction;
 use app\modules\blog\controllers\actions\article\RestoreAction;
 use app\modules\blog\controllers\actions\article\SoftDeleteAction;
+use app\modules\blog\controllers\actions\article\ViewAction;
 use Yii;
 use app\modules\blog\models\Article;
 use yii\web\NotFoundHttpException;
@@ -33,6 +34,7 @@ class ArticleController extends BaseController
             'grid' => ['class' => GridAction::class],
             'soft-delete' => ['class' => SoftDeleteAction::class],
             'restore' => ['class' => RestoreAction::class],
+            'view' => ['class' => ViewAction::class],
             ];
     }
 
@@ -42,12 +44,12 @@ class ArticleController extends BaseController
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    /*public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
-    }
+    }*/
 
     /**
      * Creates a new Article model.

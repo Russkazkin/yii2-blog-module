@@ -8,11 +8,13 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Article */
+/* @var $articleComponent \app\modules\blog\components\ArticleComponent */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = StringHelper::truncate($this->title, 36);
 DataTablesAsset::register($this);
+$model->image = $articleComponent->getImage($model);
 ?>
 <div class="card-box">
     <p>
@@ -57,7 +59,7 @@ DataTablesAsset::register($this);
                 'format' => 'html',
                 'label' => Yii::t('app', 'Image'),
                 'value' => function($data){
-                    return Html::img($data->getImage(), ['height' => '50']);
+                    return Html::img($data->image, ['height' => '50']);
                 },
             ],
             'viewed',
