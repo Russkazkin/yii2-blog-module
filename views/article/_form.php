@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\blog\models\Article;
+use bizley\quill\Quill;
 use kartik\date\DatePicker;
 use kartik\file\FileInput;
 use kartik\icons\FontAwesomeAsset;
@@ -56,12 +57,17 @@ FontAwesomeAsset::register($this);
 
             <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'content')->widget(CKEditor::class,[
+            <?= $form->field($model, 'content')->widget(Quill::class, [
+                'theme' => 'snow',
+                'toolbarOptions' => 'FULL',
+            ]) ?>
+
+            <?/*= $form->field($model, 'content')->widget(CKEditor::class,[
                 'editorOptions' => [
                     'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
                     'inline' => false, //по умолчанию false
                 ],
-            ]); ?>
+            ]); */?>
 
             <?= $form->field($model, 'date')->widget(DatePicker::class, [
                 'options' => ['value' => $today],
