@@ -54,14 +54,16 @@ class Article extends BaseArticle
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['title', 'content', 'date'], 'required'],
-            [['description', 'content', 'title'], 'string'],
+            [['image', 'content'], 'string'],
+            [['title'], 'string', 'max' => 64],
+            [['description'], 'string', 'max' => 128],
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'safe'],
             [['viewed', 'user_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'image'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
             [['file'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'checkExtensionByMimeType' => false],
             [['user_id'], 'default', 'value' => Yii::$app->user->id],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
 
