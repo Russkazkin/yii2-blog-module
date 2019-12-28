@@ -4,6 +4,7 @@ use app\modules\blog\models\Article;
 use kartik\date\DatePicker;
 use kartik\file\FileInput;
 use kartik\icons\FontAwesomeAsset;
+use mihaildev\ckeditor\CKEditor;
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 
@@ -55,7 +56,12 @@ FontAwesomeAsset::register($this);
 
             <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'content')->widget(CKEditor::class,[
+                'editorOptions' => [
+                    'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+                    'inline' => false, //по умолчанию false
+                ],
+            ]); ?>
 
             <?= $form->field($model, 'date')->widget(DatePicker::class, [
                 'options' => ['value' => $today],

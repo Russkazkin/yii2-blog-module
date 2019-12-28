@@ -43,7 +43,7 @@ $model->image = $articleComponent->getImage($model);
             'id',
             'title',
             'description:ntext',
-            'content:ntext',
+            'content:html',
             'date:date',
             [
                 'label' => Yii::t('app', 'Category'),
