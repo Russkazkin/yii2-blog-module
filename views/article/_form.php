@@ -36,7 +36,7 @@ FontAwesomeAsset::register($this);
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'title')->textInput(['maxlength' => true],['class' => 'article-title-input']) ?>
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'category_id')->dropDownList($categories,
                 ['prompt' => Yii::t('app', 'Choose category...')]); ?>
@@ -53,7 +53,7 @@ FontAwesomeAsset::register($this);
                 </div>
             </div>
 
-            <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 

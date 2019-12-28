@@ -27,7 +27,7 @@ class m191001_145042_create_article_table extends Migration
             'image' => $this->string(),
             'viewed' => $this->integer(),
             'user_id' => $this->integer(),
-            'category_id'=>$this->integer(),
+            'category_id'=>$this->integer()->notNull(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer(11),
             'updated_at' => $this->integer(11),
