@@ -72,6 +72,10 @@ FontAwesomeAsset::register($this);
                 ],
                 'options' => [
                     'style' => 'min-height:300px;'
+                ],
+                'modules' => [
+                    'formula' => true,
+                    'syntax' => true,
                 ]
             ]) ?>
             <?/*= $form->field($model, 'content')->widget(CKEditor::class,[
