@@ -70,6 +70,9 @@ FontAwesomeAsset::register($this);
                     ['link', 'image', 'video', 'formula'],
                     ['clean'],
                 ],
+                'options' => [
+                    'style' => 'min-height:300px;'
+                ]
             ]) ?>
             <?/*= $form->field($model, 'content')->widget(CKEditor::class,[
                 'editorOptions' => [
