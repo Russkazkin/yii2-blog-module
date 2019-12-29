@@ -59,9 +59,18 @@ FontAwesomeAsset::register($this);
 
             <?= $form->field($model, 'content')->widget(Quill::class, [
                 'theme' => 'snow',
-                'toolbarOptions' => 'FULL',
+                'toolbarOptions' => [
+                    [['font' => []], ['size' => []]],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [['color' => []], ['background' => []]],
+                    [['script' => 'super'], ['script' => 'sub']],
+                    [['header' => [!1, 1, 2, 3, 4, 5, 6]], 'blockquote', 'code-block'],
+                    [['list' => 'ordered'], ['list' => 'bullet'], ['indent' => '-1'], ['indent' => '+1']],
+                    ['direction', ['align' => []]],
+                    ['link', 'image', 'video', 'formula'],
+                    ['clean'],
+                ],
             ]) ?>
-
             <?/*= $form->field($model, 'content')->widget(CKEditor::class,[
                 'editorOptions' => [
                     'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
