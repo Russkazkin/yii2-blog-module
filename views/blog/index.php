@@ -33,7 +33,7 @@ use yii\helpers\Url; ?>
 
                 </header>
                 <div class="entry-content">
-                    <p><?= $model->description; ?></p>
+                    <p><?= $articleComponent->getDescription($model) ?></p>
 
                     <div class="btn-continue-reading text-center text-uppercase">
                         <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="more-link">Continue Reading</a>
