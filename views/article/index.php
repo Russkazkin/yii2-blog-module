@@ -34,6 +34,7 @@ DataTablesAsset::register($this);
                 </thead>
                 <tbody>
                 <?php foreach ($articles as $article):?>
+                <?php if (!$rbacManager->canViewArticle($article)) continue; ?>
                 <tr class="status-<?= $article->status; ?>">
                     <td><?= StringHelper::truncate($article->title, 40); ?></td>
                     <td><?= $article->category->title; ?></td>
