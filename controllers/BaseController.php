@@ -56,7 +56,7 @@ class BaseController extends Controller
      * @return string
      * @throws \yii\base\InvalidConfigException
      */
-    protected function getIntlToday()
+    public function getIntlToday()
     {
         return Yii::$app->formatter->asDate(date('Y-m-d'));
     }

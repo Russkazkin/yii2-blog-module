@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\components\ArticleComponent;
+use app\modules\blog\controllers\actions\article\CreateAction;
 use app\modules\blog\controllers\actions\article\GridAction;
 use app\modules\blog\controllers\actions\article\IndexAction;
 use app\modules\blog\controllers\actions\article\RestoreAction;
@@ -35,54 +36,9 @@ class ArticleController extends BaseController
             'soft-delete' => ['class' => SoftDeleteAction::class],
             'restore' => ['class' => RestoreAction::class],
             'view' => ['class' => ViewAction::class],
+            'create' => ['class' => CreateAction::class],
             ];
     }
-
-    /**
-     * Displays a single Article model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    /*public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }*/
-
-    /**
-     * Creates a new Article model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     * @throws \yii\base\InvalidConfigException
-     * @throws \yii\base\Exception
-     */
-    public function actionCreate()
-    {
-        $model = new Article();
-
-        if ($model->load(Yii::$app->request->post())) {
-            $model->file = UploadedFile::getInstance($model, 'file');
-
-            if ($model->file) {
-                $model->image = $model->upload();
-            }
-
-            if ($model->save()) {
-                $model->saveTags();
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        };
-
-        return $this->render('create', [
-            'model' => $model,
-            'today' => $this->getIntlToday(),
-            'categories' => $model->categoriesList,
-
-        ]);
-    }
-
     /**
      * Updates an existing Article model.
      * If update is successful, the browser will be redirected to the 'view' page.
