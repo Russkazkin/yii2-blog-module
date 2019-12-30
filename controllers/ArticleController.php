@@ -8,6 +8,7 @@ use app\modules\blog\controllers\actions\article\GridAction;
 use app\modules\blog\controllers\actions\article\IndexAction;
 use app\modules\blog\controllers\actions\article\RestoreAction;
 use app\modules\blog\controllers\actions\article\SoftDeleteAction;
+use app\modules\blog\controllers\actions\article\UpdateAction;
 use app\modules\blog\controllers\actions\article\ViewAction;
 use Yii;
 use app\modules\blog\models\Article;
@@ -37,36 +38,8 @@ class ArticleController extends BaseController
             'restore' => ['class' => RestoreAction::class],
             'view' => ['class' => ViewAction::class],
             'create' => ['class' => CreateAction::class],
-            ];
-    }
-    /**
-     * Updates an existing Article model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-        $imagePreview = $model->image ? '/blog_uploads/' . $model->image : null;
-
-        if ($model->load(Yii::$app->request->post())) {
-
-            $model->file = UploadedFile::getInstance($model, 'file');
-
-            $model->image = $model->file ? $model->upload($model->image) : $model->getOldAttribute('image');
-
-            if ($model->save()) {
-                $model->saveTags();
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        };
-
-        return $this->render('update', [
-            'model' => $model,
-            'imagePreview' => $imagePreview,
-        ]);
+            'update' => ['class' => UpdateAction::class],
+        ];
     }
 
     /**
