@@ -19,4 +19,14 @@ class ArticleComponent extends BaseObject
     {
         return $article->description ?: StringHelper::truncate(strip_tags($article->content), '128');
     }
+
+    public function addViewsCount(Article $article)
+    {
+        if(!$article->viewed) {
+            $article->viewed = 1;
+        } else {
+            $article->viewed++;
+        }
+        return $article->save();
+    }
 }

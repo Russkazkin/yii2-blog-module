@@ -11,6 +11,7 @@ class SingleAction extends BaseBlogAction
     public function run($id)
     {
         $model = $this->controller->findModel($id);
+        $this->controller->articleComponent->addViewsCount($model);
         $query = Article::find()
             ->where(['status' => 10, 'user_id' => $model->user_id])
             ->orderBy(['date' => SORT_DESC])
