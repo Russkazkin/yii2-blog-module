@@ -67,7 +67,13 @@ $model->image = $articleComponent->getImage($model);
                 },
             ],
             'viewed',
-            'user_id',
+            [
+                'attribute' => 'user_id',
+                'label' => Module::t('blog', 'User'),
+                'value' => function($data){
+                    return $data->user->name;
+                },
+            ],
             [
                 'attribute' => 'status',
                 'value' => function($data){
