@@ -60,7 +60,7 @@ DataTablesAsset::register($this);
                                 ['restore', 'id' => $article->id],
                                 ['title' => 'Restore']) ?>
                         <?php endif; ?>
-                        <?php if ($rbacManager->haveAdminPermissions()):?>
+                        <?php if ($rbacManager->canDeleteArticle($article)):?>
                         <?= Html::a('<i class="mdi mdi-delete"></i>',
                             ['delete', 'id' => $article->id],
                             ['data-method' => 'post', 'title' => 'Delete']) ?>
