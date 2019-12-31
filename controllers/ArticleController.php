@@ -4,6 +4,7 @@ namespace app\modules\blog\controllers;
 
 use app\modules\blog\components\ArticleComponent;
 use app\modules\blog\controllers\actions\article\CreateAction;
+use app\modules\blog\controllers\actions\article\DeleteAction;
 use app\modules\blog\controllers\actions\article\GridAction;
 use app\modules\blog\controllers\actions\article\IndexAction;
 use app\modules\blog\controllers\actions\article\RestoreAction;
@@ -39,22 +40,8 @@ class ArticleController extends BaseController
             'view' => ['class' => ViewAction::class],
             'create' => ['class' => CreateAction::class],
             'update' => ['class' => UpdateAction::class],
+            'delete' => ['class' => DeleteAction::class],
         ];
-    }
-
-    /**
-     * Deletes an existing Article model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        //TODO: Add image removal before article delete
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     public function actionRemoveImg()
