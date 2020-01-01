@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers\actions\article;
 
 use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\Article;
+use app\modules\blog\Module;
 use Yii;
 use yii\web\UnauthorizedHttpException;
 use yii\web\UploadedFile;
@@ -18,7 +19,7 @@ class UpdateAction extends BaseAction
         $model = $this->controller->findModel($id);
 
         if (!$this->controller->rbacManager->canEditArticle($model)){
-            throw new UnauthorizedHttpException('You can\'t edit this article');
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
         }
 
         $imagePreview = $model->image ? '/blog_uploads/' . $model->image : null;

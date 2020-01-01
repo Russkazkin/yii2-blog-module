@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers\actions\article;
 
 
 use app\modules\blog\controllers\actions\BaseAction;
+use app\modules\blog\Module;
 use yii\web\UnauthorizedHttpException;
 
 class ViewAction extends BaseAction
@@ -14,7 +15,7 @@ class ViewAction extends BaseAction
         $model = $this->controller->findModel($id);
 
         if (!$this->controller->rbacManager->canViewArticle($model)){
-            throw new UnauthorizedHttpException('You can\'t view this article');
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
         }
         return $this->controller->render('view', [
             'model' => $model,
