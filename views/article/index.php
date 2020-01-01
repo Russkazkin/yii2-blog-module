@@ -63,7 +63,11 @@ DataTablesAsset::register($this);
                         <?php if ($rbacManager->canDeleteArticle($article)):?>
                         <?= Html::a('<i class="mdi mdi-delete"></i>',
                             ['delete', 'id' => $article->id],
-                            ['data-method' => 'post', 'title' => 'Delete']) ?>
+                            [
+                                'data' => ['method' => 'post', 'id' => $article->id],
+                                'title' => 'Delete',
+                                'class' => 'article-list-delete'
+                            ]) ?>
                         <?php endif; ?>
                     </td>
                 </tr>
