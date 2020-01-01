@@ -6,6 +6,7 @@ namespace app\modules\blog\controllers\actions\article;
 
 use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\search\ArticleSearch;
+use app\modules\blog\Module;
 use Yii;
 use yii\web\UnauthorizedHttpException;
 
@@ -15,7 +16,7 @@ class GridAction extends BaseAction
     public function beforeRun()
     {
         if(!$this->controller->rbacManager->haveAdminPermissions()){
-            throw new UnauthorizedHttpException('Unauthorized Access');
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
         }
         return parent::beforeRun();
     }

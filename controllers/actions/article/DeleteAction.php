@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers\actions\article;
 
 
 use app\modules\blog\controllers\actions\BaseAction;
+use app\modules\blog\Module;
 use yii\web\UnauthorizedHttpException;
 
 class DeleteAction extends BaseAction
@@ -15,7 +16,7 @@ class DeleteAction extends BaseAction
         $model = $this->controller->findModel($id);
 
         if (!$this->controller->rbacManager->canDeleteArticle($model)){
-            throw new UnauthorizedHttpException('You can\'t delete this article');
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
         }
 
         $model->delete();
