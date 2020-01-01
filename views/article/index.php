@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
@@ -13,6 +14,7 @@ use yii\helpers\StringHelper;
 $this->title = Yii::t('app', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
+SweetalertAsset::register($this);
 ?>
 
 <div class="row">
