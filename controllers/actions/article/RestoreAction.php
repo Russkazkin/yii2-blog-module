@@ -8,6 +8,7 @@ use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\Article;
 use app\modules\blog\Module;
 use Yii;
+use yii\web\UnauthorizedHttpException;
 
 class RestoreAction  extends BaseAction
 {
@@ -15,6 +16,11 @@ class RestoreAction  extends BaseAction
     {
         /* @var $article \app\modules\blog\models\Article */
         $article = $this->controller->findModel($id);
+
+        if (!$this->controller->rbacManager->canHideArticle($article)){
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
+        }
+
         if($article->status == Article::STATUS_ACTIVE){
             Yii::$app->session->setFlash('error', Module::t('blog', 'Article already active'));
             return $this->controller->redirect('/admin/blog/article/index');

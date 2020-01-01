@@ -8,6 +8,7 @@ use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\Article;
 use app\modules\blog\Module;
 use Yii;
+use yii\web\UnauthorizedHttpException;
 
 
 class SoftDeleteAction extends BaseAction
@@ -16,6 +17,11 @@ class SoftDeleteAction extends BaseAction
     {
         /* @var $article \app\modules\blog\models\Article */
         $article = $this->controller->findModel($id);
+
+        if (!$this->controller->rbacManager->canHideArticle($article)){
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
+        }
+
         if($article->status == Article::STATUS_DELETED){
             Yii::$app->session->setFlash('error', Module::t('blog', 'Article already was deleted'));
             return $this->controller->redirect('/admin/blog/article/index');
