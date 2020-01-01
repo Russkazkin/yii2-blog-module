@@ -45,5 +45,6 @@
     'Tags' => 'Теги',
     'Image' => 'Изображение',
     'Actions' => 'Действия',
-    'Update Article: {name}' => 'Редактирование записи: {name}'
+    'Update Article: {name}' => 'Редактирование записи: {name}',
+    'Unauthorized Access' => 'Неавторизованный доступ',
 ];
