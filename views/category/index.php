@@ -12,31 +12,27 @@ $this->title = Yii::t('blog', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
 ?>
-<div class="category-index">
+<div class="category-index row">
+    <div class="col-12">
+        <p>
+            <?= Html::a(Yii::t('blog', 'Create Category'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+        </p>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <p>
-        <?= Html::a(Yii::t('blog', 'Create Category'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+                'id',
+                'title',
+                'status',
+                'created_at',
+                'updated_at',
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                ['class' => 'yii\grid\ActionColumn'],
+            ],
+        ]); ?>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'status',
-            'created_at',
-            'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
+    </div>
 </div>
