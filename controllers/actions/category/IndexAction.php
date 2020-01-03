@@ -13,7 +13,7 @@ class IndexAction extends BaseAction
     {
         $categories = Category::find()->all();
 
-        $this->controller->render('index', [
+        return $this->controller->render('index', [
             'categories' => $categories,
             'rbacManager' => $this->controller->rbacManager,
         ]);

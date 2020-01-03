@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\category\IndexAction;
 use Yii;
 use app\modules\blog\models\Category;
 use app\modules\blog\models\search\CategorySearch;
@@ -28,11 +29,18 @@ class CategoryController extends BaseController
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'index' => ['class' => IndexAction::class],
+        ];
+    }
+
     /**
      * Lists all Category models.
      * @return mixed
      */
-    public function actionIndex()
+    /*public function actionIndex()
     {
         $searchModel = new CategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -41,7 +49,7 @@ class CategoryController extends BaseController
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
+    }*/
 
     /**
      * Displays a single Category model.
