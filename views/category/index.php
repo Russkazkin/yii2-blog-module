@@ -1,10 +1,9 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
-use yii\grid\GridView;
-use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $categories \app\modules\blog\models\Category [] */
@@ -13,6 +12,7 @@ use yii\helpers\StringHelper;
 $this->title = Yii::t('blog', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
+SweetalertAsset::register($this);
 ?>
 <div class="category-index row">
     <div class="col-12">
