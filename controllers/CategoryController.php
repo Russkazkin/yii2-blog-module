@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\category\IndexAction;
+use app\modules\blog\controllers\actions\category\SoftDeleteAction;
 use app\modules\blog\controllers\actions\category\ViewAction;
 use Yii;
 use app\modules\blog\models\Category;
@@ -35,6 +36,7 @@ class CategoryController extends BaseController
         return [
             'index' => ['class' => IndexAction::class],
             'view' => ['class' => ViewAction::class],
+            'soft-delete' => ['class' => SoftDeleteAction::class],
         ];
     }
 
