@@ -44,7 +44,7 @@ SweetalertAsset::register($this);
                                     ['title' => 'Hide']) ?>
                             <?php elseif ($category->status == $category::STATUS_DELETED): ?>
                                 <?= Html::a('<i class="mdi mdi-eye"></i>',
-                                    ['restore', 'id' => $article->id],
+                                    ['restore', 'id' => $category->id],
                                     ['title' => 'Restore']) ?>
                             <?php endif; ?>
                             <?php if ($rbacManager->haveAdminPermissions()):?>

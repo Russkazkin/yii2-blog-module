@@ -34,6 +34,3 @@ class RestoreAction  extends BaseAction
         return $this->controller->redirect(Yii::$app->request->referrer ?: '/admin/blog/article/index');
     }
 }
-{
-
-}

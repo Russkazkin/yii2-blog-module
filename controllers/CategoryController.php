@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\category\IndexAction;
+use app\modules\blog\controllers\actions\category\RestoreAction;
 use app\modules\blog\controllers\actions\category\SoftDeleteAction;
 use app\modules\blog\controllers\actions\category\ViewAction;
 use Yii;
@@ -37,20 +38,8 @@ class CategoryController extends BaseController
             'index' => ['class' => IndexAction::class],
             'view' => ['class' => ViewAction::class],
             'soft-delete' => ['class' => SoftDeleteAction::class],
+            'restore' => ['class' => RestoreAction::class],
         ];
-    }
-
-    /**
-     * Displays a single Category model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
     }
 
     /**
