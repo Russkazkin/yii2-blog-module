@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\category\CreateAction;
 use app\modules\blog\controllers\actions\category\IndexAction;
 use app\modules\blog\controllers\actions\category\RestoreAction;
 use app\modules\blog\controllers\actions\category\SoftDeleteAction;
@@ -39,25 +40,8 @@ class CategoryController extends BaseController
             'view' => ['class' => ViewAction::class],
             'soft-delete' => ['class' => SoftDeleteAction::class],
             'restore' => ['class' => RestoreAction::class],
+            'create' => ['class' => CreateAction::class],
         ];
-    }
-
-    /**
-     * Creates a new Category model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Category();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
