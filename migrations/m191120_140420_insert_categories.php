@@ -18,6 +18,7 @@ class m191120_140420_insert_categories extends Migration
             ['Linux', strtotime('now'), strtotime('now')],
             ['Web', strtotime('now'), strtotime('now')],
             ['Yii2', strtotime('now'), strtotime('now')],
+            ['Development', strtotime('now'), strtotime('now')],
         ]);
     }
 

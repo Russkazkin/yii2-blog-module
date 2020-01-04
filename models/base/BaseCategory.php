@@ -34,7 +34,6 @@ class BaseCategory extends \yii\db\ActiveRecord
         return [
             [['title'], 'required'],
             [['status', 'created_at', 'updated_at'], 'integer'],
-            [['title'], 'string', 'max' => 255],
         ];
     }
 
