@@ -1,29 +1,39 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Category */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm; */
 ?>
 
-<div class="category-form">
+<div class="category-form row">
+    <div class="col-12">
+        <div class="p-2">
 
-    <?php $form = ActiveForm::begin(); ?>
+            <?php $form = ActiveForm::begin([
+                'layout'=>'horizontal',
+                'options' => ['class' => 'form-horizontal'],
+                'fieldConfig' => [
+                    'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
+                    'horizontalCssClasses' => [
+                        'label' => 'col-sm-2 col-form-label',
+                        'wrapper' => 'col-sm-10',
+                        'error' => '',
+                        'hint' => '',
+                    ],
+                ],
+            ]); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'title')->textInput(['maxlength' => 32]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+            <div class="form-group">
+                <?= Html::submitButton(Yii::t('blog', 'Save'), ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+            </div>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+            <?php ActiveForm::end(); ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('blog', 'Save'), ['class' => 'btn btn-success']) ?>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

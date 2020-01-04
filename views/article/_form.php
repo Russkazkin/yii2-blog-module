@@ -13,7 +13,7 @@ FontAwesomeAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model Article */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 /* @var $today app\modules\blog\controllers\BaseController */
 /* @var $categories Article[] */
 /* @var $selectedTags Article[] */
@@ -105,7 +105,7 @@ FontAwesomeAsset::register($this);
             ]); ?>
 
             <div class="form-group">
-                <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+                <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>
