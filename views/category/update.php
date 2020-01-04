@@ -1,6 +1,5 @@
 <?php
-
-use yii\helpers\Html;
+use app\modules\admin\assets\FormAdvancedAsset;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Category */
@@ -11,13 +10,17 @@ $this->title = Yii::t('blog', 'Update Category: {name}', [
 $this->params['breadcrumbs'][] = ['label' => Yii::t('blog', 'Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('blog', 'Update');
-?>
-<div class="category-update">
+FormAdvancedAsset::register($this); ?>
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+<div class="category-update row">
+    <div class="col-12">
+        <div class="card-box">
 
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
+
+        </div>
+    </div>
 </div>
