@@ -46,7 +46,7 @@ use yii\helpers\Url; ?>
                                 </a>
                                 <?= $dateManager->timestampToDate($model->date); ?></span>
                     <ul class="text-center float-right">
-                        <li><a class="s-facebook" href="#"><i class="fas fa-eye"></i></a></li>
+                        <li><span class="viewed-icon"><i class="fas fa-eye"></i></span></li>
                         <?= (int) $model->viewed; ?>
                     </ul>
                 </div>
