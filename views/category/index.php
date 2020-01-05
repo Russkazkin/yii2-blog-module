@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\FormAdvancedAsset;
 use app\modules\admin\assets\ModalAsset;
 use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
@@ -15,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
 SweetalertAsset::register($this);
 ModalAsset::register($this);
+FormAdvancedAsset::register($this);
 ?>
 <div class="category-index row">
     <div class="col-12">
@@ -24,7 +26,7 @@ ModalAsset::register($this);
                class="btn btn-success btn-sm waves-effect width-md waves-light"
                data-animation="fadein"
                data-plugin="custommodal"
-               data-overlayColor="#36404a">Create Category</a>
+               data-overlayColor="#36404a"><?= Module::t('blog', 'Create Category')?></a>
 
         </p>
         <div class="card-box">
@@ -77,7 +79,7 @@ ModalAsset::register($this);
     <button type="button" class="close" onclick="Custombox.modal.close();">
         <span>&times;</span><span class="sr-only">Close</span>
     </button>
-    <h4 class="custom-modal-title">Modal title</h4>
+    <h4 class="custom-modal-title"><?= Module::t('blog', 'Create Category')?></h4>
     <div class="custom-modal-text">
         <?= $this->render('_form', [
             'model' => $model,

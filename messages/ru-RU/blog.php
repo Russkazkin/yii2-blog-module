@@ -47,4 +47,5 @@
     'Actions' => 'Действия',
     'Update Article: {name}' => 'Редактирование записи: {name}',
     'Unauthorized Access' => 'Неавторизованный доступ',
+    'Create Category' => 'Новая категория',
 ];
