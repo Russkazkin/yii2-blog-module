@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\ModalAsset;
 use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
@@ -13,11 +14,18 @@ $this->title = Yii::t('blog', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
 SweetalertAsset::register($this);
+ModalAsset::register($this);
 ?>
 <div class="category-index row">
     <div class="col-12">
         <p>
-            <?= Html::a(Yii::t('blog', 'Create Category'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+<!--            --><?//= Html::a(Yii::t('blog', 'Create Category'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+            <a href="#create-category-modal"
+               class="btn btn-success btn-sm waves-effect width-md waves-light"
+               data-animation="fadein"
+               data-plugin="custommodal"
+               data-overlayColor="#36404a">Create Category</a>
+
         </p>
         <div class="card-box">
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
@@ -62,5 +70,17 @@ SweetalertAsset::register($this);
                 </tbody>
             </table>
         </div>
+    </div>
+</div>
+<!-- Modal -->
+<div id="create-category-modal" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.modal.close();">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title">Modal title</h4>
+    <div class="custom-modal-text">
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
     </div>
 </div>
