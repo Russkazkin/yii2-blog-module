@@ -18,8 +18,8 @@ class DeleteAction extends BaseAction
             return ['data' => 'ok'];
         }*/
         $this->controller->findModel($id)->delete();
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return ['data' => 'ok'];
-        //return $this->controller->redirect(['index']);
+        //Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        //return ['data' => 'ok'];
+        return $this->controller->redirect(['index']);
     }
 }
