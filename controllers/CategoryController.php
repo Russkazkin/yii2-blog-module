@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\category\CreateAction;
+use app\modules\blog\controllers\actions\category\DeleteAction;
 use app\modules\blog\controllers\actions\category\IndexAction;
 use app\modules\blog\controllers\actions\category\RestoreAction;
 use app\modules\blog\controllers\actions\category\SoftDeleteAction;
@@ -33,7 +34,6 @@ class CategoryController extends BaseController
             ],
         ];
     }
-
     public function actions()
     {
         return [
@@ -43,6 +43,7 @@ class CategoryController extends BaseController
             'restore' => ['class' => RestoreAction::class],
             'create' => ['class' => CreateAction::class],
             'update' => ['class' => UpdateAction::class],
+            'delete' => ['class' => DeleteAction::class],
         ];
     }
 
@@ -55,6 +56,12 @@ class CategoryController extends BaseController
      */
     public function actionDelete($id)
     {
+
+        if (Yii::$app->request->isAjax) {
+            Yii::warning('ajax');
+            /*Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return ['data' => 'ok'];*/
+        }
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
