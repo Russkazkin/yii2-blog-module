@@ -47,24 +47,12 @@ class CategoryController extends BaseController
         ];
     }
 
-    /**
-     * Deletes an existing Category model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
+    public function beforeAction($action)
     {
-
-        if (Yii::$app->request->isAjax) {
-            Yii::warning('ajax');
-            /*Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            return ['data' => 'ok'];*/
+        if ($action = 'delete') {
+            $this->enableCsrfValidation = false;
         }
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        return parent::beforeAction($action);
     }
 
     /**
