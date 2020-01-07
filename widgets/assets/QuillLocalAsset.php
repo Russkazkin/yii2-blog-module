@@ -48,7 +48,7 @@ class QuillLocalAsset extends AssetBundle
                 $this->css = ['quill.core.css'];
         }
 
-        $this->js = ['quill.min.js'];
+        $this->js = ['katex.min.js', 'highlight.js', 'quill.min.js'];
 
         parent::registerAssetFiles($view);
     }
