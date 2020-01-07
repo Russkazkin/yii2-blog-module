@@ -16,7 +16,7 @@ class BaseBlogAction extends BaseAction
         $data = [];
         $data['popular'] = Article::find()->orderBy('viewed desc')->limit(3)->all();
         $data['recent'] = Article::find()->orderBy('date desc')->limit(4)->all();
-        $data['categories'] = Category::find()->all();
+        $data['categories'] = Category::find()->where(['status' => Category::STATUS_ACTIVE])->all();
         return $data;
     }
 
