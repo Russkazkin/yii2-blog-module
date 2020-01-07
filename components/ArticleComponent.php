@@ -5,7 +5,9 @@ namespace app\modules\blog\components;
 
 
 use app\modules\blog\models\Article;
+use app\modules\blog\models\Category;
 use yii\base\BaseObject;
+use yii\helpers\ArrayHelper;
 use yii\helpers\StringHelper;
 
 class ArticleComponent extends BaseObject
@@ -28,5 +30,10 @@ class ArticleComponent extends BaseObject
             $article->viewed++;
         }
         return $article->save();
+    }
+
+    public function getCategoriesList()
+    {
+        return ArrayHelper::map(Category::find()->where(['status' => Category::STATUS_ACTIVE])->all(), 'id', 'title');
     }
 }

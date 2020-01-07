@@ -140,7 +140,7 @@ class Article extends BaseArticle
 
     public function getCategoriesList()
     {
-        return ArrayHelper::map(Category::find()->all(), 'id', 'title');
+        return ArrayHelper::map(Category::find()->where(['status' => Category::STATUS_ACTIVE])->all(), 'id', 'title');
     }
 
     /**

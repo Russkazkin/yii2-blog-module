@@ -41,8 +41,7 @@ class CreateAction extends BaseAction
         return $this->controller->render('create', [
             'model' => $model,
             'today' => $this->controller->getIntlToday(),
-            'categories' => $model->categoriesList,
-
+            'categories' => $this->articleComponent->getCategoriesList(),
         ]);
     }
 }
