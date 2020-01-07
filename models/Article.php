@@ -138,11 +138,6 @@ class Article extends BaseArticle
         return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 
-    public function getCategoriesList()
-    {
-        return ArrayHelper::map(Category::find()->where(['status' => Category::STATUS_ACTIVE])->all(), 'id', 'title');
-    }
-
     /**
      * @return \yii\db\ActiveQuery
      */
