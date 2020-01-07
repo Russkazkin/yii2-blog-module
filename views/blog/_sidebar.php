@@ -54,10 +54,12 @@ use yii\helpers\Url;
             <h3 class="widget-title text-uppercase text-center"><?= Module::t('blog', 'Categories'); ?></h3>
             <ul>
                 <?php foreach ($categories as $category):?>
+                <?php $count = $category->getArticles()->count(); if ($count): ?>
                 <li>
                     <a href="<?= Url::toRoute(['blog/archive', 'id' => $category->id]) ?>"><?= $category->title; ?></a>
-                    <span class="post-count float-right"> (<?= $category->getArticles()->count(); ?>)</span>
+                    <span class="post-count float-right"> (<?= $count; ?>)</span>
                 </li>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
         </aside>
