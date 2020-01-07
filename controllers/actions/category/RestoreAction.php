@@ -12,14 +12,18 @@ use yii\web\UnauthorizedHttpException;
 
 class RestoreAction extends BaseAction
 {
+    public function beforeRun()
+    {
+        if(!$this->controller->rbacManager->haveEditorPermissions()){
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
+        }
+        return parent::beforeRun();
+    }
+
     public function run($id)
     {
         /* @var $model \app\modules\blog\models\Category */
         $model = $this->controller->findModel($id);
-
-        if (!$this->controller->rbacManager->haveEditorPermissions()){
-            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
-        }
 
         if($model->status == Category::STATUS_ACTIVE){
             Yii::$app->session->setFlash('error', Module::t('blog', 'Category already active'));

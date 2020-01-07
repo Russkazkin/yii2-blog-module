@@ -13,17 +13,19 @@ use yii\web\UnauthorizedHttpException;
 
 class SoftDeleteAction extends BaseAction
 {
+    public function beforeRun()
+    {
+        if(!$this->controller->rbacManager->haveEditorPermissions()){
+            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
+        }
+        return parent::beforeRun();
+    }
+
     public function run($id)
     {
         /** @var $model \app\modules\blog\modells\Category
-         * @var $manager RbacComponent
          */
         $model = $this->controller->findModel($id);
-        $manager = $this->controller->rbacManager;
-
-        if (!$manager->haveEditorPermissions()){
-            throw new UnauthorizedHttpException(Module::t('blog', 'Unauthorized Access'));
-        }
 
         if($model->status == Category::STATUS_DELETED){
             Yii::$app->session->setFlash('error', Module::t('blog', 'Category already was deleted'));
