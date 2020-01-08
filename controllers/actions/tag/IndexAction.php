@@ -26,7 +26,7 @@ class IndexAction extends BaseAction
         $model = new Tag();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', Module::t('blog', 'Category creation successful'));
+            Yii::$app->session->setFlash('success', Module::t('blog', 'Tag creation successful'));
             return $this->controller->redirect(['view', 'id' => $model->id]);
         }
 
