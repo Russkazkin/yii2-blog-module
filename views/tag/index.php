@@ -1,6 +1,10 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\FormAdvancedAsset;
+use app\modules\admin\assets\ModalAsset;
+use app\modules\admin\assets\SweetalertAsset;
+use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -11,32 +15,18 @@ use yii\grid\GridView;
 $this->title = Yii::t('blog', 'Tags');
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
+SweetalertAsset::register($this);
+ModalAsset::register($this);
+FormAdvancedAsset::register($this);
 ?>
 <div class="tag-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a(Yii::t('blog', 'Create Tag'), ['create'], ['class' => 'btn btn-success']) ?>
+        <a href="#create-tag-modal"
+           class="btn btn-success btn-sm waves-effect width-md waves-light"
+           data-animation="fadein"
+           data-plugin="custommodal"
+           data-overlayColor="#36404a"><?= Module::t('blog', 'Create Category')?>
+        </a>
     </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'status',
-            'created_at',
-            'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
 </div>

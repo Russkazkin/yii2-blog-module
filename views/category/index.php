@@ -21,13 +21,12 @@ FormAdvancedAsset::register($this);
 <div class="category-index row">
     <div class="col-12">
         <p>
-<!--            --><?//= Html::a(Yii::t('blog', 'Create Category'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
             <a href="#create-category-modal"
                class="btn btn-success btn-sm waves-effect width-md waves-light"
                data-animation="fadein"
                data-plugin="custommodal"
-               data-overlayColor="#36404a"><?= Module::t('blog', 'Create Category')?></a>
-
+               data-overlayColor="#36404a"><?= Module::t('blog', 'Create Category')?>
+            </a>
         </p>
         <div class="card-box">
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">

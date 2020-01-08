@@ -32,7 +32,7 @@ class IndexAction extends BaseAction
 
         return $this->controller->render('index', [
             'tags' => $tags,
-            'rbacManager' => $this->rbacManager,
+            'rbacManager' => $this->controller->rbacManager,
             'model' => $model,
         ]);
     }

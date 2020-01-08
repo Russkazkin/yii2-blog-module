@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\tag\IndexAction;
 use app\modules\blog\models\search\TagSearch;
 use app\modules\blog\models\Tag;
 use Yii;
@@ -31,8 +32,8 @@ class TagController extends BaseController
     public function actions()
     {
         return [
-            'index' => ['class']
-        ]
+            'index' => ['class' => IndexAction::class],
+        ];
     }
 
     /**
