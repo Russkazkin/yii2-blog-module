@@ -76,3 +76,15 @@ FormAdvancedAsset::register($this);
         </table>
     </div>
 </div>
+<!-- Modal -->
+<div id="create-tag-modal" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.modal.close();">
+        <span>&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title"><?= Module::t('blog', 'Create Tag')?></h4>
+    <div class="custom-modal-text">
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
+    </div>
+</div>
