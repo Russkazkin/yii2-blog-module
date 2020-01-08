@@ -2,12 +2,11 @@
 
 namespace app\modules\blog\controllers;
 
-use Yii;
-use app\modules\blog\models\Tag;
 use app\modules\blog\models\search\TagSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use app\modules\blog\models\Tag;
+use Yii;
 use yii\filters\VerbFilter;
+use yii\web\NotFoundHttpException;
 
 /**
  * TagController implements the CRUD actions for Tag model.
@@ -21,12 +20,19 @@ class TagController extends BaseController
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
         ];
+    }
+
+    public function actions()
+    {
+        return [
+            'index' => ['class']
+        ]
     }
 
     /**
