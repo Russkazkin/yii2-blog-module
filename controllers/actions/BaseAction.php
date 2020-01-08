@@ -19,6 +19,6 @@ class BaseAction extends Action
     public function init()
     {
         parent::init();
-        $this->articleComponent = $this->controller->articleComponent;
+        $this->articleComponent = \Yii::$app->getModule('blog')->article;
     }
 }
