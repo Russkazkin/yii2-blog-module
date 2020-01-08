@@ -37,21 +37,6 @@ class TagController extends BaseController
     }
 
     /**
-     * Lists all Tag models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $searchModel = new TagSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
      * Displays a single Tag model.
      * @param integer $id
      * @return mixed
