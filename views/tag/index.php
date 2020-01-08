@@ -29,7 +29,7 @@ FormAdvancedAsset::register($this);
            class="btn btn-success btn-sm waves-effect width-md waves-light"
            data-animation="fadein"
            data-plugin="custommodal"
-           data-overlayColor="#36404a"><?= Module::t('blog', 'Create Category')?>
+           data-overlayColor="#36404a"><?= Module::t('blog', 'Create Tag')?>
         </a>
     </p>
     <div class="card-box">
