@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\tag\IndexAction;
+use app\modules\blog\controllers\actions\tag\ViewAction;
 use app\modules\blog\models\search\TagSearch;
 use app\modules\blog\models\Tag;
 use Yii;
@@ -33,20 +34,8 @@ class TagController extends BaseController
     {
         return [
             'index' => ['class' => IndexAction::class],
+            'view' => ['class' => ViewAction::class],
         ];
-    }
-
-    /**
-     * Displays a single Tag model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
     }
 
     /**
@@ -108,7 +97,7 @@ class TagController extends BaseController
      * @return Tag the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    public function findModel($id)
     {
         if (($model = Tag::findOne($id)) !== null) {
             return $model;
