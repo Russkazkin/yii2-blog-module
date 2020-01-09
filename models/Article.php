@@ -151,10 +151,6 @@ class Article extends BaseArticle
         }
     }
 
-    public function getTagsList() {
-        return ArrayHelper::map(Tag::find()->all(), 'id', 'title');
-    }
-
     public function getSelectedTags()
     {
         $selectedTags = $this->getTags()->select('id')->asArray()->all();
