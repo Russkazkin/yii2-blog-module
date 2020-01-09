@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\tag\IndexAction;
+use app\modules\blog\controllers\actions\tag\SoftDeleteAction;
 use app\modules\blog\controllers\actions\tag\ViewAction;
 use app\modules\blog\models\search\TagSearch;
 use app\modules\blog\models\Tag;
@@ -35,6 +36,7 @@ class TagController extends BaseController
         return [
             'index' => ['class' => IndexAction::class],
             'view' => ['class' => ViewAction::class],
+            'soft-delete' => ['class' => SoftDeleteAction::class],
         ];
     }
 
