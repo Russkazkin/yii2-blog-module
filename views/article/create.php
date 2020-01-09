@@ -6,7 +6,6 @@ use app\modules\blog\models\Article;
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Article */
 /* @var $today app\modules\blog\controllers\BaseController */
-/* @var $categories Article[] */
 
 $this->title = Yii::t('app', 'Create Article');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' => ['index']];
@@ -21,7 +20,7 @@ FormAdvancedAsset::register($this);
                 'model' => $model,
                 'today' => $today,
                 'categories' => $categories,
-                'tags' => $model->tagsList,
+                'tags' => $tags,
             ]) ?>
         </div>
     </div>

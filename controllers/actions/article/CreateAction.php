@@ -42,6 +42,7 @@ class CreateAction extends BaseAction
             'model' => $model,
             'today' => $this->controller->getIntlToday(),
             'categories' => $this->articleComponent->getCategoriesList(),
+            'tags' => $this->articleComponent->getTagsList(),
         ]);
     }
 }
