@@ -24,7 +24,7 @@ FormAdvancedAsset::register($this);
                 'today' => date($model->phpFormat, $model->date),
                 'imagePreview' => $imagePreview,
                 'categories' => $categories,
-                'tags' => $model->tagsList,
+                'tags' => $tags,
                 'selectedTags' => $model->selectedTags,
             ]) ?>
         </div>

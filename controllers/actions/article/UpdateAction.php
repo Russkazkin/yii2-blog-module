@@ -39,7 +39,8 @@ class UpdateAction extends BaseAction
         return $this->controller->render('update', [
             'model' => $model,
             'imagePreview' => $imagePreview,
-            'categories' => $this->articleComponent->getCategoriesList()
+            'categories' => $this->articleComponent->getCategoriesList(),
+            'tags' => $this->articleComponent->getTagsList(),
         ]);
     }
 }
