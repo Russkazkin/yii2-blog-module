@@ -27,9 +27,11 @@ SweetalertAsset::register($this);
         <?php if ($rbacManager->haveAdminPermissions()): ?>
             <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger btn-sm waves-effect width-md waves-light',
+                'id' => 'category-delete',
                 'data' => [
                     'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                     'method' => 'post',
+                    'id' => $model->id,
                 ],
             ]) ?>
         <?php endif; ?>
