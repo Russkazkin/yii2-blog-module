@@ -23,6 +23,8 @@ class Tag extends BaseTag
     public function rules()
     {
         return array_merge(parent::rules(), [
+            [['title'], 'string', 'max' => 32],
+            [['title'], 'unique'], //TODO Make AJAX validation for this rule
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ]);
