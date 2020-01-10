@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\tag\DeleteAction;
 use app\modules\blog\controllers\actions\tag\IndexAction;
 use app\modules\blog\controllers\actions\tag\RestoreAction;
 use app\modules\blog\controllers\actions\tag\SoftDeleteAction;
@@ -32,6 +33,14 @@ class TagController extends BaseController
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if ($action = 'delete') {
+            $this->enableCsrfValidation = false;
+        }
+        return parent::beforeAction($action);
+    }
+
     public function actions()
     {
         return [
@@ -39,6 +48,7 @@ class TagController extends BaseController
             'view' => ['class' => ViewAction::class],
             'soft-delete' => ['class' => SoftDeleteAction::class],
             'restore' => ['class' => RestoreAction::class],
+            'delete' => ['class' => DeleteAction::class],
         ];
     }
 

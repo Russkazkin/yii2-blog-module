@@ -66,7 +66,7 @@ FormAdvancedAsset::register($this);
                                 [
                                     'data' => ['method' => 'post', 'id' => $tag->id],
                                     'title' => 'Delete',
-                                    'class' => 'article-list-delete'
+                                    'class' => 'tag-list-delete'
                                 ]) ?>
                         <?php endif; ?>
                     </td>
