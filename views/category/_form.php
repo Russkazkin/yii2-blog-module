@@ -26,7 +26,7 @@ use yii\bootstrap4\ActiveForm;
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'title')->textInput(['maxlength' => 32]) ?>
+            <?= $form->field($model, 'title', ['enableAjaxValidation' => true])->textInput(['maxlength' => 32]) ?>
 
             <div class="form-group">
                 <?= Html::submitButton(Yii::t('blog', 'Save'), ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>

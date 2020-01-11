@@ -24,7 +24,7 @@ class Tag extends BaseTag
     {
         return array_merge(parent::rules(), [
             [['title'], 'string', 'max' => 32],
-            [['title'], 'unique'], //TODO Make AJAX validation for this rule
+            [['title'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ]);
