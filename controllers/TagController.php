@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\tag\CreateAction;
 use app\modules\blog\controllers\actions\tag\DeleteAction;
 use app\modules\blog\controllers\actions\tag\IndexAction;
 use app\modules\blog\controllers\actions\tag\RestoreAction;
@@ -49,27 +50,9 @@ class TagController extends BaseController
             'soft-delete' => ['class' => SoftDeleteAction::class],
             'restore' => ['class' => RestoreAction::class],
             'delete' => ['class' => DeleteAction::class],
+            'create' => ['class' => CreateAction::class],
         ];
     }
-
-    /**
-     * Creates a new Tag model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Tag();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
     /**
      * Updates an existing Tag model.
      * If update is successful, the browser will be redirected to the 'view' page.

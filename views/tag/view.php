@@ -6,8 +6,11 @@ use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\blog\models\Tag */
+/** @var $this yii\web\View
+ * @var $model app\modules\blog\models\Tag
+ * @var $rbacManager \app\modules\auth\components\RbacComponent
+ */
+
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('blog', 'Tags'), 'url' => ['index']];
