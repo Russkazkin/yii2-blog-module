@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
@@ -12,6 +13,7 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('blog', 'Tags'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
+SweetalertAsset::register($this);
 ?>
 <div class="tag-view card-box">
 
@@ -25,9 +27,11 @@ DataTablesAsset::register($this);
         <?php if ($rbacManager->haveAdminPermissions()): ?>
             <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger btn-sm waves-effect width-md waves-light',
+                'id' => 'tag-delete',
                 'data' => [
                     'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                     'method' => 'post',
+                    'id' => $model->id,
                 ],
             ]) ?>
         <?php endif; ?>
