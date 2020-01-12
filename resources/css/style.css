@@ -1387,6 +1387,11 @@ input[type="text"]:focus, input[type="email"]:focus, textarea {
     color: #fff;
 }
 
+.related-post-carousel .single-item p {
+    line-height: 1rem;
+    padding: 1rem 0 0 0;
+}
+
 /*=== coming soon ===*/
 .coming-soon-overlay {
     position: absolute;
