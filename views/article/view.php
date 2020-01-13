@@ -2,6 +2,7 @@
 
 use app\modules\admin\assets\DataTablesAsset;
 use app\modules\admin\assets\MagnificPopupAsset;
+use app\modules\admin\assets\QuillStylesAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
@@ -18,6 +19,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' =>
 $this->params['breadcrumbs'][] = StringHelper::truncate($this->title, 36);
 DataTablesAsset::register($this);
 MagnificPopupAsset::register($this);
+QuillStylesAsset::register($this);
 $model->image = $articleComponent->getImage($model);
 ?>
 <div class="card-box">
