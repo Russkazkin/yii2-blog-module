@@ -1,3 +1,5 @@
+/*FONTS*/
+
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto+Slab:400,700&display=swap&subset=cyrillic');
 
 .ql-font-serif {
@@ -6,3 +8,14 @@
 .ql-font-monospace {
     font-family: 'Roboto Mono', monospace;
 }
+.ql-size-small {
+    font-size: 0.75em;
+}
+.ql-size-large {
+    font-size: 1.5em;
+}
+.ql-size-huge {
+    font-size: 2.5em;
+}
+
+/*/FONTS*/
