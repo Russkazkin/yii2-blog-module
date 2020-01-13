@@ -9,6 +9,7 @@ use yii\helpers\StringHelper;
 /** @var $this yii\web\View
  * @var $articles \app\modules\blog\models\Article []
  * @var $rbacManager \app\modules\auth\components\RbacComponent
+ * @var $articleComponent \app\modules\blog\components\ArticleComponent
  */
 
 $this->title = Yii::t('app', 'Articles');
@@ -42,9 +43,12 @@ SweetalertAsset::register($this);
                     <td><?= $article->category->title; ?></td>
                     <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
-                    <td><img src="<?= $articleComponent->getImage($article) ?>"
+                    <td>
+                        <a href="<?= $articleComponent->getImage($article) ?>">
+                            <img src="<?= $articleComponent->getImage($article) ?>"
                              alt="<?= $article->title; ?> img"
                              height="20">
+                        </a>
                     </td>
                     <td>
                         <?= Html::a('<i class="mdi mdi-note-text"></i>',
