@@ -11,7 +11,7 @@
  */
 
 
-$this->title = Yii::t('blog', 'Single');
+$this->title = $model->title;
 
 use app\modules\blog\Module;
 use yii\bootstrap4\Html;
