@@ -57,7 +57,8 @@ FontAwesomeAsset::register($this);
 
             <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'content')->widget(\app\modules\blog\widgets\QuillLocal::class, [
+            <?= $form->field($model, 'content')->widget(Quill::class, [
+//            <?= $form->field($model, 'content')->widget(\app\modules\blog\widgets\QuillLocal::class, [
                 'theme' => 'snow',
                 'toolbarOptions' => [
                     [['font' => []], ['size' => []]],
