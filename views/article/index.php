@@ -46,7 +46,7 @@ MagnificPopupAsset::register($this);
                     <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
                     <td>
-                        <a href="<?= $articleComponent->getImage($article) ?>" class="article-list-img-link">
+                        <a href="<?= $articleComponent->getImage($article) ?>" class="article-image-popup">
                             <img src="<?= $articleComponent->getImage($article) ?>"
                              alt="<?= $article->title; ?> img"
                              height="20">

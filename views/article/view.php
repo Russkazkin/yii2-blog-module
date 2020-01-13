@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\MagnificPopupAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
@@ -16,6 +17,7 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Articles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = StringHelper::truncate($this->title, 36);
 DataTablesAsset::register($this);
+MagnificPopupAsset::register($this);
 $model->image = $articleComponent->getImage($model);
 ?>
 <div class="card-box">
@@ -63,7 +65,7 @@ $model->image = $articleComponent->getImage($model);
                 'format' => 'html',
                 'label' => Yii::t('app', 'Image'),
                 'value' => function($data){
-                    return Html::img($data->image, ['height' => '50']);
+                    return Html::a(Html::img($data->image, ['height' => '50']), $data->image, ['class' => 'article-image-popup']);
                 },
             ],
             'viewed',
