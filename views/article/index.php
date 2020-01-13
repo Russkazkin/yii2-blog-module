@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\MagnificPopupAsset;
 use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
@@ -16,6 +17,7 @@ $this->title = Yii::t('app', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
 SweetalertAsset::register($this);
+MagnificPopupAsset::register($this);
 ?>
 
 <div class="row">
@@ -44,7 +46,7 @@ SweetalertAsset::register($this);
                     <td><?= $article->timestampToDate(); ?></td>
                     <td><?= $article->getSelectedTagsTitle(); ?></td>
                     <td>
-                        <a href="<?= $articleComponent->getImage($article) ?>">
+                        <a href="<?= $articleComponent->getImage($article) ?>" class="article-list-img-link">
                             <img src="<?= $articleComponent->getImage($article) ?>"
                              alt="<?= $article->title; ?> img"
                              height="20">
