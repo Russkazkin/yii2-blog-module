@@ -17,6 +17,8 @@ class BlogAsset extends AssetBundle
         'css/owl.transitions.css',
         'css/style.css',
         'css/responsive.css',
+        'css/quill.css',
+        'css/custom.css',
     ];
     public $js = [
         'js/owl.carousel.min.js',
