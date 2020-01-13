@@ -1,10 +1,12 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $pages \yii\data\Pagination */
-/* @var $models \app\modules\blog\models\Article [] */
-/* @var $dateManager \app\modules\lang\components\LangDateComponent */
-/* @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData() [] */
+/** @var $this yii\web\View
+ * @var $pages \yii\data\Pagination
+ * @var $models \app\modules\blog\models\Article []
+ * @var $dateManager \app\modules\lang\components\LangDateComponent
+ * @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData() []
+ * @var $articleComponent \app\modules\blog\components\ArticleComponent
+ */
 
 use app\modules\blog\Module;
 use yii\bootstrap4\LinkPager;
@@ -42,7 +44,7 @@ $this->title = Yii::t('blog', 'Category');
                     </header>
                     <div class="entry-content">
                         <p>
-                        <?= $model->description; ?>
+                        <?= $articleComponent->getDescription($model); ?>
                         </p>
                     </div>
                     <div class="social-share">
