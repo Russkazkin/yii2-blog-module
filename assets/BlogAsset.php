@@ -18,6 +18,7 @@ class BlogAsset extends AssetBundle
         'css/style.css',
         'css/responsive.css',
         'css/quill.css',
+        'css/monokai.css',
         'css/custom.css',
     ];
     public $js = [
