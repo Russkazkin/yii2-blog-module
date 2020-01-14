@@ -67,7 +67,7 @@ $model->image = $articleComponent->getImage($model);
                 'format' => 'html',
                 'label' => Yii::t('app', 'Image'),
                 'value' => function($data){
-                    return Html::a(Html::img($data->image, ['height' => '50']), $data->image, ['class' => 'article-image-popup']);
+                    return '<div class="article-image-wrap">' . Html::a(Html::img($data->image, ['height' => '100']), $data->image, ['class' => 'article-image-popup']) . '</div>';
                 },
             ],
             'viewed',
