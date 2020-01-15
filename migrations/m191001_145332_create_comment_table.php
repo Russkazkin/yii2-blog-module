@@ -45,7 +45,7 @@ class m191001_145332_create_comment_table extends Migration
         );
 
         $this->addForeignKey(
-            'fk-user_id',
+            'fk-user_id-comment',
             'blog_comment',
             'user_id',
             'auth_user',
