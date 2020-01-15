@@ -78,7 +78,8 @@ FontAwesomeAsset::register($this);
                 'modules' => [
                     'formula' => true,
                     'syntax' => true,
-                ]
+                ],
+                'localAssets' => true,
             ]) ?>
 
             <?= $form->field($model, 'date')->widget(DatePicker::class, [

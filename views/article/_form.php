@@ -77,7 +77,8 @@ FontAwesomeAsset::register($this);
                 'modules' => [
                     'formula' => true,
                     'syntax' => true,
-                ]
+                ],
+                'localAssets' => true,
             ]) ?>
             <?/*= $form->field($model, 'content')->widget(CKEditor::class,[
                 'editorOptions' => [
