@@ -48,5 +48,7 @@
     'Update Article: {name}' => 'Редактирование записи: {name}',
     'Unauthorized Access' => 'Неавторизованный доступ',
     'Create Category' => 'Новая категория',
-    'Update Category: {name}' => 'Редактирование категории: {name}'
+    'Update Category: {name}' => 'Редактирование категории: {name}',
+    'Hide' => 'Скрыть',
+    'Restore' => 'Отобразить',
 ];

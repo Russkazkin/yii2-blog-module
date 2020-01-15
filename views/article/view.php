@@ -24,14 +24,14 @@ $model->image = $articleComponent->getImage($model);
 ?>
 <div class="card-box">
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm waves-effect width-md waves-light']) ?>
+        <?= Html::a(Module::t('blog', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm waves-effect width-md waves-light']) ?>
         <?php if ($model->status == $model::STATUS_ACTIVE): ?>
-        <?= Html::a(Yii::t('app', 'Hide'), ['soft-delete', 'id' => $model->id], ['class' => 'btn btn-warning btn-sm waves-effect width-md waves-light']) ?>
+        <?= Html::a(Module::t('blog', 'Hide'), ['soft-delete', 'id' => $model->id], ['class' => 'btn btn-warning btn-sm waves-effect width-md waves-light']) ?>
         <?php elseif ($model->status == $model::STATUS_DELETED): ?>
-        <?= Html::a(Yii::t('app', 'Restore'), ['restore', 'id' => $model->id], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+        <?= Html::a(Module::t('blog', 'Restore'), ['restore', 'id' => $model->id], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
         <?php endif; ?>
         <?php if ($rbacManager->haveAdminPermissions()): ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Module::t('blog', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-sm waves-effect width-md waves-light',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
