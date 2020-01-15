@@ -21,9 +21,10 @@ class m191001_145332_create_comment_table extends Migration
         $this->createTable('blog_comment', [
             'id' => $this->primaryKey(),
             'text' => $this->text()->notNull(),
-            'user_id' => $this->integer()->notNull(),
+            'user_id' => $this->integer(),
+            'parent_id' => $this->integer(),
             'article_id' => $this->integer()->notNull(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(10),
+            'status' => $this->smallInteger()->notNull()->defaultValue(0),
             'created_at' => $this->integer(11),
             'updated_at' => $this->integer(11),
         ], $tableOptions);
@@ -41,6 +42,15 @@ class m191001_145332_create_comment_table extends Migration
             'blog_article',
             'id',
             'CASCADE'
+        );
+
+        $this->addForeignKey(
+            'fk-user_id',
+            'blog_comment',
+            'user_id',
+            'auth_user',
+            'id',
+            'NO ACTION'
         );
     }
 
