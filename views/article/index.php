@@ -13,7 +13,7 @@ use yii\helpers\StringHelper;
  * @var $articleComponent \app\modules\blog\components\ArticleComponent
  */
 
-$this->title = Yii::t('app', 'Articles');
+$this->title = Module::t('blog', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
 SweetalertAsset::register($this);
