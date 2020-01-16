@@ -34,14 +34,6 @@ class TagController extends BaseController
         ];
     }
 
-    public function beforeAction($action)
-    {
-        if ($action = 'delete') {
-            $this->enableCsrfValidation = false;
-        }
-        return parent::beforeAction($action);
-    }
-
     public function actions()
     {
         return [

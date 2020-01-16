@@ -47,14 +47,6 @@ class CategoryController extends BaseController
         ];
     }
 
-    public function beforeAction($action)
-    {
-        if ($action = 'delete') {
-            $this->enableCsrfValidation = false;
-        }
-        return parent::beforeAction($action);
-    }
-
     /**
      * Finds the Category model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
