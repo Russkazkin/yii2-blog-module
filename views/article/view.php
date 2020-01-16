@@ -3,6 +3,7 @@
 use app\modules\admin\assets\DataTablesAsset;
 use app\modules\admin\assets\MagnificPopupAsset;
 use app\modules\admin\assets\QuillStylesAsset;
+use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
@@ -20,6 +21,7 @@ $this->params['breadcrumbs'][] = StringHelper::truncate($this->title, 36);
 DataTablesAsset::register($this);
 MagnificPopupAsset::register($this);
 QuillStylesAsset::register($this);
+SweetalertAsset::register($this);
 $model->image = $articleComponent->getImage($model);
 ?>
 <div class="card-box">
@@ -33,9 +35,11 @@ $model->image = $articleComponent->getImage($model);
         <?php if ($rbacManager->haveAdminPermissions()): ?>
         <?= Html::a(Module::t('blog', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger btn-sm waves-effect width-md waves-light',
+            'id' => 'article-delete',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
+                'id' => $model->id,
             ],
         ]) ?>
         <?php endif; ?>
