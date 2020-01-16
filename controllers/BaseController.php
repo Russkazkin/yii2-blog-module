@@ -53,6 +53,14 @@ class BaseController extends Controller
             ]);
     }
 
+    public function beforeAction($action)
+    {
+        if ($action = 'delete') {
+            $this->enableCsrfValidation = false;
+        }
+        return parent::beforeAction($action);
+    }
+
     /**
      * @return string
      * @throws \yii\base\InvalidConfigException
