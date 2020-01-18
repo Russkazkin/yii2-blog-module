@@ -32,6 +32,7 @@ class UpdateAction extends BaseAction
 
             if ($model->save()) {
                 $model->saveTags();
+                Yii::$app->session->setFlash('success', Module::t('blog', 'Article updated'));
                 return $this->controller->redirect(['view', 'id' => $model->id]);
             }
         };
