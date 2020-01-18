@@ -32,6 +32,7 @@ class CreateAction extends BaseAction
                 return ActiveForm::validate($model);
             }
             If ($model->save()) {
+                Yii::$app->session->setFlash('success', Module::t('blog', 'Category created'));
                 return $this->controller->redirect(['view', 'id' => $model->id]);
             }
         }
