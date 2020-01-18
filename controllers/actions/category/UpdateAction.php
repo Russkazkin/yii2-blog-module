@@ -26,6 +26,7 @@ class UpdateAction extends BaseAction
         $model = $this->controller->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', Module::t('blog', 'Category updated'));
             return $this->controller->redirect(['view', 'id' => $model->id]);
         }
 
