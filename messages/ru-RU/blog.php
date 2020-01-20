@@ -52,4 +52,5 @@
     'Hide' => 'Скрыть',
     'Restore' => 'Отобразить',
     'Articles' => 'Статьи',
+    'Tag {name} created' => 'Тег {name} создан',
 ];

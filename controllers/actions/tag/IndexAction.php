@@ -33,7 +33,9 @@ class IndexAction extends BaseAction
                 return ActiveForm::validate($model);
             }
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', Module::t('blog', 'Tag creation successful'));
+                Yii::$app->session->setFlash('success', Module::t('blog', 'Tag {name} created', [
+                    'name' => $model->title
+                ]));
                 return $this->controller->redirect(['view', 'id' => $model->id]);
             }
         }
