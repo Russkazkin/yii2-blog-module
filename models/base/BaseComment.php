@@ -38,7 +38,7 @@ class BaseComment extends \yii\db\ActiveRecord
             [['text', 'article_id'], 'required'],
             [['text'], 'string'],
             [['user_id', 'parent_id', 'article_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['article_id'], 'exist', 'skipOnError' => true, 'targetClass' => BlogArticle::className(), 'targetAttribute' => ['article_id' => 'id']],
+            [['article_id'], 'exist', 'skipOnError' => true, 'targetClass' => Article::className(), 'targetAttribute' => ['article_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => AuthUser::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
