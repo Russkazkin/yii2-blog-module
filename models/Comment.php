@@ -51,4 +51,14 @@ class Comment extends BaseComment
             'updated_at' => Module::t('blog', 'Updated At'),
         ];
     }
+
+    public function getArticle()
+    {
+        return $this->hasOne(Article::class, ['id' => 'article_id']);
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
 }
