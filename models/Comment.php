@@ -7,6 +7,7 @@ namespace app\modules\blog\models;
 use app\modules\auth\models\User;
 use app\modules\blog\models\base\BaseComment;
 use app\modules\blog\Module;
+use Yii;
 use yii\behaviors\TimestampBehavior;
 
 class Comment extends BaseComment
@@ -43,7 +44,8 @@ class Comment extends BaseComment
             'id' => Module::t('blog', 'ID'),
             'text' => Module::t('blog', 'Text'),
             'user_id' => Module::t('blog', 'User ID'),
-            'article_id' => Module::t('blog', 'Article ID'),
+            'parent_id' => Module::t('blog', 'Parent ID'),
+            'article_id' => Yii::t('blog', 'Article ID'),
             'status' => Module::t('blog', 'Status'),
             'created_at' => Module::t('blog', 'Created At'),
             'updated_at' => Module::t('blog', 'Updated At'),
