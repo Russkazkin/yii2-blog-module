@@ -6,6 +6,7 @@ namespace app\modules\blog\components;
 
 use app\modules\blog\models\Article;
 use app\modules\blog\models\Category;
+use app\modules\blog\models\Comment;
 use app\modules\blog\models\Tag;
 use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
@@ -38,7 +39,13 @@ class ArticleComponent extends BaseObject
         return ArrayHelper::map(Category::find()->where(['status' => Category::STATUS_ACTIVE])->all(), 'id', 'title');
     }
 
-    public function getTagsList() {
+    public function getTagsList()
+    {
         return ArrayHelper::map(Tag::find()->where(['status' => Tag::STATUS_ACTIVE])->all(), 'id', 'title');
+    }
+
+    public function getComments(Article $article)
+    {
+        return $article->hasMany(Comment::class, ['article_id' => 'id']);
     }
 }
