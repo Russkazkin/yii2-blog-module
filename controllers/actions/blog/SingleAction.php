@@ -34,6 +34,7 @@ class SingleAction extends BaseBlogAction
             'pages' => $pages,
             'authorItems' => $authorItems,
             'related' => $related,
+            'comments' => $this->controller->articleComponent->getComments($model)->all(),
         ]);
     }
 }
