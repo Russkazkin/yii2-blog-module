@@ -10,7 +10,7 @@ class IndexAction extends BaseAction
 {
     public function run()
     {
-        $comments = Comment::find()->all();
+        $comments = Comment::find()->with(['article', 'user'])->all();
         return $this->controller->render('index',
             [
                 'comments' => $comments,
