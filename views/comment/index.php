@@ -1,16 +1,23 @@
 <?php
 
+use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\MagnificPopupAsset;
+use app\modules\admin\assets\SweetalertAsset;
+use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\modules\blog\models\search\CommentSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/** @var $this yii\web\View
+ * @var $comments \app\modules\blog\models\Comment []
+ */
 
-$this->title = Yii::t('blog', 'Comments');
+$this->title = Module::t('blog', 'Comments');
 $this->params['breadcrumbs'][] = $this->title;
+DataTablesAsset::register($this);
+SweetalertAsset::register($this);
+MagnificPopupAsset::register($this);
 ?>
-<div class="comment-index">
+<div class="comment-index row">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -18,26 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('blog', 'Create Comment'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'text:ntext',
-            'user_id',
-            'parent_id',
-            'article_id',
-            //'status',
-            //'created_at',
-            //'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
+    <?php var_dump($comments); ?>
 
 </div>
