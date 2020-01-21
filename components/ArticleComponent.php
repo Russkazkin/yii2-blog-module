@@ -43,9 +43,4 @@ class ArticleComponent extends BaseObject
     {
         return ArrayHelper::map(Tag::find()->where(['status' => Tag::STATUS_ACTIVE])->all(), 'id', 'title');
     }
-
-    public function getComments(Article $article)
-    {
-        return $article->hasMany(Comment::class, ['article_id' => 'id']);
-    }
 }

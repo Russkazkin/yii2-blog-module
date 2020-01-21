@@ -188,4 +188,9 @@ class Article extends BaseArticle
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
+
+    public function getComments()
+    {
+        return $this->hasMany(Comment::class, ['article_id' => 'id']);
+    }
 }

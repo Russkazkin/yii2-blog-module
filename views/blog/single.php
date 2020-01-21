@@ -12,7 +12,6 @@
 
 
 $this->title = $model->title;
-var_dump($comments); die;
 
 use app\modules\blog\Module;
 use yii\bootstrap4\Html;
