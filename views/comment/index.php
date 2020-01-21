@@ -5,6 +5,7 @@ use app\modules\admin\assets\MagnificPopupAsset;
 use app\modules\admin\assets\SweetalertAsset;
 use app\modules\blog\Module;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 
 /** @var $this yii\web\View
  * @var $comments \app\modules\blog\models\Comment []
@@ -34,10 +35,43 @@ MagnificPopupAsset::register($this);
                 </tr>
                 </thead>
                 <tbody>
-
+                <?php foreach ($comments as $comment): ?>
+                <tr class="status-<?= $comment->status; ?>">
+                    <td><?= StringHelper::truncate($comment->text, 40); ?></td>
+                    <td><?= $comment->created_at; ?></td>
+                    <td><?= $comment->user->name; ?></td>
+                    <td><?= $comment->article->title; ?></td>
+                    <td><?= $comment->status; ?></td>
+                    <td>
+                        <?= Html::a('<i class="mdi mdi-note-text"></i>',
+                            ['view', 'id' => $comment->id],
+                            ['title' => 'View']) ?>
+                        <?= Html::a('<i class="mdi mdi-pencil-outline"></i>',
+                            ['update', 'id' => $comment->id],
+                            ['title' => 'Update']) ?>
+                        <?php if($comment->status == $comment::STATUS_ACTIVE):?>
+                            <?= Html::a('<i class="mdi mdi-eye-off"></i>',
+                                ['soft-delete', 'id' => $comment->id],
+                                ['title' => 'Hide']) ?>
+                        <?php elseif ($comment->status == $comment::STATUS_DELETED): ?>
+                            <?= Html::a('<i class="mdi mdi-eye"></i>',
+                                ['restore', 'id' => $category->id],
+                                ['title' => 'Restore']) ?>
+                        <?php endif; ?>
+                        <?php if ($rbacManager->haveAdminPermissions()):?>
+                            <?= Html::a('<i class="mdi mdi-delete"></i>',
+                                ['delete', 'id' => $comment->id],
+                                [
+                                    'data' => ['method' => 'post', 'id' => $comment->id],
+                                    'title' => 'Delete',
+                                    'class' => 'category-list-delete'
+                                ]) ?>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<?php var_dump($comments); ?>

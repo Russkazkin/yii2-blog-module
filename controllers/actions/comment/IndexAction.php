@@ -13,7 +13,8 @@ class IndexAction extends BaseAction
         $comments = Comment::find()->all();
         return $this->controller->render('index',
             [
-                'comments' => $comments
+                'comments' => $comments,
+                'rbacManager' => $this->controller->rbacManager,
             ]);
     }
 }
