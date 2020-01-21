@@ -15,21 +15,6 @@ use yii\filters\VerbFilter;
 class CommentController extends BaseController
 {
     /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
-    /**
      * Lists all Comment models.
      * @return mixed
      */
