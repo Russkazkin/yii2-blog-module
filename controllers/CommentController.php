@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\comment\IndexAction;
 use Yii;
 use app\modules\blog\models\Comment;
 use app\modules\blog\models\search\CommentSearch;
@@ -14,6 +15,14 @@ use yii\filters\VerbFilter;
  */
 class CommentController extends BaseController
 {
+
+    public function actions()
+    {
+        return [
+            'index' => ['class' => IndexAction::class],
+        ];
+    }
+
     /**
      * Lists all Comment models.
      * @return mixed
