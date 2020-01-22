@@ -2,6 +2,7 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\comment\CreateAction;
 use app\modules\blog\controllers\actions\comment\IndexAction;
 use Yii;
 use app\modules\blog\models\Comment;
@@ -20,6 +21,7 @@ class CommentController extends BaseController
     {
         return [
             'index' => ['class' => IndexAction::class],
+            'create' => ['class' => CreateAction::class],
         ];
     }
 

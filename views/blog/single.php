@@ -164,23 +164,16 @@ use yii\widgets\Pjax; ?>
             <h4>Leave a reply</h4>
 
 
-            <form>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                    </div>
+            <?php $form = \yii\widgets\ActiveForm::begin([
+                'action'=>['/admin/blog/comment/create', 'id' => $model->id],
+                'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <?= $form->field($comment, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Website url">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" rows="6" name="message" placeholder="Write Massage"></textarea>
-                </div>
-                <a href="#" class="btn send-btn">Post Comment</a>
-            </form>
+            </div>
+            <button type="submit" class="btn send-btn">Post Comment</button>
+            <?php \yii\widgets\ActiveForm::end();?>
         </div><!--end leave comment-->
     </div>
 <?= $this->render('_sidebar', [
