@@ -169,7 +169,7 @@ use yii\widgets\Pjax; ?>
                 'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
             <div class="form-group">
                 <div class="col-md-12">
-                    <?= $form->field($comment, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
+                    <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
                 </div>
             </div>
             <button type="submit" class="btn send-btn">Post Comment</button>

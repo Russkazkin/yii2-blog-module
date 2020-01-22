@@ -4,6 +4,7 @@
 namespace app\modules\blog\controllers\actions\blog;
 
 use app\modules\blog\models\Article;
+use app\modules\blog\models\Comment;
 use yii\data\Pagination;
 
 class SingleAction extends BaseBlogAction
@@ -39,6 +40,7 @@ class SingleAction extends BaseBlogAction
             'related' => $related,
             'comments' => $model->comments,
             'commentsCount' => $model->getComments()->count(),
+            'message' => new Comment(),
         ]);
     }
 }
