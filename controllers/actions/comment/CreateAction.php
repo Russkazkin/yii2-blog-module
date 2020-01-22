@@ -15,7 +15,9 @@ class CreateAction extends BaseAction
     public function run($id)
     {
         $model = new Comment();
-        $model->load(Yii::$app->request->post());
+        if(!$model->load(Yii::$app->request->post())){
+            throw new ServerErrorHttpException('Form data is empty');
+        }
         $model->article_id = $id;
 
         if ($model->save()) {
