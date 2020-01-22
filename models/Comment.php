@@ -29,6 +29,7 @@ class Comment extends BaseComment
             [['text'], 'string'],
             [['user_id', 'parent_id', 'article_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['article_id'], 'exist', 'skipOnError' => true, 'targetClass' => Article::class, 'targetAttribute' => ['article_id' => 'id']],
+            [['user_id'], 'default', 'value' => Yii::$app->user->id],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
