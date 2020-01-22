@@ -24,21 +24,6 @@ class CommentController extends BaseController
     }
 
     /**
-     * Lists all Comment models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $searchModel = new CommentSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
      * Displays a single Comment model.
      * @param integer $id
      * @return mixed
