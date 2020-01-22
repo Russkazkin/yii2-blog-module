@@ -135,7 +135,7 @@ use yii\widgets\Pjax; ?>
             </div>
         </div><!--related post carousel-->
         <div class="bottom-comment"><!--bottom comment-->
-            <h4>3 comments</h4>
+            <h4><?= $commentsCount; ?> comments</h4>
 
             <div class="comment-img">
                 <img class="rounded-circle" src="/temp/comment-img.jpg" alt="">

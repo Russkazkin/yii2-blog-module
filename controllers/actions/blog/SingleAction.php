@@ -10,6 +10,9 @@ class SingleAction extends BaseBlogAction
 {
     public function run($id)
     {
+        /**
+         * @var $model Article
+         */
         $model = $this->controller->findModel($id);
         $this->controller->articleComponent->addViewsCount($model);
         $query = Article::find()
@@ -35,6 +38,7 @@ class SingleAction extends BaseBlogAction
             'authorItems' => $authorItems,
             'related' => $related,
             'comments' => $model->comments,
+            'commentsCount' => $model->getComments()->count(),
         ]);
     }
 }
