@@ -19,7 +19,7 @@ class CreateAction extends BaseAction
         $model->article_id = $id;
 
         if ($model->save()) {
-            return $this->controller->redirect(['/', 'id' => $model->id]);
+            return $this->controller->redirect(['/blog/single', 'id' => $id]);
         }
         throw new ServerErrorHttpException('Comment is not saved');
     }
