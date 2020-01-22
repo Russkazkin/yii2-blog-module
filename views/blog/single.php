@@ -8,6 +8,7 @@
  * @var $pages \yii\data\Pagination
  * @var $authorItems \app\modules\blog\models\Article []
  * @var $related \app\modules\blog\models\Article []
+ * @var $comments \app\modules\blog\models\Comment []
  */
 
 
@@ -137,24 +138,24 @@ use yii\widgets\Pjax; ?>
         <div class="bottom-comment"><!--bottom comment-->
             <h4><?= $commentsCount; ?> comments</h4>
 
-            <div class="comment-img">
-                <img class="rounded-circle" src="/temp/comment-img.jpg" alt="">
+            <?php foreach ($comments as $comment): ?>
+            <div class="comment-wrap clearfix">
+                <div class="comment-img">
+                    <img class="rounded-circle" src="/temp/comment-img.jpg" alt="">
+                </div>
+
+                <div class="comment-text">
+                    <a href="#" class="replay btn float-right"> Replay</a>
+                    <h5><?= $comment->user->name; ?></h5>
+
+                    <p class="comment-date">
+                        <?= $comment->created_at; ?>
+                    </p>
+                    <p class="para"><?= $comment->text; ?></p>
+                </div>
             </div>
+            <?php endforeach; ?>
 
-            <div class="comment-text">
-                <a href="#" class="replay btn float-right"> Replay</a>
-                <h5>Rubel Miah</h5>
-
-                <p class="comment-date">
-                    December, 02, 2015 at 5:57 PM
-                </p>
-
-
-                <p class="para">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy
-                    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                    voluptua. At vero eos et cusam et justo duo dolores et ea rebum.</p>
-            </div>
         </div>
         <!-- end bottom comment-->
 
