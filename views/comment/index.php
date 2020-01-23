@@ -19,9 +19,6 @@ MagnificPopupAsset::register($this);
 ?>
 <div class="comment-index row">
     <div class="col-12">
-        <p>
-            <?= Html::a(Yii::t('blog', 'Create Comment'), ['create'], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
-        </p>
         <div class="card-box">
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
