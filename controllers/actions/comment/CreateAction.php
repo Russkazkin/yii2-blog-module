@@ -6,7 +6,6 @@ namespace app\modules\blog\controllers\actions\comment;
 
 use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\Comment;
-use Symfony\Component\CssSelector\Exception\InternalErrorException;
 use Yii;
 use yii\web\ServerErrorHttpException;
 
