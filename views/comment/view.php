@@ -1,19 +1,26 @@
 <?php
 
+use app\modules\admin\assets\DataTablesAsset;
+use app\modules\admin\assets\MagnificPopupAsset;
+use app\modules\admin\assets\SweetalertAsset;
+use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Comment */
 
-$this->title = $model->id;
+$this->title = Module::t('blog', 'Comment from {data}. User: {user}', [
+    'data' => $model->created_at,
+    'user' => $model->user->name,
+]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('blog', 'Comments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+DataTablesAsset::register($this);
+MagnificPopupAsset::register($this);
+SweetalertAsset::register($this);
 ?>
-<div class="comment-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="comment-view card-box">
 
     <p>
         <?= Html::a(Yii::t('blog', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
