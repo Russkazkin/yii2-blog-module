@@ -4,6 +4,7 @@ namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\comment\CreateAction;
 use app\modules\blog\controllers\actions\comment\IndexAction;
+use app\modules\blog\controllers\actions\comment\ViewAction;
 use Yii;
 use app\modules\blog\models\Comment;
 use app\modules\blog\models\search\CommentSearch;
@@ -22,20 +23,8 @@ class CommentController extends BaseController
         return [
             'index' => ['class' => IndexAction::class],
             'create' => ['class' => CreateAction::class],
+            'view' => ['class' => ViewAction::class],
         ];
-    }
-
-    /**
-     * Displays a single Comment model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
     }
 
     /**
@@ -97,7 +86,7 @@ class CommentController extends BaseController
      * @return Comment the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    public function findModel($id)
     {
         if (($model = Comment::findOne($id)) !== null) {
             return $model;

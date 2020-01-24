@@ -23,14 +23,23 @@ SweetalertAsset::register($this);
 <div class="comment-view card-box">
 
     <p>
-        <?= Html::a(Yii::t('blog', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('blog', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('blog', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= Html::a(Module::t('blog', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm waves-effect width-md waves-light']) ?>
+        <?php if ($model->status == $model::STATUS_ACTIVE): ?>
+            <?= Html::a(Module::t('blog', 'Hide'), ['soft-delete', 'id' => $model->id], ['class' => 'btn btn-warning btn-sm waves-effect width-md waves-light']) ?>
+        <?php elseif ($model->status == $model::STATUS_DELETED): ?>
+            <?= Html::a(Module::t('blog', 'Restore'), ['restore', 'id' => $model->id], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
+        <?php endif; ?>
+        <?php if ($rbacManager->haveAdminPermissions()): ?>
+            <?= Html::a(Module::t('blog', 'Delete'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger btn-sm waves-effect width-md waves-light',
+                'id' => 'article-delete',
+                'data' => [
+                    'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
+                    'method' => 'post',
+                    'id' => $model->id,
+                ],
+            ]) ?>
+        <?php endif; ?>
     </p>
 
     <?= DetailView::widget([
