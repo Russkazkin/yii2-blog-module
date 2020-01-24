@@ -38,8 +38,8 @@ class SingleAction extends BaseBlogAction
             'pages' => $pages,
             'authorItems' => $authorItems,
             'related' => $related,
-            'comments' => $model->comments,
-            'commentsCount' => $model->getComments()->count(),
+            'comments' => $model->getComments()->where(['status' => Comment::STATUS_ACTIVE])->all(),
+            'commentsCount' => $model->getComments()->where(['status' => Comment::STATUS_ACTIVE])->count(),
             'message' => new Comment(),
         ]);
     }
