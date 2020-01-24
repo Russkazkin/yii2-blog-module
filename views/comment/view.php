@@ -47,12 +47,29 @@ SweetalertAsset::register($this);
         'attributes' => [
             'id',
             'text:ntext',
-            'user_id',
+            [
+                'attribute' => 'user_id',
+                'label' => Module::t('blog', 'User'),
+                'value' => function($data){
+                    return $data->user->name;
+                },
+            ],
             'parent_id',
-            'article_id',
-            'status',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'article_id',
+                'label' => Module::t('blog', 'Article'),
+                'value' => function($data){
+                    return $data->article->title;
+                },
+            ],
+            [
+                'attribute' => 'status',
+                'value' => function($data){
+                    return $data->status === 0 ? Module::t('blog', 'Hidden') : Module::t('blog', 'Active');
+                },
+            ],
+            'created_at:dateTime',
+            'updated_at:dateTime',
         ],
     ]) ?>
 
