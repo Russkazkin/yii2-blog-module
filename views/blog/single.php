@@ -75,11 +75,12 @@ use yii\widgets\Pjax; ?>
         <?php Pjax::begin(['timeout' => 2000, 'id' => 'author-carousel', 'enablePushState' => false]); ?>
         <div class="row author-carousel" id="author-carousel"><!--blog next previous-->
             <div class="author-carousel-loader">
-<!--                LOADER-->
-                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div
-                    ><div></div></div>
+            <!--LOADER-->
+                <div class="lds-roller">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
             </div>
-<!--                /LOADER-->
+            <!--/LOADER-->
             <div class="col-md-6 author-carousel-item">
                 <div class="single-blog-arrow">
                     <?= Html::a('<i class="fa fa-2x fa-angle-left"></i>', $pages->links['prev'], ['class' => 'rounded-circle']);?>
