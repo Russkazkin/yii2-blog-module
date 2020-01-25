@@ -185,7 +185,7 @@ use yii\widgets\Pjax; ?>
                 <div class="form-group">
                     <div class="col-md-12">
                         <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message', 'id' => '',])->label(false)?>
-                        <?= $form->field($message, 'parent_id')->hiddenInput(['value' => $comment->id]); ?>
+                        <?= $form->field($message, 'parent_id')->hiddenInput(['value' => $comment->id])->label(false); ?>
                     </div>
                 </div>
                 <button type="submit" class="btn send-btn">Post Comment</button>
