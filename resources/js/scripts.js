@@ -75,6 +75,13 @@
         });
     }());
 
+    (function () {
+       $('.comment-reply-button').on('click', function () {
+           let parent = $(this).data('parentId');
+           $(`#parent-id-${parent}`).slideToggle();
+       })
+    }());
+
 
 
 

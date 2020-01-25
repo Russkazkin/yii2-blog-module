@@ -166,7 +166,10 @@ use yii\widgets\Pjax; ?>
                 </div>
 
                 <div class="comment-text">
-                    <button class="replay btn float-right comment-reply-button" role="button">Reply</button>
+                    <button class="replay btn float-right comment-reply-button"
+                            data-parent-id="<?= $comment->id; ?>"
+                            role="button">Reply
+                    </button>
                     <h5><?= $comment->user->name; ?></h5>
 
                     <p class="comment-date">
@@ -181,7 +184,7 @@ use yii\widgets\Pjax; ?>
                     'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
+                        <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message', 'id' => '',])->label(false)?>
                         <?= $form->field($message, 'parent_id')->hiddenInput(['value' => $comment->id]); ?>
                     </div>
                 </div>
