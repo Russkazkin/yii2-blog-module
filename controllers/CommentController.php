@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\comment\CreateAction;
+use app\modules\blog\controllers\actions\comment\HideAction;
 use app\modules\blog\controllers\actions\comment\IndexAction;
 use app\modules\blog\controllers\actions\comment\RestoreAction;
 use app\modules\blog\controllers\actions\comment\ViewAction;
@@ -26,6 +27,7 @@ class CommentController extends BaseController
             'create' => ['class' => CreateAction::class],
             'view' => ['class' => ViewAction::class],
             'restore' => ['class' => RestoreAction::class],
+            'hide' => ['class' => HideAction::class],
         ];
     }
 

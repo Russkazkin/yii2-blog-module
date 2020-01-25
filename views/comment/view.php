@@ -25,7 +25,7 @@ SweetalertAsset::register($this);
     <p>
         <?= Html::a(Module::t('blog', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm waves-effect width-md waves-light']) ?>
         <?php if ($model->status == $model::STATUS_ACTIVE): ?>
-            <?= Html::a(Module::t('blog', 'Hide'), ['soft-delete', 'id' => $model->id], ['class' => 'btn btn-warning btn-sm waves-effect width-md waves-light']) ?>
+            <?= Html::a(Module::t('blog', 'Hide'), ['hide', 'id' => $model->id], ['class' => 'btn btn-warning btn-sm waves-effect width-md waves-light']) ?>
         <?php elseif ($model->status == $model::STATUS_DELETED): ?>
             <?= Html::a(Module::t('blog', 'Restore'), ['restore', 'id' => $model->id], ['class' => 'btn btn-success btn-sm waves-effect width-md waves-light']) ?>
         <?php endif; ?>

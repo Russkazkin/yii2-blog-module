@@ -48,11 +48,11 @@ MagnificPopupAsset::register($this);
                             ['title' => 'Update']) ?>
                         <?php if($comment->status == $comment::STATUS_ACTIVE):?>
                             <?= Html::a('<i class="mdi mdi-eye-off"></i>',
-                                ['soft-delete', 'id' => $comment->id],
+                                ['hide', 'id' => $comment->id],
                                 ['title' => 'Hide']) ?>
                         <?php elseif ($comment->status == $comment::STATUS_DELETED): ?>
                             <?= Html::a('<i class="mdi mdi-eye"></i>',
-                                ['restore', 'id' => $category->id],
+                                ['restore', 'id' => $comment->id],
                                 ['title' => 'Restore']) ?>
                         <?php endif; ?>
                         <?php if ($rbacManager->haveAdminPermissions()):?>
