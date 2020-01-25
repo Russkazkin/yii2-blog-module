@@ -9,12 +9,15 @@
  * @var $authorItems \app\modules\blog\models\Article []
  * @var $related \app\modules\blog\models\Article []
  * @var $comments \app\modules\blog\models\Comment []
+ * @var $commentsCount
+ * @var $message \app\modules\blog\models\Comment
  */
 
 
 $this->title = $model->title;
 
 use app\modules\blog\Module;
+use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use yii\widgets\Pjax; ?>
@@ -136,6 +139,23 @@ use yii\widgets\Pjax; ?>
                 <?php endforeach; ?>
             </div>
         </div><!--related post carousel-->
+
+        <div class="leave-comment"><!--leave comment-->
+            <h4>Leave a reply</h4>
+
+
+            <?php $form = ActiveForm::begin([
+                'action'=>['/admin/blog/comment/create', 'id' => $model->id],
+                'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
+                </div>
+            </div>
+            <button type="submit" class="btn send-btn">Post Comment</button>
+            <?php ActiveForm::end();?>
+        </div><!--end leave comment-->
+
         <div class="bottom-comment"><!--bottom comment-->
             <h4><?= $commentsCount; ?> comments</h4>
 
@@ -146,7 +166,7 @@ use yii\widgets\Pjax; ?>
                 </div>
 
                 <div class="comment-text">
-                    <a href="#" class="replay btn float-right"> Replay</a>
+                    <button class="replay btn float-right comment-reply-button" role="button">Reply</button>
                     <h5><?= $comment->user->name; ?></h5>
 
                     <p class="comment-date">
@@ -155,27 +175,25 @@ use yii\widgets\Pjax; ?>
                     <p class="para"><?= $comment->text; ?></p>
                 </div>
             </div>
+            <div class="leave-comment" id="parent-id-<?= $comment->id; ?>" style="display: none"><!--leave comment-->
+                <?php $form = ActiveForm::begin([
+                    'action'=>['/admin/blog/comment/create', 'id' => $model->id],
+                    'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
+                        <?= $form->field($message, 'parent_id')->hiddenInput(['value' => $comment->id]); ?>
+                    </div>
+                </div>
+                <button type="submit" class="btn send-btn">Post Comment</button>
+                <?php ActiveForm::end();?>
+            </div><!--end leave comment-->
             <?php endforeach; ?>
 
         </div>
         <!-- end bottom comment-->
 
 
-        <div class="leave-comment"><!--leave comment-->
-            <h4>Leave a reply</h4>
-
-
-            <?php $form = \yii\widgets\ActiveForm::begin([
-                'action'=>['/admin/blog/comment/create', 'id' => $model->id],
-                'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
-            <div class="form-group">
-                <div class="col-md-12">
-                    <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
-                </div>
-            </div>
-            <button type="submit" class="btn send-btn">Post Comment</button>
-            <?php \yii\widgets\ActiveForm::end();?>
-        </div><!--end leave comment-->
     </div>
 <?= $this->render('_sidebar', [
     'popular' => $sidebarData['popular'],
