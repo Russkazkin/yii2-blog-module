@@ -3,3 +3,13 @@
     color: #212121;
     background: #eee;
 }
+.comment-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #999
+}
+.comment-text {
+    flex: 0 0 85%;
+}

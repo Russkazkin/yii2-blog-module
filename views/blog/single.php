@@ -160,8 +160,8 @@ use yii\widgets\Pjax; ?>
             <h4><?= $commentsCount; ?> comments</h4>
 
             <?php foreach ($comments as $comment): ?>
-            <div class="comment-wrap clearfix">
-                <div class="comment-img">
+            <div class="comment-wrap">
+                <div class="comment-image">
                     <img class="rounded-circle" src="/temp/comment-img.jpg" alt="">
                 </div>
 
@@ -170,11 +170,13 @@ use yii\widgets\Pjax; ?>
                             data-parent-id="<?= $comment->id; ?>"
                             role="button">Reply
                     </button>
-                    <h5><?= $comment->user->name; ?></h5>
+                    <div class="comment-meta">
+                        <h5><?= $comment->user->name; ?></h5>
 
-                    <p class="comment-date">
-                        <?= $comment->created_at; ?>
-                    </p>
+                        <p class="comment-date">
+                            <?= $comment->created_at; ?>
+                        </p>
+                    </div>
                     <p class="para"><?= $comment->text; ?></p>
                 </div>
             </div>
