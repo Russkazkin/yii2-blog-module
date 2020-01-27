@@ -197,7 +197,19 @@ use yii\widgets\Pjax; ?>
 
         </div>
         <!-- end bottom comment-->
-
+        <?php echo \yii2mod\comments\widgets\Comment::widget([
+            'model' => $model,
+            'relatedTo' => 'User ' . Yii::$app->user->identity->name . ' commented on the page ' . \yii\helpers\Url::current(),
+            'maxLevel' => 2,
+            'dataProviderConfig' => [
+                'pagination' => [
+                    'pageSize' => 10
+                ],
+            ],
+            'listViewConfig' => [
+                'emptyText' => Yii::t('app', 'No comments found.'),
+            ],
+        ]); ?>
 
     </div>
 <?= $this->render('_sidebar', [
