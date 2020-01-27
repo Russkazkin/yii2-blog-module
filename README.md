@@ -33,4 +33,7 @@ Yii2 Blog module
                 'blog' => 'blog.php'
             ]
         ],
+        
+Require [Yii2 Comments Extension](https://github.com/yii2mod/yii2-comments) module for article comments. User this 
+module installation instructions
        
