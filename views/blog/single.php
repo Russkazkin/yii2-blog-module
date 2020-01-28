@@ -140,63 +140,6 @@ use yii\widgets\Pjax; ?>
             </div>
         </div><!--related post carousel-->
 
-        <div class="leave-comment"><!--leave comment-->
-            <h4>Leave a reply</h4>
-
-
-            <?php $form = ActiveForm::begin([
-                'action'=>['/admin/blog/comment/create', 'id' => $model->id],
-                'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
-            <div class="form-group">
-                <div class="col-md-12">
-                    <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message'])->label(false)?>
-                </div>
-            </div>
-            <button type="submit" class="btn send-btn">Post Comment</button>
-            <?php ActiveForm::end();?>
-        </div><!--end leave comment-->
-
-        <div class="bottom-comment"><!--bottom comment-->
-            <h4><?= $commentsCount; ?> comments</h4>
-
-            <?php foreach ($comments as $comment): ?>
-            <div class="comment-wrap">
-                <div class="comment-image">
-                    <img class="rounded-circle" src="/temp/comment-img.jpg" alt="">
-                </div>
-
-                <div class="comment-text">
-                    <button class="replay btn float-right comment-reply-button"
-                            data-parent-id="<?= $comment->id; ?>"
-                            role="button">Reply
-                    </button>
-                    <div class="comment-meta">
-                        <h5><?= $comment->user->name; ?></h5>
-
-                        <p class="comment-date">
-                            <?= $comment->created_at; ?>
-                        </p>
-                    </div>
-                    <p class="para"><?= $comment->text; ?></p>
-                </div>
-            </div>
-            <div class="leave-comment" id="parent-id-<?= $comment->id; ?>" style="display: none"><!--leave comment-->
-                <?php $form = ActiveForm::begin([
-                    'action'=>['/admin/blog/comment/create', 'id' => $model->id],
-                    'options'=>['class'=>'form-horizontal contact-form', 'role'=>'form']])?>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <?= $form->field($message, 'text')->textarea(['class'=>'form-control','placeholder'=>'Write Message', 'id' => '',])->label(false)?>
-                        <?= $form->field($message, 'parent_id')->hiddenInput(['value' => $comment->id])->label(false); ?>
-                    </div>
-                </div>
-                <button type="submit" class="btn send-btn">Post Comment</button>
-                <?php ActiveForm::end();?>
-            </div><!--end leave comment-->
-            <?php endforeach; ?>
-
-        </div>
-        <!-- end bottom comment-->
         <?php echo \yii2mod\comments\widgets\Comment::widget([
             'model' => $model,
             'relatedTo' => 'User ' . Yii::$app->user->identity->name . ' commented on the page ' . \yii\helpers\Url::current(),
