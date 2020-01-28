@@ -20,38 +20,22 @@ class m191001_145332_create_comment_table extends Migration
         }
         $this->createTable('blog_comment', [
             'id' => $this->primaryKey(),
-            'text' => $this->text()->notNull(),
-            'user_id' => $this->integer(),
-            'parent_id' => $this->integer(),
-            'article_id' => $this->integer()->notNull(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(0),
-            'created_at' => $this->integer(11),
-            'updated_at' => $this->integer(11),
+            'entity' => $this->char(10)->notNull(),
+            'entityId' => $this->integer()->notNull(),
+            'content' => $this->text()->notNull(),
+            'parentId' => $this->integer()->null(),
+            'level' => $this->smallInteger()->notNull()->defaultValue(1),
+            'createdBy' => $this->integer()->notNull(),
+            'updatedBy' => $this->integer()->notNull(),
+            'relatedTo' => $this->string(500)->notNull(),
+            'url' => $this->text(),
+            'status' => $this->smallInteger()->notNull()->defaultValue(1),
+            'createdAt' => $this->integer()->notNull(),
+            'updatedAt' => $this->integer()->notNull(),
         ], $tableOptions);
 
-        $this->createIndex(
-            'idx-article_id',
-            'blog_comment',
-            'article_id'
-        );
-
-        $this->addForeignKey(
-            'fk-article_id',
-            'blog_comment',
-            'article_id',
-            'blog_article',
-            'id',
-            'CASCADE'
-        );
-
-        $this->addForeignKey(
-            'fk-user_id-comment',
-            'blog_comment',
-            'user_id',
-            'auth_user',
-            'id',
-            'NO ACTION'
-        );
+        $this->createIndex('idx-Comment-entity', 'blog_comment', 'entity');
+        $this->createIndex('idx-Comment-status', 'blog_comment', 'status');
     }
 
     /**
