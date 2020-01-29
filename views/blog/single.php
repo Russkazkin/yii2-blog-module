@@ -143,7 +143,7 @@ use yii\widgets\Pjax; ?>
         <?php echo \yii2mod\comments\widgets\Comment::widget([
             'model' => $model,
             'relatedTo' => 'User ' . Yii::$app->user->identity->name . ' commented on the page ' . \yii\helpers\Url::current(),
-            'maxLevel' => 2,
+            'maxLevel' => 5,
             'dataProviderConfig' => [
                 'pagination' => [
                     'pageSize' => 10
