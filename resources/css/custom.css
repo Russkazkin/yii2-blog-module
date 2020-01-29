@@ -13,3 +13,7 @@
 .comment-text {
     flex: 0 0 85%;
 }
+
+.btn-continue-reading {
+    white-space: normal;
+}
