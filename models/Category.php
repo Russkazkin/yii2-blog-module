@@ -66,5 +66,4 @@ class Category extends BaseCategory
         }
         return $items;
     }
-
 }
