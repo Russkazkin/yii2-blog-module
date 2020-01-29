@@ -40,7 +40,10 @@ NavBar::begin([
 $menuItems = [
     ['label' => Module::t('blog', 'Home'), 'url' => ['/blog/index']],
     ['label' => Module::t('blog', 'Single'), 'url' => ['/blog/single']],
-    ['label' => Module::t('blog', 'Category'), 'url' => ['/blog/archive']],
+    [
+        'label' => Module::t('blog', 'Categories'),
+        'items' => $this->context->categoryNav,
+    ],
 ];
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => Module::t('blog', 'Login'), 'url' => ['/auth/sign-in']];
@@ -209,7 +212,6 @@ NavBar::end();
             </div>
         </div>
     </div>
-    <?php var_dump($this->context->categoryNav);?>
 </footer>
 <?php $this->endBody() ?>
 </body>

@@ -56,7 +56,15 @@ class Category extends BaseCategory
         $data = array_filter($categories, function($category){
             return $category->getArticles()->count();
         });
-        return ArrayHelper::map($data, 'id', 'title');
+        $arr = ArrayHelper::map($data, 'id', 'title');
+        $items = [];
+        foreach ($arr as $id => $title) {
+            $items[] = [
+                'label' => $title,
+                'url' => '/blog/archive?id=' . $id,
+            ];
+        }
+        return $items;
     }
 
 }
