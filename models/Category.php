@@ -7,6 +7,7 @@ namespace app\modules\blog\models;
 use app\modules\blog\models\base\BaseCategory;
 use app\modules\blog\Module;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\ArrayHelper;
 
 class Category extends BaseCategory
 {
@@ -47,6 +48,15 @@ class Category extends BaseCategory
     public function getArticlesCount()
     {
         return $this->hasMany(Article::class, ['category_id' => 'id'])->count();
+    }
+
+    public static function navigation()
+    {
+        $categories = Category::find()->where(['status' => Category::STATUS_ACTIVE])->all();
+        $data = array_filter($categories, function($category){
+            return $category->getArticles()->count();
+        });
+        return ArrayHelper::map($data, 'id', 'title');
     }
 
 }

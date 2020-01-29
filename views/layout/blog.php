@@ -209,6 +209,7 @@ NavBar::end();
             </div>
         </div>
     </div>
+    <?php var_dump($this->context->categoryNav);?>
 </footer>
 <?php $this->endBody() ?>
 </body>

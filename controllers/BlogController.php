@@ -12,6 +12,7 @@ use app\modules\blog\controllers\actions\blog\IndexAction;
 use app\modules\blog\controllers\actions\blog\SingleAction;
 use app\modules\blog\controllers\actions\blog\TagAction;
 use app\modules\blog\models\Article;
+use app\modules\blog\models\Category;
 use app\modules\lang\components\LangDateComponent;
 use Yii;
 use yii\web\Controller;
@@ -28,12 +29,14 @@ class BlogController extends Controller
     public $layout = '@app/modules/blog/views/layout/blog';
     public $dateManager;
     public $articleComponent;
+    public $categoryNav;
 
     public function init()
     {
         parent::init();
         $this->dateManager = Yii::$app->getModule('lang')->dateManager;
         $this->articleComponent = Yii::$app->getModule('blog')->article;
+        $this->categoryNav = Category::navigation();
 
     }
 
