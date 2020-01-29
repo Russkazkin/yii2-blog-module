@@ -17,3 +17,8 @@
 .btn-continue-reading {
     white-space: normal;
 }
+
+.main-menu .dropdown-menu .dropdown-item{
+    color: #777;
+    line-height: 36px;
+}

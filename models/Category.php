@@ -62,6 +62,7 @@ class Category extends BaseCategory
             $items[] = [
                 'label' => $title,
                 'url' => '/blog/archive?id=' . $id,
+                'class' => 'nav-link',
             ];
         }
         return $items;
