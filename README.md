@@ -9,6 +9,7 @@ Yii2 Blog module
              'class' => 'app\modules\blog\Module',
              'components' => [
                  'article' => ArticleComponent::class,
+                 'category' => CategoryComponent::class,
              ]
          ],
 * Add this to console.php 'modules' section:
