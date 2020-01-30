@@ -16,7 +16,7 @@ class CategoryComponent extends BaseObject
         $articles = Article::find()->with(['category' => function($query){
             /* @var $query ActiveQuery */
             $query->andWhere(['status' => Category::STATUS_ACTIVE]);
-        }])->groupBy('category')->all();
+        }])->groupBy('category_id')->all();
         return $articles;
     }
 }

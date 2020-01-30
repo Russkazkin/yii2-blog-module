@@ -5,6 +5,7 @@ namespace app\modules\blog\controllers;
 
 
 use app\modules\blog\components\ArticleComponent;
+use app\modules\blog\components\CategoryComponent;
 use app\modules\blog\controllers\actions\blog\ArchiveAction;
 use app\modules\blog\controllers\actions\blog\AuthorAction;
 use app\modules\blog\controllers\actions\blog\ErrorAction;
@@ -22,6 +23,7 @@ use yii\web\NotFoundHttpException;
  * Class BlogController
  * @package app\modules\blog\controllers
  * @property ArticleComponent $articleComponent
+ * @property CategoryComponent $categoryComponent
  * @property LangDateComponent $dateManager
  */
 class BlogController extends Controller
@@ -29,6 +31,7 @@ class BlogController extends Controller
     public $layout = '@app/modules/blog/views/layout/blog';
     public $dateManager;
     public $articleComponent;
+    public $categoryComponent;
     public $categoryNav;
 
     public function init()
@@ -36,6 +39,7 @@ class BlogController extends Controller
         parent::init();
         $this->dateManager = Yii::$app->getModule('lang')->dateManager;
         $this->articleComponent = Yii::$app->getModule('blog')->article;
+        $this->categoryComponent = Yii::$app->getModule('blog')->category;
         $this->categoryNav = Category::navigation();
 
     }
