@@ -20,5 +20,11 @@
 
 .main-menu .dropdown-menu .dropdown-item{
     color: #777;
-    line-height: 36px;
+    line-height: 20px;
+    font-size: 12px;
+}
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav .dropdown-menu {
+
+    }
 }
