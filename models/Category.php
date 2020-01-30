@@ -49,22 +49,4 @@ class Category extends BaseCategory
     {
         return $this->hasMany(Article::class, ['category_id' => 'id'])->count();
     }
-
-    public static function navigation()
-    {
-        $categories = Category::find()->where(['status' => Category::STATUS_ACTIVE])->all();
-        $data = array_filter($categories, function($category){
-            return $category->getArticles()->count();
-        });
-        $arr = ArrayHelper::map($data, 'id', 'title');
-        $items = [];
-        foreach ($arr as $id => $title) {
-            $items[] = [
-                'label' => $title,
-                'url' => '/blog/archive?id=' . $id,
-                'class' => 'nav-link',
-            ];
-        }
-        return $items;
-    }
 }
