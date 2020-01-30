@@ -40,8 +40,6 @@ class BlogController extends Controller
         $this->dateManager = Yii::$app->getModule('lang')->dateManager;
         $this->articleComponent = Yii::$app->getModule('blog')->article;
         $this->categoryComponent = Yii::$app->getModule('blog')->category;
-        $this->categoryNav = Category::navigation();
-
     }
 
     public function actions()

@@ -42,7 +42,7 @@ $menuItems = [
     ['label' => Module::t('blog', 'Single'), 'url' => ['/blog/single']],
     [
         'label' => Module::t('blog', 'Categories'),
-        'items' => $this->context->categoryNav,
+        'items' => $this->context->categoryComponent->getCategoryNavItems(),
     ],
 ];
 if (Yii::$app->user->isGuest) {
@@ -212,7 +212,6 @@ NavBar::end();
             </div>
         </div>
     </div>
-    <?php var_dump($this->context->categoryComponent->getCategoryNavItems()); ?>
 </footer>
 <?php $this->endBody() ?>
 </body>
