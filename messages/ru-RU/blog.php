@@ -56,4 +56,5 @@
     'Home' => 'Главная',
     'Admin panel' => 'Админ-панель',
     'Category {name}' => 'Категория {name}',
+    'Tag {name}' => 'Тег {name}'
 ];

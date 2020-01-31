@@ -6,6 +6,7 @@
  * @var $dateManager \app\modules\lang\components\LangDateComponent
  * @var $sidebarData \app\modules\blog\controllers\actions\blog\BaseBlogAction::getSidebarData() []
  * @var $articleComponent \app\modules\blog\components\ArticleComponent
+ * @var $title string
  */
 
 use app\modules\blog\Module;
