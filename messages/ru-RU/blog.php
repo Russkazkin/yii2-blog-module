@@ -57,5 +57,7 @@
     'Admin panel' => 'Админ-панель',
     'Category {name}' => 'Категория {name}',
     'Tag {name}' => 'Тег {name}',
-    '{name} Blog' => '{name} Блог'
+    '{name} Blog' => '{name} Блог',
+    'View Article' => 'Читать',
+    'Continue Reading' => 'Подробнее',
 ];

@@ -21,7 +21,7 @@ use yii\helpers\Url; ?>
                     <img src="<?= $articleComponent->getImage($model) ?>" alt="<?= $model->image; ?>">
                 </a>
                 <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="post-thumb-overlay text-center">
-                    <div class="text-uppercase text-center">View Post</div>
+                    <div class="text-uppercase text-center"><?= Module::t('blog', 'View Article') ?></div>
                 </a>
             </div>
             <div class="post-content">
@@ -36,7 +36,9 @@ use yii\helpers\Url; ?>
                     <p><?= $articleComponent->getDescription($model) ?></p>
 
                     <div class="btn-continue-reading text-center text-uppercase">
-                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="more-link">Continue Reading</a>
+                        <a href="<?= Url::toRoute(['blog/single', 'id' => $model->id]) ?>" class="more-link">
+                            <?= Module::t('blog', 'Continue Reading') ?>
+                        </a>
                     </div>
                 </div>
                 <div class="social-share">
