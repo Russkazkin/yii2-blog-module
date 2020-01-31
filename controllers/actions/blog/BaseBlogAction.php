@@ -22,9 +22,10 @@ class BaseBlogAction extends BaseAction
 
     /**
      * @param $query ActiveQuery
+     * @param $title string
      * @return string
      */
-    protected function renderArticlesList($query)
+    protected function renderArticlesList($query, $title = 'Title')
     {
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 6]);
@@ -37,6 +38,7 @@ class BaseBlogAction extends BaseAction
             'dateManager' => $this->controller->dateManager,
             'articleComponent' => $this->controller->articleComponent,
             'sidebarData' => $this->getSidebarData(),
+            'title' => $title,
         ]);
     }
 }

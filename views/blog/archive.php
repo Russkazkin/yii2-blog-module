@@ -13,7 +13,7 @@ use yii\bootstrap4\LinkPager;
 use yii\helpers\Url;
 use yii\web\View;
 
-$this->title = Yii::t('blog', 'Category {name}', ['name' => $models[0]->category->title]);
+$this->title = $title;
 
 ?>
 
