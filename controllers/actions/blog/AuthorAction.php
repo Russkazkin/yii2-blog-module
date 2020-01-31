@@ -21,7 +21,6 @@ class AuthorAction extends BaseBlogAction
             ->orderBy(['date' => SORT_DESC]);
 
         $name = User::find()
-            ->select(['name'])
             ->where(['id' => $id])
             ->one()
             ->name;

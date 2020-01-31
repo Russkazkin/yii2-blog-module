@@ -19,7 +19,6 @@ class ArchiveAction extends BaseBlogAction
             ->andWhere(['status' => 10])
             ->orderBy(['date' => SORT_DESC]);
         $name = Category::find()
-            ->select(['title'])
             ->where(['id' => $id])
             ->one()
             ->title;
