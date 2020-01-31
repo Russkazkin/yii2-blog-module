@@ -53,4 +53,5 @@
     'Restore' => 'Отобразить',
     'Articles' => 'Статьи',
     'Tag {name} created' => 'Тег {name} создан',
+    'Home' => 'Главная',
 ];
