@@ -39,7 +39,6 @@ NavBar::begin([
 ]);
 $menuItems = [
     ['label' => Module::t('blog', 'Home'), 'url' => ['/blog/index']],
-    ['label' => Module::t('blog', 'Single'), 'url' => ['/blog/single']],
     [
         'label' => Module::t('blog', 'Categories'),
         'items' => $this->context->categoryComponent->getCategoryNavItems(),
@@ -49,7 +48,7 @@ if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => Module::t('blog', 'Login'), 'url' => ['/auth/sign-in']];
     $menuItems[] = ['label' => Module::t('blog', 'Register'), 'url' => ['/auth/sign-up']];
 } else {
-    $menuItems[] = ['label' => Module::t('blog', 'Console'), 'url' => ['/admin']];
+    $menuItems[] = ['label' => Module::t('blog', 'Admin panel'), 'url' => ['/admin']];
     $menuItems[] = '<li class="nav-item">'
         . Html::beginForm(['/auth/logout'], 'post')
         . Html::submitButton(

@@ -54,4 +54,5 @@
     'Articles' => 'Статьи',
     'Tag {name} created' => 'Тег {name} создан',
     'Home' => 'Главная',
+    'Admin panel' => 'Админ-панель'
 ];
