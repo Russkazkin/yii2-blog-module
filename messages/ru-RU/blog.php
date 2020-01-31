@@ -54,5 +54,6 @@
     'Articles' => 'Статьи',
     'Tag {name} created' => 'Тег {name} создан',
     'Home' => 'Главная',
-    'Admin panel' => 'Админ-панель'
+    'Admin panel' => 'Админ-панель',
+    'Category {name}' => 'Категория {name}',
 ];
