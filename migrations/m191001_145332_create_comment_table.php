@@ -30,6 +30,7 @@ class m191001_145332_create_comment_table extends Migration
             'relatedTo' => $this->string(500)->notNull(),
             'url' => $this->text(),
             'status' => $this->smallInteger()->notNull()->defaultValue(1),
+            'moderated_by' => $this->integer(),
             'createdAt' => $this->integer()->notNull(),
             'updatedAt' => $this->integer()->notNull(),
         ], $tableOptions);
