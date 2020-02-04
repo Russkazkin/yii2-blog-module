@@ -2,17 +2,16 @@
 
 namespace app\modules\blog\controllers;
 
+use app\modules\blog\controllers\actions\comment\IndexAction;
 use Yii;
 use app\modules\blog\models\Comment;
-use app\modules\blog\models\search\CommentSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * CommentController implements the CRUD actions for Comment model.
  */
-class CommentController extends Controller
+class CommentController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -29,19 +28,12 @@ class CommentController extends Controller
         ];
     }
 
-    /**
-     * Lists all Comment models.
-     * @return mixed
-     */
-    public function actionIndex()
+    public function actions()
     {
-        $searchModel = new CommentSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        return
+        [
+            'index' => ['class' => IndexAction::class]
+        ];
     }
 
     /**

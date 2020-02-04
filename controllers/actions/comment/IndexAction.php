@@ -15,6 +15,7 @@ class IndexAction extends BaseAction
 
         return $this->controller->render('index', [
             'comments' => $comments,
+            'rbacManager' => $this->controller->rbacManager,
         ]);
     }
 }
