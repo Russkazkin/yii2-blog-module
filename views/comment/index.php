@@ -3,6 +3,7 @@
 use app\modules\admin\assets\DataTablesAsset;
 use app\modules\admin\assets\MagnificPopupAsset;
 use app\modules\admin\assets\SweetalertAsset;
+use app\modules\blog\models\Comment;
 use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -11,6 +12,7 @@ use yii\helpers\StringHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\blog\models\search\CommentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $comments Comment[] */
 
 $this->title = Yii::t('blog', 'Comments');
 $this->params['breadcrumbs'][] = $this->title;
@@ -25,7 +27,7 @@ MagnificPopupAsset::register($this);
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
                 <tr>
-                    <th><?=Module::t('blog', 'Title')?></th>
+                    <th><?=Module::t('blog', 'Content')?></th>
                     <th><?=Module::t('blog', 'Category')?></th>
                     <th><?=Module::t('blog', 'Date')?></th>
                     <th><?=Module::t('blog', 'Tags')?></th>
@@ -36,7 +38,7 @@ MagnificPopupAsset::register($this);
                 <tbody>
                 <?php foreach ($comments as $comment):?>
                     <tr class="status-<?= $comment->status; ?>">
-                        <td></td>
+                        <td><?= StringHelper::truncate($comment->content, 40); ?></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -74,6 +76,5 @@ MagnificPopupAsset::register($this);
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
