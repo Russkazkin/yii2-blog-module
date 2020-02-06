@@ -8,6 +8,7 @@ use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\StringHelper;
+use yii2mod\moderation\enums\Status;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\blog\models\search\CommentSearch */
@@ -28,7 +29,7 @@ MagnificPopupAsset::register($this);
                 <thead>
                 <tr>
                     <th><?=Module::t('blog', 'Content')?></th>
-                    <th><?=Module::t('blog', 'Category')?></th>
+                    <th><?=Module::t('blog', 'Article')?></th>
                     <th><?=Module::t('blog', 'Date')?></th>
                     <th><?=Module::t('blog', 'Tags')?></th>
                     <th><?=Module::t('blog', 'Image')?></th>
@@ -47,25 +48,25 @@ MagnificPopupAsset::register($this);
                         </td>
                         <td>
                             <?= Html::a('<i class="mdi mdi-note-text"></i>',
-                                ['view', 'id' => $article->id],
+                                ['view', 'id' => $comment->id],
                                 ['title' => 'View']) ?>
                             <?= Html::a('<i class="mdi mdi-pencil-outline"></i>',
-                                ['update', 'id' => $article->id],
+                                ['update', 'id' => $comment->id],
                                 ['title' => 'Update']) ?>
-                            <?php if($comment->status == \yii2mod\moderation\enums\Status::APPROVED):?>
+                            <?php if($comment->status == Status::APPROVED):?>
                                 <?= Html::a('<i class="mdi mdi-eye-off"></i>',
-                                    ['soft-delete', 'id' => $article->id],
+                                    ['soft-delete', 'id' => $comment->id],
                                     ['title' => 'Hide']) ?>
-                            <?php elseif ($comment->status == \yii2mod\moderation\enums\Status::REJECTED): ?>
+                            <?php elseif ($comment->status == Status::REJECTED): ?>
                                 <?= Html::a('<i class="mdi mdi-eye"></i>',
-                                    ['restore', 'id' => $article->id],
+                                    ['restore', 'id' => $comment->id],
                                     ['title' => 'Restore']) ?>
                             <?php endif; ?>
                             <?php if ($rbacManager->haveAdminPermissions()):?>
                                 <?= Html::a('<i class="mdi mdi-delete"></i>',
-                                    ['delete', 'id' => $article->id],
+                                    ['delete', 'id' => $comment->id],
                                     [
-                                        'data' => ['method' => 'post', 'id' => $article->id],
+                                        'data' => ['method' => 'post', 'id' => $comment->id],
                                         'title' => 'Delete',
                                         'class' => 'article-list-delete'
                                     ]) ?>
