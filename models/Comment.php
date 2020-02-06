@@ -75,4 +75,9 @@ class Comment extends CommentModel
             ],
         ];
     }
+
+    public function getArticle()
+    {
+        return $this->hasOne(Article::class, ['id' => 'entityId']);
+    }
 }

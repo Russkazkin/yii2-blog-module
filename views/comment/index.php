@@ -40,7 +40,7 @@ MagnificPopupAsset::register($this);
                 <?php foreach ($comments as $comment):?>
                     <tr class="status-<?= $comment->status; ?>">
                         <td><?= StringHelper::truncate($comment->content, 40); ?></td>
-                        <td></td>
+                        <td><?= StringHelper::truncate($comment->article->title, 40); ?></td>
                         <td></td>
                         <td></td>
                         <td>
