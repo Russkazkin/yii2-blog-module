@@ -29,10 +29,10 @@ MagnificPopupAsset::register($this);
                 <thead>
                 <tr>
                     <th><?=Module::t('blog', 'Content')?></th>
+                    <th><?=Module::t('blog', 'Author')?></th>
                     <th><?=Module::t('blog', 'Article')?></th>
                     <th><?=Module::t('blog', 'Date')?></th>
                     <th><?=Module::t('blog', 'Tags')?></th>
-                    <th><?=Module::t('blog', 'Image')?></th>
                     <th><?=Module::t('blog', 'Actions')?></th>
                 </tr>
                 </thead>
@@ -40,12 +40,13 @@ MagnificPopupAsset::register($this);
                 <?php foreach ($comments as $comment):?>
                     <tr class="status-<?= $comment->status; ?>">
                         <td><?= StringHelper::truncate($comment->content, 40); ?></td>
+                        <td><?= $comment->author->username; ?></td>
                         <td>
                             <?= Html::a(StringHelper::truncate($comment->article->title, 20), [
                                 'blog/single',
                                 'id' => $comment->article->id]) ?>
                         </td>
-                        <td></td>
+
                         <td></td>
                         <td>
 
