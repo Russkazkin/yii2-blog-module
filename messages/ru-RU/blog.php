@@ -52,6 +52,7 @@
     'Hide' => 'Скрыть',
     'Restore' => 'Отобразить',
     'Articles' => 'Статьи',
+    'Article' => 'Статья',
     'Tag {name} created' => 'Тег {name} создан',
     'Home' => 'Главная',
     'Admin panel' => 'Админ-панель',
@@ -60,4 +61,6 @@
     '{name} Blog' => '{name} Блог',
     'View Article' => 'Читать',
     'Continue Reading' => 'Подробнее',
+    'Content' => 'Содержание',
+    'Author' => 'Автор',
 ];
