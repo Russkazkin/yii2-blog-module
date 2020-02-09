@@ -44,15 +44,15 @@ MagnificPopupAsset::register($this);
                                 'id' => $comment->article->id,
                                 '#' => 'comment-' . $comment->id,
                                 ]) ?></td>
-                        <td><?= StringHelper::truncate($comment->content, 40); ?></td>
                         <td><?= $comment->author->username; ?></td>
                         <td>
                             <?= Html::a(StringHelper::truncate($comment->article->title, 20), [
                                 'blog/single',
                                 'id' => $comment->article->id]) ?>
                         </td>
-
-                        <td></td>
+                        <td>
+                            <?= $comment->timestampToDatetime(); ?>
+                        </td>
                         <td>
 
                         </td>

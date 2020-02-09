@@ -4,6 +4,7 @@
 namespace app\modules\blog\models;
 
 
+use app\modules\lang\behaviors\LangDateBehavior;
 use paulzi\adjacencyList\AdjacencyListBehavior;
 use Yii;
 use yii\behaviors\BlameableBehavior;
@@ -73,6 +74,10 @@ class Comment extends CommentModel
                 'class' => ModerationBehavior::class,
                 'moderatedByAttribute' => false,
             ],
+            'lang' => [
+                'class' => LangDateBehavior::class,
+                'attributeName' => 'createdAt',
+            ]
         ];
     }
 
