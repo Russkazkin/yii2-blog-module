@@ -39,7 +39,7 @@ MagnificPopupAsset::register($this);
                 <tbody>
                 <?php foreach ($comments as $comment):?>
                     <tr class="status-<?= $comment->status; ?>">
-                        <td> <?= Html::a(StringHelper::truncate($comment->content, 40), [
+                        <td> <?= Html::a(StringHelper::truncate($comment->content, 20), [
                                 'blog/single',
                                 'id' => $comment->article->id,
                                 '#' => 'comment-' . $comment->id,
