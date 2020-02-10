@@ -3,6 +3,7 @@
 namespace app\modules\blog\controllers;
 
 use app\modules\blog\controllers\actions\comment\IndexAction;
+use app\modules\blog\controllers\actions\comment\StatusAction;
 use Yii;
 use app\modules\blog\models\Comment;
 use yii\web\NotFoundHttpException;
@@ -32,7 +33,8 @@ class CommentController extends BaseController
     {
         return
         [
-            'index' => ['class' => IndexAction::class]
+            'index' => ['class' => IndexAction::class],
+            'status' => ['class' => StatusAction::class],
         ];
     }
 
