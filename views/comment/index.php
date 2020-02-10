@@ -32,7 +32,7 @@ MagnificPopupAsset::register($this);
                     <th><?=Module::t('blog', 'Author')?></th>
                     <th><?=Module::t('blog', 'Article')?></th>
                     <th><?=Module::t('blog', 'Date')?></th>
-                    <th><?=Module::t('blog', 'Tags')?></th>
+                    <th><?=Module::t('blog', 'Status')?></th>
                     <th><?=Module::t('blog', 'Actions')?></th>
                 </tr>
                 </thead>
@@ -54,7 +54,7 @@ MagnificPopupAsset::register($this);
                             <?= $comment->timestampToDatetime(); ?>
                         </td>
                         <td>
-
+                            <?= Status::$list[$comment->status] ?>
                         </td>
                         <td>
                             <?= Html::a('<i class="mdi mdi-note-text"></i>',
