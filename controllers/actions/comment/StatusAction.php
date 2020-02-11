@@ -12,5 +12,6 @@ class StatusAction extends BaseAction
     public function run($id, $status)
     {
         $comment = $this->controller->findModel($id);
+        var_dump($status);
     }
 }

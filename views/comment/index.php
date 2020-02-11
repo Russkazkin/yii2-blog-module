@@ -67,10 +67,10 @@ MagnificPopupAsset::register($this);
                                 <?= Html::a('<i class="mdi mdi-eye-off"></i>',
                                     ['soft-delete', 'id' => $comment->id],
                                     ['title' => 'Hide']) ?>
-                            <?php elseif ($comment->status == Status::REJECTED): ?>
+                            <?php elseif ($comment->status == Status::PENDING): ?>
                                 <?= Html::a('<i class="mdi mdi-eye"></i>',
-                                    ['restore', 'id' => $comment->id],
-                                    ['title' => 'Restore']) ?>
+                                    ['status', 'id' => $comment->id, 'status' => STATUS::APPROVED],
+                                    ['title' => 'Approve']) ?>
                             <?php endif; ?>
                             <?php if ($rbacManager->haveAdminPermissions()):?>
                                 <?= Html::a('<i class="mdi mdi-delete"></i>',

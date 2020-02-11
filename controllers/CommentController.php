@@ -110,7 +110,7 @@ class CommentController extends BaseController
      * @return Comment the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    public function findModel($id)
     {
         if (($model = Comment::findOne($id)) !== null) {
             return $model;
