@@ -68,7 +68,7 @@ MagnificPopupAsset::register($this);
                                     ['soft-delete', 'id' => $comment->id],
                                     ['title' => 'Hide']) ?>
                             <?php elseif ($comment->status == Status::PENDING): ?>
-                                <?= Html::a('<i class="mdi mdi-eye"></i>',
+                                <?= Html::a('<i class="mdi mdi-check-decagram"></i>',
                                     ['status', 'id' => $comment->id, 'status' => STATUS::APPROVED],
                                     ['title' => 'Approve']) ?>
                             <?php endif; ?>
