@@ -30,7 +30,7 @@ class Comment extends CommentModel
             [['entity', 'entityId'], 'required'],
             ['content', 'required', 'message' => Yii::t('yii2mod.comments', 'Comment cannot be blank.')],
             [['content', 'entity', 'relatedTo', 'url'], 'string'],
-            ['status', 'default', 'value' => Status::APPROVED],
+            ['status', 'default', 'value' => Status::PENDING],
             ['status', 'in', 'range' => Status::getConstantsByName()],
             ['level', 'default', 'value' => 1],
             ['parentId', 'validateParentID', 'except' => static::SCENARIO_MODERATION],
