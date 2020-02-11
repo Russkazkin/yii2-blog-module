@@ -12,6 +12,13 @@ class StatusAction extends BaseAction
     public function run($id, $status)
     {
         $comment = $this->controller->findModel($id);
-        var_dump($status);
+        switch ($status) {
+            case 1:
+                $save = $comment->markApproved();
+                break;
+        }
+        if($save){
+            return $this->controller->redirect('index');
+        }
     }
 }
