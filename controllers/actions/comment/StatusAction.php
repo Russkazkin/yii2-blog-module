@@ -5,7 +5,6 @@ namespace app\modules\blog\controllers\actions\comment;
 
 
 use app\modules\blog\controllers\actions\BaseAction;
-use app\modules\blog\models\Comment;
 use yii2mod\moderation\enums\Status;
 
 class StatusAction extends BaseAction
