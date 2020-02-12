@@ -6,6 +6,7 @@ namespace app\modules\blog\controllers\actions\comment;
 
 use app\modules\blog\controllers\actions\BaseAction;
 use app\modules\blog\models\Comment;
+use yii2mod\moderation\enums\Status;
 
 class StatusAction extends BaseAction
 {
@@ -13,8 +14,17 @@ class StatusAction extends BaseAction
     {
         $comment = $this->controller->findModel($id);
         switch ($status) {
-            case 1:
+            case Status::PENDING;
+                $save = $comment->markPending();
+                break;
+            case Status::APPROVED;
                 $save = $comment->markApproved();
+                break;
+            case Status::REJECTED;
+                $save = $comment->markRejected();
+                break;
+            case Status::POSTPONED;
+                $save = $comment->markPostponed();
                 break;
         }
         if($save){
