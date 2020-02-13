@@ -64,7 +64,7 @@ MagnificPopupAsset::register($this);
                                 ['update', 'id' => $comment->id],
                                 ['title' => 'Update']) ?>
                             <?php if($comment->status == Status::APPROVED):?>
-                                <?= Html::a('<i class="mdi mdi-eye-off"></i>',
+                                <?= Html::a('<i class="mdi mdi-lock-clock"></i>',
                                     ['soft-delete', 'id' => $comment->id],
                                     ['title' => 'Hide']) ?>
                             <?php elseif ($comment->status == Status::PENDING): ?>
