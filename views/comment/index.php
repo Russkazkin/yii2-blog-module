@@ -64,7 +64,7 @@ MagnificPopupAsset::register($this);
                                 ['update', 'id' => $comment->id],
                                 ['title' => 'Update']) ?>
                             <?php if($comment->status == Status::APPROVED):?>
-                                <?= Html::a('<i class="mdi mdi-lock-clock"></i>',
+                                <?= Html::a('<i class="mdi mdi-clock-alert"></i>',
                                     ['status', 'id' => $comment->id, 'status' => STATUS::PENDING],
                                     ['title' => 'Set PENDING status']) ?>
                             <?php elseif ($comment->status !== Status::APPROVED): ?>
@@ -75,6 +75,9 @@ MagnificPopupAsset::register($this);
                             <?= Html::a('<i class="mdi mdi-cancel"></i>',
                                 ['status', 'id' => $comment->id, 'status' => STATUS::REJECTED],
                                 ['title' => 'Reject']) ?>
+                            <?= Html::a('<i class="mdi mdi-lock-clock"></i>',
+                                ['status', 'id' => $comment->id, 'status' => STATUS::POSTPONED],
+                                ['title' => 'Postpone']) ?>
                             <?php if ($rbacManager->haveAdminPermissions()):?>
                                 <?= Html::a('<i class="mdi mdi-delete"></i>',
                                     ['delete', 'id' => $comment->id],
