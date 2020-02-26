@@ -12,7 +12,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Comment */
 
-$this->title = $model->id;
+$this->title = StringHelper::truncate($model->content, 20);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('blog', 'Comments'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 DataTablesAsset::register($this);
