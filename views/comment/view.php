@@ -36,19 +36,19 @@ SweetalertAsset::register($this);
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'entity',
-            'entityId',
+            //'id',
+            //'entity',
+            //'entityId',
             'content:ntext',
-            'parentId',
+            //'parentId',
             'level',
             'createdBy',
             'updatedBy',
             'relatedTo',
             'url:ntext',
             'status',
-            'createdAt',
-            'updatedAt',
+            'createdAt:date',
+            'updatedAt:date',
         ],
     ]) ?>
 
