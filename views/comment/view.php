@@ -50,6 +50,6 @@ SweetalertAsset::register($this);
             'createdAt:date',
             'updatedAt:date',
         ],
-    ]) ?>
+    ]) //TODO Разбобраться с url ?>
 
 </div>
