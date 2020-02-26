@@ -4,6 +4,7 @@
 namespace app\modules\blog\models;
 
 
+use app\modules\auth\models\User;
 use app\modules\lang\behaviors\LangDateBehavior;
 use paulzi\adjacencyList\AdjacencyListBehavior;
 use Yii;
@@ -84,5 +85,10 @@ class Comment extends CommentModel
     public function getArticle()
     {
         return $this->hasOne(Article::class, ['id' => 'entityId']);
+    }
+
+    public function getCreator()
+    {
+        return $this->hasOne(User::class, ['id' => 'createdBy']);
     }
 }

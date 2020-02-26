@@ -42,7 +42,13 @@ SweetalertAsset::register($this);
             'content:ntext',
             //'parentId',
             'level',
-            'createdBy',
+            [
+                'attribute' => 'createdBy',
+                'label' => Module::t('blog', 'Created By'),
+                'value' => function($data){
+                    return $data->creator->name;
+                }
+            ],
             'updatedBy',
             'relatedTo',
             'url:ntext',
