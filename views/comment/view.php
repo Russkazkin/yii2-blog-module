@@ -49,7 +49,13 @@ SweetalertAsset::register($this);
                     return $data->creator->name;
                 }
             ],
-            'updatedBy',
+            [
+                'attribute' => 'updatedBy',
+                'label' => Module::t('blog', 'Updated By'),
+                'value' => function($data){
+                    return $data->updater->name;
+                }
+            ],
             'relatedTo',
             'url:ntext',
             'status',

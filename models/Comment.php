@@ -91,4 +91,9 @@ class Comment extends CommentModel
     {
         return $this->hasOne(User::class, ['id' => 'createdBy']);
     }
+
+    public function getUpdater()
+    {
+        return $this->hasOne(User::class, ['id' => 'updatedBy']);
+    }
 }
