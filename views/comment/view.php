@@ -8,6 +8,7 @@ use app\modules\blog\Module;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
 use yii\widgets\DetailView;
+use yii2mod\moderation\enums\Status;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\blog\models\Comment */
@@ -58,6 +59,13 @@ SweetalertAsset::register($this);
             ],
             'relatedTo',
             'url:ntext',
+            [
+                'attribute' => 'status',
+                'label' => Module::t('blog', 'Status'),
+                'value' => function($data){
+                    return Status::$list[$data->status];
+                }
+            ],
             'status',
             'createdAt:date',
             'updatedAt:date',
