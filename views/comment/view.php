@@ -66,7 +66,6 @@ SweetalertAsset::register($this);
                     return Status::$list[$data->status];
                 }
             ],
-            'status',
             'createdAt:date',
             'updatedAt:date',
         ],
